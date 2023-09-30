@@ -1,0 +1,39 @@
+body{
+    background-color: black;
+    color: white;
+    height: 100%;
+}
+.box2{
+    display: flex;
+    background-color: black;
+}
+.theme{
+    background-image: linear-gradient(#503F7C,#14053B,#14053B);
+    opacity: 80%;
+    border-radius: 10px;
+    border-color: #6F4FC2;
+    border-style: solid;
+   
+}
+.allaudio{
+    height: 660px;
+    width: 90%;
+    margin: 20px;
+}
+.recent{
+    width: 265px;
+    height: 477px;
+    margin: 20px;
+   
+}
+.lis{
+    width: 265px;
+    height: 152px;
+    margin: 20px;
+}
+.player{
+    width: 97%;
+    height: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
