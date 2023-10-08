@@ -1,6 +1,6 @@
 const all = [
     {
-        src: "https://firebasestorage.googleapis.com/v0/b/ihh-player.appspot.com/o/Blowing%20Up.mp3?alt=media&token=526dbcd6-8d7f-4c90-8287-ccc857c8479a&_gl=1*yqi6ft*_ga*MjA4MTAzMzQxNC4xNjk2NzM4MzAw*_ga_CW55HF8NVT*MTY5Njc0MTc0Mi4yLjEuMTY5Njc0MTg1OS42MC4wLjA.",
+        src: "https://www.youtube.com/watch?v=AwhyFo5N0cg&pp=ygUKYmxvd2luZyB1cA%3D%3D",
         img: "https://img.youtube.com/vi/AwhyFo5N0cg/maxresdefault.jpg",
         title: "Blowing Up",
         artist: "KR$NA",
