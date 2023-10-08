@@ -1,6 +1,10 @@
 import React from 'react'
 import Men from "../Component/Men"
 import {Stack} from '@mui/material';
+import home from "../assets/home.png"
+import genre from "../assets/genre.png"
+import search from "../assets/search.png"
+import {Link, Navigate} from 'react-router-dom';
 
 const Menu = () => {
   return (
@@ -9,17 +13,17 @@ const Menu = () => {
     <ul>
   <li>
   <Men
-  icon="https://cdn.iconfinder.com/stored_data/1286809/128/png?token=1696134776-TNloRy9rDhtRMCW1GT3zlk%2FI6NPRbCTHik9YV5qUUic%3D"
+  icon={home}
   title="Home"
   /></li>
-  <li>
-  <Men
-  icon="https://cdn.iconfinder.com/stored_data/1286809/128/png?token=1696134776-TNloRy9rDhtRMCW1GT3zlk%2FI6NPRbCTHik9YV5qUUic%3D"
+   <li>
+  <Men icon={search}
   title="Search"
-  /></li>
+  />
+  </li>
   <li>
   <Men
-  icon="https://cdn.iconfinder.com/stored_data/1286809/128/png?token=1696134776-TNloRy9rDhtRMCW1GT3zlk%2FI6NPRbCTHik9YV5qUUic%3D"
+  icon={genre}
   title="Genre"
   /></li>
   </ul>
