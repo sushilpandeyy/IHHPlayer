@@ -5,6 +5,9 @@ const all = [
         title: "KING OF INDIAN HIP HOP (PROD BY Babz beats)",
         artist: "Emiway Bantai",
         album: "https://i.ytimg.com/vi/nUuPkHHNRnM/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBrHnWUfJNYI-LlCjgBuXhjaKB6wQ",
+    },
+    {
+        
     }
 ]
 
