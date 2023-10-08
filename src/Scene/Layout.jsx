@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import "../App.css";
-import Barplayer from './barplayer';
+import Barplayer from '../Component/Barplayer';
 import Home from "./Home";
 import Menu from "./menu";
 import Recent from "./recent";

@@ -1,6 +1,5 @@
 .card-outer{
-    width: 200px;
-    height: 50%;
+    height: auto;
     background-color: #5130a5;
     display: flex;
     flex-direction: column;
@@ -13,10 +12,9 @@ img{
 }
 h3{ 
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
     flex-wrap: wrap;
     margin: 5px;
+    text-wrap:balance;
 }
 h4{
     margin: 5px;
