@@ -15,7 +15,9 @@ const Home = () => {
     <Headtitle 
     title="Recently Played"
     />
+    <div className="recent">
     {all.map(create)}
+    </div>
     </>
   )
 }
