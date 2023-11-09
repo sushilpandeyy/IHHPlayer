@@ -23,6 +23,17 @@ const Barplayer = () => {
   };
 
   useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.load(); // Load the new source
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch(error => {
+        console.error("Error playing audio:", error);
+      });
+    }
+  }, [song]);
+
+  useEffect(() => {
     const audioKey = all[0].id;
     setSong(audioKey);
     if (audioRef.current) {
@@ -34,12 +45,40 @@ const Barplayer = () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
-      } else {
-        audioRef.current.play();
       }
-      setIsPlaying(!isPlaying);
+      // Set the new source and start playing.
+      if (audioRef.current.src !== song) {
+        audioRef.current.src = song;
+        audioRef.current.load(); // Load the new source
+        audioRef.current.play().then(() => {
+          setIsPlaying(true);
+        }).catch(error => {
+          console.error("Error playing audio:", error);
+        });
+      } else {
+        setIsPlaying(!isPlaying);
+      }
     }
   };
+
+  useEffect(() => {
+    let interval;
+    if (isPlaying) {
+      audioRef.current.play();
+      interval = setInterval(() => {
+        if (audioRef.current.ended) {
+          setIsPlaying(false);
+          clearInterval(interval);
+        }
+      }, 1000); // Check every second if the audio has ended
+    } else {
+      audioRef.current.pause();
+    }
+
+    return () => {
+      clearInterval(interval); // Clear the interval when the component unmounts or when isPlaying changes
+    };
+  }, [isPlaying]);
 
   return (
     <>
