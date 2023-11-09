@@ -3,6 +3,11 @@ body{
     background-color: black;
     color: white;
     height: 100%;
+    margin: 0px;
+}
+p{
+    margin-block-end: 0px;
+    margin-block-start: 0px;
 }
 .box2{
     display: flex;
@@ -18,23 +23,22 @@ body{
 }
 .allaudio{
     height: 660px;
-    width: 90%;
-    margin: 20px;
-}
-.recent{
-    width: 265px;
-    height: 477px;
-    margin: 20px;
-   
+    width: 70%;
+    margin-top: 20px;
 }
 .lis{
     width: 265px;
     height: 152px;
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .player{
-    width: 97%;
-    height: 80px;
-    margin-left: 20px;
-    margin-right: 20px;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    width: 98%;
+   
+}
+.sidecontent {
+    width: 27%;
 }

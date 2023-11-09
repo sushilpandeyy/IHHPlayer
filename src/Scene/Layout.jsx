@@ -16,7 +16,7 @@ const Layout = () => {
     <div className="lis theme">
       <Menu/>
     </div>
-    <div className="recent theme">
+    <div className="recentside theme">
       <Recent/>
     </div>
   </div>

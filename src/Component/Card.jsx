@@ -3,6 +3,7 @@ import './Card.css'
 import { useDispatch } from 'react-redux';
 import { add } from '../features/add/add.js';
 
+
 const Card = (props) => {
   const dispatch = useDispatch();
 
@@ -12,9 +13,9 @@ const Card = (props) => {
 
   return (
     <div className="card-outer" onClick={addsong}>
-        <img src={props.img} alt="" />
-        <h3>{props.title}</h3>
-        <h4>{props.art}</h4>
+        <img className='card-img' src={props.img} alt="" />
+        <p className='card-tit'>{props.title}</p>
+        <p className='card-art'>{props.art}</p>
     </div>
   )
 }

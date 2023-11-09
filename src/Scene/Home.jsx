@@ -5,6 +5,7 @@ import {all} from '../../Data/newalb'
 function create(item){
 return <Card
 key={item.src}
+src={item.src}
 img={item.img}
 title={item.title}
 art={item.artist}/>
