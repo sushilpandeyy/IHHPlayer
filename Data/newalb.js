@@ -39,6 +39,14 @@ const all = [
         genre: "Poetry",
         album: "",
     },
+    {
+        src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/MERE+BINA++%40KSHMRmusic++The+PropheC++%40TalhaAnjum+++Official+Audio++%23Karam.mp3",
+        img: "https://i.ytimg.com/vi/jcPC7AHQMKs/0.jpg",
+        title: "Mere Bina @KSHMRmusic The PropheC @TalhaAnjum",
+        artist: "The PropheC",
+        genre: "Lyrical",
+        album: "Karam",
+    },
 ]
 
 

@@ -13,12 +13,7 @@ const Layout = () => {
   <div className="maincontent">
   <div className="box2">  
   <div className="sidecontent">
-    <div className="lis theme">
-      <Menu/>
-    </div>
-    <div className="recentside theme">
-      <Recent/>
-    </div>
+    
   </div>
   <div className="allaudio theme">
   <Outlet/>
