@@ -73,27 +73,24 @@ const Barplayer = () => {
       clearInterval(interval); // Clear the interval when the component unmounts or when isPlaying changes
     };
   }, [isPlaying]);
-
   return (
     <>
-      <audio ref={audioRef} src={song} preload="auto"></audio>
-          <img className="flex-player-banner shadow-2xl " src={all[0].img} alt={all[0].title} />
-          <h2 className='player-h1'>{all[0].title}</h2>
-          <ul className='meta-player '>
-            <li>{all[0].artist}</li>
-            <li>●</li>
-            <li>{all[0].album}</li>
-            <li>●</li>
-            <li>{audioRef.duration}</li>
-          </ul>
-          <center>
-            <img
-              className="flex-control-player-img"
-              src={isPlaying ? playIcon : pauseIcon}
-              alt=""
-              onClick={handlePlayPause}
-            />
-          </center>
+      <audio ref={audioRef} src={song} preload="auto" id='audio-play'></audio>
+      <img className="flex-player-banner shadow-2xl" src={all[0].img} alt={all[0].title} />
+      <h2 className='player-h1'>{all[0].title}</h2>
+      <ul className='meta-player'>
+        <li>{all[0].artist}</li>
+        <li>{all[0].album}</li>
+        <li>{audioRef.current ? Math.floor(audioRef.current.duration/60)+":"+Math.floor(audioRef.current.duration%60) : " "}</li>
+      </ul>
+      <center>
+        <img
+          className="flex-control-player-img"
+          src={isPlaying ? playIcon : pauseIcon}
+          alt=""
+          onClick={handlePlayPause}
+        />
+      </center>
     </>
   );
 };
