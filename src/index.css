@@ -1,6 +1,9 @@
+html{
+    height: 100%;
+}
 body{
     font-family: 'Playfair Display', serif;
-    background-color: black;
+    background-color: #08101A;
     color: white;
     height: 100%;
     margin: 0px;
@@ -9,9 +12,15 @@ p{
     margin-block-end: 0px;
     margin-block-start: 0px;
 }
+.Headermenu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .box2{
     display: flex;
-    background-color: black;
+    background-color: #08101A;
+    height: 100%;
 }
 .theme{
     background-image: linear-gradient(#503F7C,#14053B,#14053B);
@@ -22,9 +31,9 @@ p{
    
 }
 .allaudio{
-    height: 660px;
-    width: 70%;
-    margin-top: 20px;
+    height: 100%;
+    width: 100%;
+    margin: 20px;
 }
 .lis{
     width: 265px;

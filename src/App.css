@@ -44,3 +44,10 @@
     flex-wrap: wrap;
     margin: 4px;
 }
+.sidecontent{
+    margin-top: 20px;
+}
+.flex-player-banner{
+    width: 320px;
+    height: 300px;
+}

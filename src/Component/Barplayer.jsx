@@ -83,11 +83,7 @@ const Barplayer = () => {
   return (
     <>
       <audio ref={audioRef} src={song} preload="auto"></audio>
-      <div className="flex-area-player">
-        <div className="flex-area-img">
           <img className="flex-player-banner" src={all[0].img} alt={all[0].title} />
-        </div>
-        <div className="flex-area-Controls">
           <center>
             <img
               className="flex-control-player-img"
@@ -96,7 +92,6 @@ const Barplayer = () => {
               onClick={handlePlayPause}
             />
           </center>
-        </div>
         <div className="flex-area-volume">
           <Box sx={{ width: 200 }}>
             <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
@@ -114,7 +109,6 @@ const Barplayer = () => {
             </Stack>
           </Box>
         </div>
-      </div>
       <div onClick={handlePlayPause}>{all[0].title}</div>
     </>
   );
