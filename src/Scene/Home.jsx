@@ -16,7 +16,7 @@ const Home = () => {
     <Headtitle 
     title="Recently Played"
     />
-    <div className="recent">
+    <div className="recent flex">
     {all.map(create)}
     </div>
     </>

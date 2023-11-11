@@ -12,10 +12,11 @@ const Card = (props) => {
   }
 
   return (
-    <div className="card-outer" onClick={addsong}>
+    <div className="card-outer drop-shadow-2xl place-items-start overflow-hidden" 
+    onClick={addsong}>
         <img className='card-img' src={props.img} alt="" />
-        <p className='card-tit'>{props.title}</p>
-        <p className='card-art'>{props.art}</p>
+        <p className='card-tit text-xl'>{props.title}</p>
+        <p className='card-art text-sm'>{props.art}</p>
     </div>
   )
 }

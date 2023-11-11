@@ -1,10 +1,6 @@
-import { useState } from 'react';
 import "../App.css";
 import Barplayer from '../Component/Barplayer';
 import Headmenu from '../Component/Headmenu.jsx';
-import Home from "./Home";
-import Recent from "./recent";
-import Search from "./Search";
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 
 const Layout = () => {

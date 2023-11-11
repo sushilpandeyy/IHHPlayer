@@ -1,6 +1,6 @@
 .card-outer{
     width: 200px;
-    height: 200px;
+    height: 225px;
     background-color: #5130a5;
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@
     margin: 5px;
 }
 .card-img{
-    height: 70%;
+    height: 100px;
     width: 100%;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;

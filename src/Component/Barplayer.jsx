@@ -77,9 +77,9 @@ const Barplayer = () => {
   return (
     <>
       <audio ref={audioRef} src={song} preload="auto"></audio>
-          <img className="flex-player-banner" src={all[0].img} alt={all[0].title} />
+          <img className="flex-player-banner shadow-2xl " src={all[0].img} alt={all[0].title} />
           <h2 className='player-h1'>{all[0].title}</h2>
-          <ul className='meta-player'>
+          <ul className='meta-player '>
             <li>{all[0].artist}</li>
             <li>●</li>
             <li>{all[0].album}</li>

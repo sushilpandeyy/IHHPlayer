@@ -60,7 +60,13 @@ ul{
     margin: 4px;
 }
 .sidecontent{
+    display: flow-root;
+    justify-content:center;
     margin-top: 20px;
+}
+.meta-player{
+    margin: 10px;
+    display: flex;
 }
 .flex-player-banner{
     width: 320px;
