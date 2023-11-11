@@ -1,12 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { Slider } from '@mui/material';
 import playIcon from "../assets/pause-circle-svgrepo-com.png";
 import pauseIcon from "../assets/play-svgrepo-com.png";
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import VolumeDown from '@mui/icons-material/VolumeDown';
-import VolumeUp from '@mui/icons-material/VolumeUp';
 
 const Barplayer = () => {
   const all = useSelector((state) => state.init);
@@ -92,24 +87,6 @@ const Barplayer = () => {
               onClick={handlePlayPause}
             />
           </center>
-        <div className="flex-area-volume">
-          <Box sx={{ width: 200 }}>
-            <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
-              <VolumeDown />
-              <Slider
-                aria-label="Volume"
-                value={volume}
-                onChange={handleChange}
-                defaultValue={0.6}
-                min={0}
-                max={1}
-                step={0.01}
-              />
-              <VolumeUp />
-            </Stack>
-          </Box>
-        </div>
-      <div onClick={handlePlayPause}>{all[0].title}</div>
     </>
   );
 };
