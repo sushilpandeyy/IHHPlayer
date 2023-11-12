@@ -29,6 +29,7 @@ ul{
     justify-content: space-between;
     align-items: center;
     margin: 10px;
+    margin-top: 0px;
 }
 .flex-player-banner{
     border-radius: 10px;
@@ -60,6 +61,7 @@ ul{
     display: flow-root;
     justify-content:center;
     margin-top: 20px;
+    margin-left: 10px;
 }
 .meta-player{
     margin: 10px;
@@ -71,4 +73,9 @@ ul{
 }
 .player-h1{
     margin: 10px;
+}
+.operator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
