@@ -27,14 +27,7 @@ p{
     background-color: #08101A;
     height: 100%;
 }
-.theme{
-    background-image: linear-gradient(#503F7C,#14053B,#14053B);
-    opacity: 80%;
-    border-radius: 10px;
-    border-color: #6F4FC2;
-    border-style: solid;
-   
-}
+
 .allaudio{
     height: 60%;
     width: 100%;
