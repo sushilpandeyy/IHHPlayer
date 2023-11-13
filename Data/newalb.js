@@ -21,7 +21,7 @@ const all = [
         title: "KING OF INDIAN HIP HOP (PROD BY Babz beats)",
         artist: "Emiway Bantai",
         genre: "Mumbai Scene",
-        album: "",
+        album: "King Of The Streets",
     },
     {
         src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Brand+New++Seedhe+Maut.mp3",

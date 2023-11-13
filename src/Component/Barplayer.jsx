@@ -4,6 +4,7 @@ import playIcon from "../assets/pause.png";
 import pauseIcon from "../assets/play.png";
 import next from "../assets/next-button.png";
 import previous from "../assets/previous.png";
+import disz from "../Icon/disc-com.png";
 
 const Barplayer = () => {
   const all = useSelector((state) => state.init);
@@ -112,12 +113,20 @@ const Barplayer = () => {
       <center>
       <img className="flex-player-banner shadow-2xl" src={all[0].img} alt={all[0].title} />
       </center>
-      <h2 className='player-h1 text-lg'>{all[0].title}</h2>
+      <h2 className='player-h1 text-2xl'>{all[0].title}</h2>
       <ul className='meta-player'>
         <li className='meta-info text-sm'>{all[0].artist}</li>
-        <li className='meta-info text-sm'>{all[0].album}</li>
         <li className='meta-info text-sm'>{audioRef.current ? Math.floor(audioRef.current.duration/60)+":"+Math.floor(audioRef.current.duration%60) : " "}</li>
       </ul>
+      {(all[0].album)?
+      <div class="barplay-box box-border w-100 border-4 rounded-lg border-hidden flex m-1">
+        <div className="icon m-2">
+          <img src={disz} className={`disc-svg-ic ${isPlaying ? 'animate-spinn' : ''}`} id='disciconalb' alt="" />
+        </div>
+        <div className="data-alb text-lg m-1">
+        {all[0].album}
+        </div>
+      </div>:""}
         <div className="operator flex">
          <img
            className="flex-control-player-ot"
@@ -140,7 +149,7 @@ const Barplayer = () => {
         </div>
         <p className='text-sm'>
         {formatTime(currentTime)}/{audioRef.current ? formatTime(audioRef.current.duration) : ' '}
-          </p>
+        </p>
         <input
           className='audio-rage '
           type="range"
@@ -148,7 +157,6 @@ const Barplayer = () => {
           max={duration}
           value={currentTime}
           onChange={handleTimeSeek}
-          
         />
     </>
   );
