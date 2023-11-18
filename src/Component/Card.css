@@ -28,3 +28,12 @@
 .meta-info{
     margin-right: 5px;
 }
+.artist{
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+}
+.art-img{
+    width: 200px;
+    height: 250px;
+}

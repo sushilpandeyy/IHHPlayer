@@ -1,3 +1,29 @@
+const artist = [{
+    key: "artist_01",
+    img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Kr%24na.jpeg",
+    name: "Kr$na"
+},
+{
+    key: "artist_02",
+    img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Supermanikk.jpeg",
+    name: "SuperManikk"
+},
+{
+    key: "artist_03",
+    img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Emiway+Bantai.jpeg",
+    name: "Emiway Bantai"
+},
+{
+    key: "artist_04",
+    img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Seedhe+maut.jpeg",
+    name: "Seedhe Maut"
+},
+{
+    key: "artist_05",
+    img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Theprophc.jpeg",
+    name: "The PropheC"
+}
+]
 const all = [
     {
         src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Blowing+UP+Kr%24na.mp3",
@@ -50,4 +76,4 @@ const all = [
 ]
 
 
-export {all};
+export {all, artist};

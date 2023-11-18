@@ -14,7 +14,7 @@ const Card = (props) => {
   return (
     <div className="card-outer drop-shadow-2xl place-items-start overflow-hidden" 
     onClick={addsong}>
-        <img className='card-img' src={props.img} alt="" height="600px" />
+        <img className='card-img w-40' src={props.img} alt="" height="600px" />
     </div>
   )
 }

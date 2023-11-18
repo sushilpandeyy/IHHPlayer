@@ -1,7 +1,8 @@
 import React from 'react'
 import Headtitle from '../Component/Headtitle'
 import Card from '../Component/Card'
-import {all} from '../../Data/newalb'
+import Cardart from '../Component/Cardart'
+import {all, artist} from '../../Data/newalb'
 function create(item){
   
 return <Card
@@ -14,6 +15,13 @@ title={item.title}
 art={item.artist}/>
 }
 
+function artcreate(item){
+  return <Cardart 
+  key={item.key}
+  src={item.img}
+  title={item.name}/>
+}
+
 const Home = () => {
   return (
     <>
@@ -22,6 +30,12 @@ const Home = () => {
     />
     <div className="recent flex">
     {all.map(create)}
+    </div>
+    <Headtitle
+      title="Popular Artist"
+      />
+    <div className="artist flex">
+    {artist.map(artcreate)}
     </div>
     </>
   )
