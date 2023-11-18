@@ -29,6 +29,7 @@ ul{
     justify-content: space-between;
     align-items: center;
     margin: 10px;
+    width: 100%;
     margin-top: 0px;
 }
 .flex-player-banner{
@@ -95,10 +96,19 @@ ul{
     width: 30%;
 }
 .recent{
-    display: inline-flex;
-    justify-content: space-evenly;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap-reverse;
+    overflow-x: auto;
+    max-width: 100%;
+    margin: 4px;
+}
+.artist{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    max-width: 100%;
     margin: 4px;
 }
 .sidecontent{

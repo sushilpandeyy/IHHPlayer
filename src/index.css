@@ -29,8 +29,7 @@ p{
 }
 
 .allaudio{
-    height: 60%;
-    width: 100%;
+    max-width: 77%;
     margin: 20px;
 }
 .lis{
@@ -47,5 +46,6 @@ p{
    
 }
 .sidecontent {
-    width: 40%;
+    min-width: 20%;
+    max-width: 20%;
 }
