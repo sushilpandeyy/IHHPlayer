@@ -37,6 +37,12 @@ const Home = () => {
     <div className="artist flex">
     {artist.map(artcreate)}
     </div>
+    <Headtitle 
+    title="Latest Songs"
+    />
+    <div className="recent flex">
+    {all.slice().reverse().map(create)}
+    </div>
     </>
   )
 }

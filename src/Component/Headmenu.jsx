@@ -2,6 +2,7 @@ import React from 'react'
 import logo from "../../public/ihhlogo.png"
 import '../index.css'
 import '../App.css'
+import { Link } from 'react-router-dom'
 const Headmenu = () => {
   return (
     <>
@@ -10,8 +11,8 @@ const Headmenu = () => {
     </div>
     <div className="center-menu">
       <ul className='flex flex-nowrap'>
-        <li className='menu-mar'>Home</li>
-        <li className='menu-mar'>Artist</li>
+        <li className='menu-mar'><Link to="/">Home</Link></li>
+        <li className='menu-mar'><Link to="/artist">Artist</Link></li>
         <li className='menu-mar'>Genre</li>
         <li className='menu-mar'>Album</li>
         <li className='menu-mar'>Search</li>

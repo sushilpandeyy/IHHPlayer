@@ -12,11 +12,13 @@ import {
   Route,
   createRoutesFromElements,
 } from "react-router-dom";
+import Artist from "../src/Scene/Artist.jsx"
 
 const router= createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}>
       <Route path='' element={<Home/>}/>
+      <Route path='artist' element={<Artist/>}/>
     </Route>
   )
 )
