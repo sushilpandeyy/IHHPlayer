@@ -14,7 +14,7 @@ const Headmenu = () => {
         <li className='menu-mar'><Link to="/">Home</Link></li>
         <li className='menu-mar'><Link to="/artist">Artist</Link></li>
         <li className='menu-mar'>Genre</li>
-        <li className='menu-mar'>Album</li>
+        <li className='menu-mar'><Link to="/album">Album</Link></li>
         <li className='menu-mar'>Search</li>
       </ul>
     </div>

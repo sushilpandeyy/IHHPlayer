@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Latest from './Scene/Latest.jsx'
+import Album from './Scene/Album.jsx'
 import App from './App.jsx'
 import Home from "./Scene/Home.jsx"
 import {Provider} from "react-redux"
@@ -21,6 +22,7 @@ const router= createBrowserRouter(
       <Route path='' element={<Home/>}/>
       <Route path='artist' element={<Artist/>}/>
       <Route path='latest' element={<Latest/>}/>
+      <Route path='album' element={<Album/>}/>
     </Route>
   )
 )
