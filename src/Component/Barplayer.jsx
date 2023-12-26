@@ -77,6 +77,8 @@ const Barplayer = () => {
       // Set the new source and start playing.
       if (audioRef.current.src !== song) {
         audioRef.current.src = song;
+        console.log("SONG INFO");
+        console.log(song);
         audioRef.current.load(); // Load the new source
         audioRef.current.play().then(() => {
           setIsPlaying(true);
@@ -106,7 +108,8 @@ const Barplayer = () => {
       clearInterval(interval); // Clear the interval when the component unmounts or when isPlaying changes
     };
   }, [isPlaying]);
-  console.log(all)
+  console.log(all[0]);
+  localStorage.setItem('Previoussong', all);
   return (
     <>
       <audio ref={audioRef} src={song} preload="auto" id='audio-play'></audio>

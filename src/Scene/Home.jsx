@@ -3,8 +3,11 @@ import Headtitle from '../Component/Headtitle'
 import Card from '../Component/Card'
 import Cardart from '../Component/Cardart'
 import {all, artist} from '../../Data/newalb'
+import '../Scene/Scene.css'
+
+
 function create(item){
-  
+ 
 return <Card
 key={item.src}
 src={item.src}

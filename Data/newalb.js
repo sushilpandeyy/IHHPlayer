@@ -1,38 +1,54 @@
-const artist = [{
-    key: "artist_01",
+const artist = [
+    {
+        key: "artist_09",
+        img: "https://i.pinimg.com/736x/d2/95/fc/d295fc77c71aed2a7bda8bf5a0b37613.jpg",
+        name: "Talha Anjum"
+    },
+    {
+    key: "artist_10",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Kr%24na.jpeg",
     name: "Kr$na"
 },
 {
-    key: "artist_02",
+    key: "artist_11",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Supermanikk.jpeg",
     name: "SuperManikk"
 },
 {
-    key: "artist_03",
+    key: "artist_12",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Emiway+Bantai.jpeg",
     name: "Emiway Bantai"
 },
 {
-    key: "artist_04",
+    key: "artist_13",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Seedhe+maut.jpeg",
     name: "Seedhe Maut"
 },
 {
-    key: "artist_05",
+    key: "artist_14",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Theprophc.jpeg",
     name: "The PropheC"
 },
 {
-    key: "artist_06",
+    key: "artist_15",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/PANTHER.webp",
     name: "Panther"
 }
 ]
 const all = [
     {
+        key: "9-Vc4xmTZKk",
+        seq: 11,
+        src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Downers%20At%20Dusk%20-%20Talha%20Anjum%20%20Prod.%20by%20Umair%20%28Official%20Music%20Video%29.mp3",
+        img: "https://img.youtube.com/vi/9-Vc4xmTZKk/maxresdefault.jpg",
+        title: "Downers At Dusk",
+        artist: "Talha Anjum",
+        genre: "",
+        album: "Open Letter",
+    },
+    {
         key: "AwhyFo5N0cg",
-        seq: 1,
+        seq: 11,
         src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Blowing+UP+Kr%24na.mp3",
         img: "https://img.youtube.com/vi/AwhyFo5N0cg/maxresdefault.jpg",
         title: "Blowing Up",
@@ -113,8 +129,17 @@ const all = [
 ]
 const playlist = [
     {
-        id: "",
-        albumtitle: "",
+        id: "yashraj_ladkeconvict",
+        albumtitle: "Ladke Convict",
+        artist: "Yashraj",
+        albumicon: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Posters/Ladke%20Conict.jpg",
+        songs: [
+            {
+                key: "sddd",
+                title: " THATS A FACT!",
+                src: "ddcsdc",
+            }
+        ]
 
     },
 ]

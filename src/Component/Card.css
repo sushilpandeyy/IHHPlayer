@@ -41,3 +41,17 @@
     width: 200px; 
     margin: 5px; 
 }
+*::-webkit-scrollbar{
+    width: 2px;
+    height: 6px;
+}
+*::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-color: aqua;
+    border-radius: 10px;
+    background-color: white;
+  }
+*::-webkit-scrollbar-track:hover {
+
+    /* Color when hovering over the track */
+} 
