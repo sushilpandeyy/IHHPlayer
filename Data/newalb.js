@@ -1,8 +1,23 @@
 const artist = [
     {
-        key: "artist_09",
+        key: "KRMA",
+        img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/KARMA_ARTIST.jpeg",
+        name: "Karma"
+    },
+    {
+        key: "BHRG",
+        img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/BHARG.jpeg",
+        name: "Bharg"
+    },
+    {
+        key: "TAJUM",
         img: "https://i.pinimg.com/736x/d2/95/fc/d295fc77c71aed2a7bda8bf5a0b37613.jpg",
         name: "Talha Anjum"
+    },
+    {
+        key: "RAWL",
+        img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Rawal-artist.jpeg",
+        name: "Rawal"
     },
     {
     key: "artist_10",
@@ -30,12 +45,44 @@ const artist = [
     name: "The PropheC"
 },
 {
+    key: "RFTAR",
+    img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Raftaar_artist.jpeg",
+    name: "Raftaar"
+},
+{
     key: "artist_15",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/PANTHER.webp",
     name: "Panther"
-}
+},
+
+{
+    key: "SAPU",
+    img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Saar_pUnch_artist.jpeg",
+    name: "Saar Punch"
+},
 ]
+//https://youtu.be/VKMw2it8dQY?si=A4prnxF8KdUg-OJe INTRO
 const all = [
+    {
+        key: "6sUBq9mTfeY",
+        seq: 11,
+        src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/KARMA+x+Sez+On+The+Beat+-+BHAGWAAN++OFFICIAL+VISUALIZER++2023.mp3",
+        img: "https://img.youtube.com/vi/6sUBq9mTfeY/maxresdefault.jpg",
+        title: "BHAGWAAN - KARMA x Sez On The Beat",
+        artist: "KARMA",
+        genre: "",
+        album: "",
+    },
+    {
+        key: "9CxYG79GTOw",
+        seq: 11,
+        src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Maykhana+-+Saar+Punch%2C+%40Bharg++Official+Music+Video.mp3",
+        img: "https://img.youtube.com/vi/9CxYG79GTOw/maxresdefault.jpg",
+        title: "Maykhana - Saar Punch, @Bharg",
+        artist: "Saar Punch",
+        genre: "",
+        album: "Oopar Neeche",
+    },
     {
         key: "9-Vc4xmTZKk",
         seq: 11,
