@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Headtitle = (props) => {
   var link='/';
@@ -15,7 +16,7 @@ const Headtitle = (props) => {
             <h2 className='text-2xl'>{props.title}</h2>
         </div>
         <div className="all">
-            <p className='showall'><a href={link}>Show All</a></p>
+            <p className='showall'><Link to={link}>Show All</Link></p>
         </div>
     </div>
     </>

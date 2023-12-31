@@ -5,7 +5,7 @@ import Album from './Scene/Album.jsx'
 import App from './App.jsx'
 import Home from "./Scene/Home.jsx"
 import {Provider} from "react-redux"
-import { store } from './Scene/store.js'
+//import { store } from './Scene/store.js'
 import './index.css'
 import './App.css'
 import {
@@ -28,8 +28,8 @@ const router= createBrowserRouter(
 )
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
+    
      <RouterProvider router={router}/>
-     </Provider>
+    
   </React.StrictMode>,
 )

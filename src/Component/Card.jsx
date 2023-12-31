@@ -1,22 +1,26 @@
-import React from 'react'
-import './Card.css'
-import { useDispatch } from 'react-redux';
-import { add } from '../features/add/add.js';
-
+import React, { useState } from 'react';
+import './Card.css';
+import usePlayingStore from '../State/playing.js';
 
 const Card = (props) => {
-  const dispatch = useDispatch();
-
-  const addsong = () => {
-    dispatch(add(props));
-  }
-
-  return (
-    <div className="card-outer drop-shadow-2xl place-items-start overflow-hidden" 
-    onClick={addsong}>
-        <img className='card-img w-40' src={props.img} alt="" height="600px" />
-    </div>
+  const addsong = usePlayingStore((state) => state.addsong);
+  const {playing} = usePlayingStore((state) => ({
+    playing: state.playing
+  })
   )
-}
+  const [ppp, setppp] = useState(playing);
+  const handleclick = () => {
+    setppp(props)
+    addsong(props);
+  };
+  return (
+    <div
+      className="card-outer drop-shadow-2xl place-items-start overflow-hidden"
+      onClick={handleclick}
+    >
+      <img className='card-img w-40' src={props.img} alt="" height="600px" />
+    </div>
+  );
+};
 
 export default Card;
