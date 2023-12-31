@@ -15,7 +15,7 @@ album={item.album}
 genre={item.genre}
 img={item.img}
 title={item.title}
-art={item.artist}/>
+artist={item.artist}/>
 }
 
 function artcreate(item){

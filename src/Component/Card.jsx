@@ -18,7 +18,15 @@ const Card = (props) => {
       className="card-outer drop-shadow-2xl place-items-start overflow-hidden"
       onClick={handleclick}
     >
+      <span className="image-card-m">
       <img className='card-img w-40' src={props.img} alt="" height="600px" />
+      </span>
+      <span className="cardtitlearea">
+      <h3 className="cardtitle">{props.title}</h3>
+      </span>
+     <span className="cardsubtitlearea">
+      <h4 className="cardsubtitle">{props.artist}</h4>
+     </span>
     </div>
   );
 };
