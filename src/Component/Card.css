@@ -74,3 +74,13 @@
     align-items: center;
     justify-content: center;
 }
+.btnplusimg{
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.btnplusfl{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

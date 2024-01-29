@@ -12,9 +12,32 @@ const PlayingStore = (set) => ({
       album: "",
     },
   ],
+  playlist: [],
+  index: 0,
+  setindex: (number) => {
+    set(() => ({
+      index: number
+    }))
+  },
   addsong: (prop) => {
     set((state) => ({
-        playing: [prop]
+      playlist: [...state.playlist, prop]
+    }))
+  },
+  addatstart: () => {
+    set((state) => ({
+        playing: [state.playlist[0]],
+        playlist: state.playlist.slice(1), 
+    }))
+  },
+  play: (props) => {
+    set(() => ({
+        playing: props,
+    }))
+  },
+  setbackup: (props)=> {
+    set(() => ({
+      playing: props,
     }))
   }
 });
