@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ReactAudioPlayer from 'react-audio-player';
 import playIcon from "../assets/pause.png";
 import pauseIcon from "../assets/play.png";
 import next from "../assets/next-button.png";
