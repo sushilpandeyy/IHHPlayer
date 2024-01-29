@@ -6,6 +6,7 @@ import Playicon from "../assets/play.png"
 
 const Card = (props) => {
   const play = usePlayingStore((state) => state.play);
+  const setisplaying = usePlayingStore((state) => state.setisplaying);
   const addsong = usePlayingStore((state) => state.addsong);
   const {playing} = usePlayingStore((state) => ({
     playing: state.playing
@@ -13,6 +14,7 @@ const Card = (props) => {
   )
   const handleclick = () => {
     play(props);
+   // setisplaying(true);
   };
   const handleaddmuic = () => {
     

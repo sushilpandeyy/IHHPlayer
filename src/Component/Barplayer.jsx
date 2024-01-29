@@ -8,27 +8,11 @@ import usePlayingStore from '../State/playing';
 
 const Barplayer = () => {
   const { playing } = usePlayingStore((state) => ({ playing: state.playing }));
-  const { playlist } = usePlayingStore((state) => ({ playlist: state.playlist }));
-  const { addatstart } = usePlayingStore((state) => ({ addatstart: state.addatstart }));
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const audioRef = useRef(null);
 
-  useEffect(() => {
-    const handleEnded = () => {
-      if (playlist === null || playlist === undefined) {
-        // Do something if playlist is null or undefined
-      } else {
-        console.log("IT RAN");
-        addatstart();
-      }
-    };
-
-    return () => {
-      // Cleanup if needed
-    };
-  }, [playlist, addatstart]);
 
   const handleTimeSeek = (e) => {
     const seekTime = parseFloat(e.target.value);
@@ -63,6 +47,7 @@ const Barplayer = () => {
       audioRef.current.removeEventListener('timeupdate', handleTimeUpdate);
     };
   }, []);
+
 
   return (
     <>
