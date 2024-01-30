@@ -57,9 +57,13 @@ const Barplayer = () => {
           setDuration(audioRef.current.duration);
         }}
       />
+      <div className="barplayer">
+        <div className="imagebanner">
       <center>
-        <img className="flex-player-banner shadow-2xl" src={playing.img} alt={playing.title} />
+        <img className="flex-player-banner mobileimagebp shadow-2xl" src={playing.img} alt={playing.title} />
       </center>
+      </div>
+      <div className="otherdata">
       <h2 className='player-h1 text-2xl'>{playing.title}</h2>
       <ul className='meta-player'>
         <li className='meta-info text-sm'>{playing.artist}</li>
@@ -94,17 +98,19 @@ const Barplayer = () => {
           onClick={handlePlayPause}
         />
       </div>
-      <p className='text-sm'>
+      <p className='text-sm meta-player'>
         {formatTime(currentTime)}/{formatTime(duration)}
       </p>
       <input
-        className='audio-rage '
+        className='audio-rage'
         type="range"
         min={0}
         max={duration}
         value={currentTime}
         onChange={handleTimeSeek}
       />
+      </div>
+      </div>
     </>
   );
 };

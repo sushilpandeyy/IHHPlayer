@@ -46,6 +46,7 @@ const Home = () => {
     <div className="recent flex">
     {all.slice().reverse().map(create)}
     </div>
+    
     </>
   )
 }
