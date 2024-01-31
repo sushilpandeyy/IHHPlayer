@@ -16,6 +16,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Artist from "../src/Scene/Artist.jsx"
+import Albumv from './Scene/Albumv.jsx'
 
 const router= createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router= createBrowserRouter(
       <Route path='latest' element={<Latest/>}/>
       <Route path='album' element={<Album/>}/>
       <Route path='artist/:id' element={<Artistmusic/>}/>
+      <Route path='album/:id' element={<Albumv/>}/>
     </Route>
   )
 )

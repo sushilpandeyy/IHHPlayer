@@ -1,5 +1,10 @@
 const artist = [
     {
+        key: "AFKP",
+        img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Afkap+download.jpeg",
+        name: "AFKAP"
+    },
+    {
         key: "KRMA",
         img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/KARMA_ARTIST.jpeg",
         name: "Karma"
@@ -61,8 +66,65 @@ const artist = [
     name: "Saar Punch"
 },
 ]
+const album = [
+    {
+        key: "PLBwi5KYcRfpG1LjhXhQ1V64g8fzElBv6u",
+        title: "Afkap - Parat EP",
+        artistkey: ['AFKP'],
+        img: "https://i.ytimg.com/vi/R8isVXyXNGk/hqdefault.jpg",
+        songs: [
+            {
+                sq: 1,
+                title: "Afkap - Rukawat",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Afkap+Rukawat+Official.mp3",
+                img: "https://img.youtube.com/vi/R8isVXyXNGk/maxresdefault.jpg"
+            },
+            {
+                sq: 2,
+                title: "Afkap - Aaina",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/AFKAP+AAINA+Official.mp3",
+                img: "https://img.youtube.com/vi/xQsHpqDTL-o/maxresdefault.jpg"
+            },
+            {
+                sq: 3,
+                title: "Afkap - Sookhi",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Sookhi+Official+Audio.mp3",
+                img: "https://img.youtube.com/vi/nKuxBeJoePs/maxresdefault.jpg"
+            },
+            {
+                sq: 4,
+                title: "Afkap - Lagaav",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Afkap+Lagaav+Official.mp3",
+                img: "https://img.youtube.com/vi/Kv4-EOFGFnA/maxresdefault.jpg"
+            },
+            {
+                sq: 5,
+                title: "Afkap - Waapsi",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Afkap+Waapsi+Official.mp3",
+                img: "https://img.youtube.com/vi/aVhyeJEewGc/maxresdefault.jpg"
+            },
+            {
+                sq: 6,
+                title: "Afkap - Kasam",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Afkap+Kasam+Official.mp3",
+                img: "https://img.youtube.com/vi/aVhyeJEewGc/maxresdefault.jpg"
+            },
+        ]
+    },
+]
 //https://youtu.be/VKMw2it8dQY?si=A4prnxF8KdUg-OJe INTRO
 const all = [
+    {
+        key: "6sUBq9mTfeY",
+        seq: 10,
+        src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Afkap+Waapsi+Official.mp3",
+        img: "https://img.youtube.com/vi/aVhyeJEewGc/maxresdefault.jpg",
+        title: "Afkap - Waapsi",
+        artist: "Afkap",
+        artistkey: ['AFKP'],
+        genre: "",
+        album: "Parat",
+    },
     {
         key: "6sUBq9mTfeY",
         seq: 11,
@@ -201,4 +263,4 @@ const playlist = [
     },
 ]
 
-export {all, artist};
+export {all, artist, album};

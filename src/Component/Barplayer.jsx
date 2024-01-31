@@ -6,13 +6,14 @@ import previous from "../assets/previous.png";
 import disz from "../Icon/disc-com.png";
 import usePlayingStore from '../State/playing';
 
+
 const Barplayer = () => {
   const { playing } = usePlayingStore((state) => ({ playing: state.playing }));
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const audioRef = useRef(null);
-
+  
 
   const handleTimeSeek = (e) => {
     const seekTime = parseFloat(e.target.value);
