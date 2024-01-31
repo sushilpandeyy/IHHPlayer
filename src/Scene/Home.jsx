@@ -22,6 +22,7 @@ function artcreate(item){
   return <Cardart 
   key={item.key}
   src={item.img}
+  link={item.key}
   title={item.name}/>
 }
 

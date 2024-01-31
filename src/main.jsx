@@ -4,6 +4,7 @@ import Latest from './Scene/Latest.jsx'
 import Album from './Scene/Album.jsx'
 import App from './App.jsx'
 import Home from "./Scene/Home.jsx"
+import Artistmusic from './Scene/Artistmusic.jsx'
 import {Provider} from "react-redux"
 //import { store } from './Scene/store.js'
 import './index.css'
@@ -23,6 +24,7 @@ const router= createBrowserRouter(
       <Route path='artist' element={<Artist/>}/>
       <Route path='latest' element={<Latest/>}/>
       <Route path='album' element={<Album/>}/>
+      <Route path='artist/:id' element={<Artistmusic/>}/>
     </Route>
   )
 )

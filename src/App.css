@@ -148,6 +148,7 @@ ul{
 
 .maincontent {
     padding: 10px;
+    padding-bottom: 80px;
 }
 .operator{
     display: flex;

@@ -20,27 +20,27 @@ const artist = [
         name: "Rawal"
     },
     {
-    key: "artist_10",
+    key: "KR$NA",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Kr%24na.jpeg",
     name: "Kr$na"
 },
 {
-    key: "artist_11",
+    key: "SPRMNK",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Supermanikk.jpeg",
     name: "SuperManikk"
 },
 {
-    key: "artist_12",
+    key: "EMYBTA",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Emiway+Bantai.jpeg",
     name: "Emiway Bantai"
 },
 {
-    key: "artist_13",
+    key: "SEDMUT",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Seedhe+maut.jpeg",
     name: "Seedhe Maut"
 },
 {
-    key: "artist_14",
+    key: "TPROC",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Theprophc.jpeg",
     name: "The PropheC"
 },
@@ -50,7 +50,7 @@ const artist = [
     name: "Raftaar"
 },
 {
-    key: "artist_15",
+    key: "PATHR",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/PANTHER.webp",
     name: "Panther"
 },
@@ -70,6 +70,7 @@ const all = [
         img: "https://img.youtube.com/vi/6sUBq9mTfeY/maxresdefault.jpg",
         title: "BHAGWAAN - KARMA x Sez On The Beat",
         artist: "KARMA",
+        artistkey: ['KRMA'],
         genre: "",
         album: "",
     },
@@ -80,6 +81,7 @@ const all = [
         img: "https://img.youtube.com/vi/9CxYG79GTOw/maxresdefault.jpg",
         title: "Maykhana - Saar Punch, @Bharg",
         artist: "Saar Punch",
+        artistkey: ['SAPU', 'BHRG'],
         genre: "",
         album: "Oopar Neeche",
     },
@@ -90,6 +92,7 @@ const all = [
         img: "https://img.youtube.com/vi/9-Vc4xmTZKk/maxresdefault.jpg",
         title: "Downers At Dusk",
         artist: "Talha Anjum",
+        artistkey: ['TAJUM'],
         genre: "",
         album: "Open Letter",
     },
@@ -99,6 +102,7 @@ const all = [
         src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Blowing+UP+Kr%24na.mp3",
         img: "https://img.youtube.com/vi/AwhyFo5N0cg/maxresdefault.jpg",
         title: "Blowing Up",
+        artistkey: ['KR$NA'],
         artist: "KR$NA",
         genre: "Delhi Scene",
         album: "",
@@ -109,6 +113,7 @@ const all = [
         src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/BADMAN+(Official+Video)+-+%40SuperManikk+%26+%40wickedsunnyyy+++2023.mp3",
         img: "https://img.youtube.com/vi/hsYblpKpJF8/maxresdefault.jpg",
         title: "Badman Ft WickedSunnyy",
+        artistkey: ['SPRMNK'],
         artist: "SuperManikk",
         genre: "Delhi Scene",
         album: "",
@@ -120,6 +125,7 @@ const all = [
         img: "https://i3.ytimg.com/vi/q_D3K1mnXXM/maxresdefault.jpg",
         title: "KING OF INDIAN HIP HOP (PROD BY Babz beats)",
         artist: "Emiway Bantai",
+        artistkey: ['EMYBTA'],
         genre: "Mumbai Scene",
         album: "King Of The Streets",
     },
@@ -129,6 +135,7 @@ const all = [
         src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Brand+New++Seedhe+Maut.mp3",
         img: "https://i.ytimg.com/vi/7pNo-geT_MA/0.jpg",
         title: "Brand New",
+        artistkey: ['SEDMUT'],
         artist: "Seedhe Maut",
         genre: "Delhi Scene",
         album: "LunchBreak",
@@ -140,6 +147,7 @@ const all = [
         img: "https://i.ytimg.com/vi/Q5r9-k7xYGw/0.jpg",
         title: "11K - Seedhe Maut",
         artist: "Seedhe Maut",
+        artistkey: ['SEDMUT'],
         genre: "Delhi Scene",
         album: "LunchBreak",
     },
@@ -159,6 +167,7 @@ const all = [
         src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/MERE+BINA++%40KSHMRmusic++The+PropheC++%40TalhaAnjum+++Official+Audio++%23Karam.mp3",
         img: "https://i.ytimg.com/vi/jcPC7AHQMKs/0.jpg",
         title: "Mere Bina @KSHMRmusic The PropheC @TalhaAnjum",
+        artistkey: ['TPROC', 'TAJUM'],
         artist: "The PropheC",
         genre: "Lyrical",
         album: "Karam",
@@ -170,6 +179,7 @@ const all = [
         img: "https://i.ytimg.com/vi/qot0iPHozdk/0.jpg",
         title: "Panther X Raga - Galat Karam",
         artist: "Panther",
+        artistkey: ['PATHR'],
         genre: "Rage",
         album: "",
     },

@@ -19,7 +19,7 @@ const Latest = () => {
 <Headtitle2
       title="Latest Tracks"
       />
-    <div className="grid grid-cols-5 gap-2">
+    <div className="grid grid-cols-5 gap-2 mobilecards">
     {all.slice().reverse().map(artcreate)}
     </div>
     </>

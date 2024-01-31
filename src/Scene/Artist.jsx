@@ -7,7 +7,9 @@ function artcreate(item){
   return <Cardart 
   key={item.key}
   src={item.img}
-  title={item.name}/>
+  title={item.name}
+  link={item.key}
+  />
 }
 
 const Artist = () => {
