@@ -28,9 +28,7 @@ ul{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px;
     width: 100%;
-    margin-top: 0px;
 }
 .flex-player-banner{
     border-radius: 10px;
@@ -110,6 +108,7 @@ ul{
     overflow-x: auto;
     max-width: 100%;
     margin: 4px;
+    
 }
 .artist{
     display: flex;
@@ -141,10 +140,8 @@ ul{
         width: 80%;
     }
     .player-h1{
-        word-wrap: 60%;
-        margin: 0px;
-        font-size: 1.1rem!important;
-        line-height: 0px!important;
+        font-size: 12px!important;
+        line-height: 16px!important; /* Adjusted line-height to prevent overlap */
         margin-bottom: 5px;
     }
   }

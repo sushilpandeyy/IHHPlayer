@@ -64,7 +64,9 @@ const Barplayer = () => {
       </center>
       </div>
       <div className="otherdata">
+        <span className="titlemob">
       <h2 className='player-h1 text-2xl'>{playing.title}</h2>
+      </span>
       <ul className='meta-player'>
         <li className='meta-info text-sm'>{playing.artist}</li>
         <li className='meta-info text-sm'>{Math.floor(duration / 60) + ":" + Math.floor(duration % 60)}</li>

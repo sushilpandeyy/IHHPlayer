@@ -41,19 +41,40 @@ p{
         box-sizing: border-box;
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
-        background-color: #08101A;
+        justify-content: space-between;
+        background-color: #0e1d2e;
+        border: 5px solid transparent;
+        border-radius: 10px;
+    }
+    .otherdata{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .titlemob{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 .allaudio{
-    max-width: auto;
+    max-width: 80%;
     margin: 0px;
     padding: 10px;
     padding-bottom: 50px;
 }
 @media only screen and (max-width: 768px) {
 .allaudio{
-    width: 100%;
+    max-width: 100%;
+    margin: 0px;
+    padding: 10px;
+    padding-bottom: 50px;
+}
+.titlemob{
+  word-wrap: break-word;
 }
 }
 .lis{
@@ -80,10 +101,9 @@ p{
 @media only screen and (max-width: 768px) {
     .sidecontent{
         z-index: 50;
-        height: 10%;
         position: fixed;
         left: 0;
-        bottom: 0;
+        top: 75%;
         width: 100%;
         height: 10%;
         box-sizing: border-box;
