@@ -5,3 +5,13 @@
 .artist{
     margin-bottom: 20px;
 }
+@media only screen and (max-width: 768px) {
+.mobilecards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+    grid-gap: 10px; /* Gap between grid items */
+    /* Optionally, you can add additional properties such as padding and margin */
+    padding: 10px;
+    margin: 0 auto;
+}
+}
