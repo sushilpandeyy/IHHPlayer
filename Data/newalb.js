@@ -70,6 +70,7 @@ const album = [
     {
         key: "PLBwi5KYcRfpG1LjhXhQ1V64g8fzElBv6u",
         title: "Afkap - Parat EP",
+        Artist: "AFKAP",
         artistkey: ['AFKP'],
         img: "https://i.ytimg.com/vi/R8isVXyXNGk/hqdefault.jpg",
         songs: [
