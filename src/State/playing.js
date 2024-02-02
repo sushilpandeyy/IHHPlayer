@@ -1,6 +1,14 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
+function removeDuplicateObjects(array, key) {
+    return array.filter((obj, index, self) => 
+        index === self.findIndex((t) => (
+            t[key] === obj[key]
+        ))
+    );
+}
+
 const PlayingStore = (set) => ({
   playing: [
     {
@@ -17,6 +25,12 @@ const PlayingStore = (set) => ({
         playing: props,
     }))
   },
+  recently: [],
+  addrecent: (props) => {
+    set((state) => ({
+      recently: removeDuplicateObjects([props, ...state.recently], 'src')
+    }))
+  } 
 });
 
 const usePlayingStore = create(

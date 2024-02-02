@@ -6,7 +6,9 @@ import Playicon from "../assets/play.png"
 
 const Card = (props) => {
   const play = usePlayingStore((state) => state.play);
+  const addrecent = usePlayingStore((state) => state.addrecent);
   const handleclick = () => {
+    addrecent(props);
     play(props);
   };
 

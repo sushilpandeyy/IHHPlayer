@@ -13,9 +13,7 @@ const Headmenu = () => {
       <ul className='flex flex-nowrap'>
         <li className='menu-mar'><Link to="/">Home</Link></li>
         <li className='menu-mar'><Link to="/artist">Artist</Link></li>
-        <li className='menu-mar'>Genre</li>
         <li className='menu-mar'><Link to="/album">Album</Link></li>
-        <li className='menu-mar'>Search</li>
       </ul>
     </div>
     <div className="logo-menu">

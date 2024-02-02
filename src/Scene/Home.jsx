@@ -4,6 +4,8 @@ import Card from '../Component/Card'
 import Cardart from '../Component/Cardart'
 import {all, artist} from '../../Data/newalb'
 import '../Scene/Scene.css'
+import usePlayingStore from '../State/playing';
+
 
 
 function create(item){
@@ -26,15 +28,50 @@ function artcreate(item){
   title={item.name}/>
 }
 
+
+
+
 const Home = () => {
-  return (
-    <>
-    <Headtitle 
+
+  const { recently } = usePlayingStore((state) => ({ recently: state.recently }));
+
+
+  function removeDuplicateObjects(array, key) {
+    return array.filter((obj, index, self) => 
+        index === self.findIndex((t) => (
+            t[key] === obj[key]
+        ))
+    );
+  }
+
+  function Recentlyplayed(){
+
+    const temp = removeDuplicateObjects(recently);
+    console.log(temp);
+    if(recently[0]){
+    return (
+      <>
+      <Headtitle 
     title="Recently Played"
     />
     <div className="recent flex">
-    {all.map(create)}
+    {recently.map(create)}
     </div>
+      </>
+    )
+  }
+  else{
+    return(
+      <>
+      
+      </>
+    )
+  }
+}
+
+  return (
+    <>
+    <Recentlyplayed/>
     <Headtitle
       title="Popular Artist"
       />
