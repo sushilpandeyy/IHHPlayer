@@ -5,6 +5,8 @@ import Album from './Scene/Album.jsx'
 import App from './App.jsx'
 import Home from "./Scene/Home.jsx"
 import Artistmusic from './Scene/Artistmusic.jsx'
+import { Analytics } from '@vercel/analytics/react';
+
 
 import './index.css'
 import './App.css'
@@ -31,7 +33,7 @@ const router= createBrowserRouter(
 )
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    
+    <Analytics />
      <RouterProvider router={router}/>
     
   </React.StrictMode>,
