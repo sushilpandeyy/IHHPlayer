@@ -1,6 +1,7 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import {album} from "../../Data/newalb.js"
 import Albumcard from '../Component/Albumcard'
+
 
 function create(item){
   return <Albumcard 
@@ -12,11 +13,34 @@ function create(item){
 }
 
 const Album = () => {
+
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://3.86.53.53:3000/album');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [])
   return (
     <>
-    <div className="grid grid-cols-5 gap-5 mobilecards">
-    {album.map(create)}
-    </div>
+    {loading? "Loading" : <div className="grid grid-cols-5 gap-5 mobilecards">
+    {data.map(create)}
+    </div>}
+    
     </>
   )
 }
