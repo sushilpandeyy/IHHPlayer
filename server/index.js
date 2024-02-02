@@ -25,7 +25,7 @@ async function startServer() {
         const app = express();
         app.use(express.json());
         app.use(helmet());
-        app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}));
+        app.use(cors());
         app.get('/Music', getMusic);
         app.get('/Album', getAlbum);
         app.get('/Artist', getArtist);
