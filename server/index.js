@@ -1,7 +1,9 @@
 import express from "express";
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import { artist } from "./data/newalb.js";
-import { getMusic, getAlbum } from "./Apis/getapis.js";
+import helmet from "helmet";
+import cors from "cors";
+import { getMusic, getAlbum, getArtist } from "./Apis/getapis.js";
 
 
 //const client = new MongoClient(uri,  {
@@ -21,8 +23,12 @@ async function startServer() {
         //console.log(response);
         //console.log("Pinged your deployment. You successfully connected to MongoDB!");
         const app = express();
+        app.use(express.json());
+        app.use(helmet());
+        app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}));
         app.get('/Music', getMusic);
         app.get('/Album', getAlbum);
+        app.get('/Artist', getArtist);
         app.listen(3000, () => {
             console.log('Server is running on port 3000');
         });
