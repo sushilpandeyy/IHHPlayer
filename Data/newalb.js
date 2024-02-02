@@ -96,7 +96,7 @@ const album = [
                 sq: 4,
                 title: "Afkap - Lagaav",
                 src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Afkap+Lagaav+Official.mp3",
-                img: "https://img.youtube.com/vi/aVhyeJEewGc/maxresdefault.jpg"
+                img: "https://i.ytimg.com/vi/Kv4-EOFGFnA/mqdefault.jpg"
             },
             {
                 sq: 5,
@@ -108,7 +108,7 @@ const album = [
                 sq: 6,
                 title: "Afkap - Kasam",
                 src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Afkap+Kasam+Official.mp3",
-                img: "https://img.youtube.com/vi/aVhyeJEewGc/maxresdefault.jpg"
+                img: "https://img.youtube.com/vi/N9CnMjWT_rE/maxresdefault.jpg"
             },
         ]
     },

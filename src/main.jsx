@@ -5,8 +5,7 @@ import Album from './Scene/Album.jsx'
 import App from './App.jsx'
 import Home from "./Scene/Home.jsx"
 import Artistmusic from './Scene/Artistmusic.jsx'
-import {Provider} from "react-redux"
-//import { store } from './Scene/store.js'
+
 import './index.css'
 import './App.css'
 import {
