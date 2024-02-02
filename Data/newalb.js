@@ -127,6 +127,17 @@ const all = [
         album: "Parat",
     },
     {
+        key: "i9DPQDIR9HM",
+        seq: 56,
+        src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Aisi+Jagah+Se+%7C+PANTHER.mp3",
+        img: "https://img.youtube.com/vi/i9DPQDIR9HM/maxresdefault.jpg",
+        title: "Panther - Aisi Jagah Se",
+        artist: "Panther",
+        artistkey: ['PATHR'],
+        genre: "",
+        album: "Flying Towards The City",
+    },
+    {
         key: "6sUBq9mTfeY",
         seq: 11,
         src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/KARMA+x+Sez+On+The+Beat+-+BHAGWAAN++OFFICIAL+VISUALIZER++2023.mp3",
