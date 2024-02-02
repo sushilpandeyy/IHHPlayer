@@ -9,12 +9,7 @@ const Card = (props) => {
   const handleclick = () => {
     play(props);
   };
-  //<span>
- // <img src={Playicon} className='btnplusimg' onClick={handleclick} alt="Play" />
- // </span>
- // <span>
- // <img src={plusicon} className='btnplusimg' alt="Add"  onClick={handleaddmuic} />
- // </span>
+
   const handleaddmuic = () => {
     
   };

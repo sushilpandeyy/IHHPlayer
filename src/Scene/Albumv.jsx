@@ -6,7 +6,13 @@ import Listitem from '../Component/Listitem';
 
 const Albumv = () => {
     const { id } = useParams();
-    
+
+    function findElementByKeyValue(array, key, value) {
+      return array.find(item => item[key] === value);
+    }
+
+    const element = findElementByKeyValue(album, 'key', id);
+
     const listitem = (item) => {
       return (
         <Listitem 
@@ -23,16 +29,16 @@ const Albumv = () => {
         <div className="leftsidealb">
           <div className="layer">
             <center>
-              <img src={album[0].img} className='albumbannerse' alt="" />
+              <img src={element.img} className='albumbannerse' alt="" />
             </center>
             <div className="albumtitle">
-              <h2 className='albumtitleh'>{album[0].title}</h2>
-              <h3 className='albumartisth'>{album[0].Artist}</h3>
+              <h2 className='albumtitleh'>{element.title}</h2>
+              <h3 className='albumartisth'>{element.Artist}</h3>
             </div>
           </div>
         </div>
         <div className="rightsidealb">
-          {album[0].songs.map(listitem)}
+          {element.songs.map(listitem)}
         </div>
       </div>
     )

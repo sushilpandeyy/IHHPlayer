@@ -96,7 +96,7 @@ const album = [
                 sq: 4,
                 title: "Afkap - Lagaav",
                 src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Afkap+Lagaav+Official.mp3",
-                img: "https://img.youtube.com/vi/Kv4-EOFGFnA/maxresdefault.jpg"
+                img: "https://img.youtube.com/vi/aVhyeJEewGc/maxresdefault.jpg"
             },
             {
                 sq: 5,

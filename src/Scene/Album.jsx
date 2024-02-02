@@ -6,7 +6,7 @@ function create(item){
   return <Albumcard 
   key={item.key}
   src={item.img}
-  title={item.name}
+  title={item.title}
   link={item.key}
   />
 }
