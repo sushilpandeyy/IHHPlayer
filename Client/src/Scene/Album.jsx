@@ -20,7 +20,7 @@ const Album = () => {
   useEffect(()=>{
     const fetchData = async () => {
       try {
-        const response = await fetch('3.86.53.53:3000/album');
+        const response = await fetch('https://ihhpserver.onrender.com/album');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
