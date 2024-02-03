@@ -15,8 +15,7 @@ import { getMusic, getAlbum, getArtist, getsample } from "./Apis/getapis.js";
 //}
 //);
 
-async function startServer() {
-    try {
+
         //const database = client.db('IHHPlayer');
         //const Music = database.collection("Artist");
         //const response = await Music.insertMany(artist);
@@ -33,9 +32,4 @@ async function startServer() {
         app.listen(80, () => {
             console.log('Server is running on port 3000');
         });
-    } catch (error) {
-        console.error("Failed to connect to MongoDB:", error);
-    }
-}
-
-startServer();
+        module.exports=app
