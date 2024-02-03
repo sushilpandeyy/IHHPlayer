@@ -3,7 +3,7 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 import { artist } from "./data/newalb.js";
 import helmet from "helmet";
 import cors from "cors";
-import { getMusic, getAlbum, getArtist } from "./Apis/getapis.js";
+import { getMusic, getAlbum, getArtist, getsample } from "./Apis/getapis.js";
 
 
 //const client = new MongoClient(uri,  {
@@ -29,7 +29,8 @@ async function startServer() {
         app.get('/Music', getMusic);
         app.get('/Album', getAlbum);
         app.get('/Artist', getArtist);
-        app.listen(3000, () => {
+        app.get('/', getsample);
+        app.listen(80, () => {
             console.log('Server is running on port 3000');
         });
     } catch (error) {

@@ -58,3 +58,15 @@ export const getAlbum = async (req, res) => {
         await client.close();
     }
 }
+
+export const getsample = async (req, res) => {
+    try {
+        res.status(200).message("Working");
+    } catch (error) {
+        console.log(error.message);
+        res.status(404).json({ message: error.message });
+    } finally {
+        // Close the MongoDB connection after fetching data
+        await client.close();
+    }
+}
