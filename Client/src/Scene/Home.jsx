@@ -122,7 +122,7 @@ const Home = () => {
     title="Latest Songs"
     />
    {loadingmusic ? "Loading" : <div className="recent flex">
-    {musicdata.slice().reverse().map(create)}
+    {musicdata.reverse().map(create)}
     </div>}
     
     </>
