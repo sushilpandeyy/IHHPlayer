@@ -57,6 +57,7 @@ const Home = () => {
         console.error('Error fetching data:', error);
       } finally {
         setLoadingmusic(false);
+        setLoadingartist(false);
       }
     };
 
