@@ -5,7 +5,6 @@ import Cardart from '../Component/Cardart'
 import {all, artist} from '../../Data/newalb'
 import '../Scene/Scene.css'
 import usePlayingStore from '../State/playing';
-import HomeArtist from '../Component/HomeArtist'
 
 
 
@@ -21,12 +20,20 @@ title={item.title}
 artist={item.artist}/>
 }
 
-
+function artcreate(item){
+  return <Cardart 
+  key={item.key}
+  src={item.img}
+  link={item.key}
+  title={item.name}/>
+}
 
 
 
 
 const Home = () => {
+  const [artistdata, setartistData] = useState(null);
+  const [loadingartist, setLoadingartist] = useState(true);
   const [musicdata, setmusicData] = useState(null);
   const [loadingmusic, setLoadingmusic] = useState(true);
   const { recently } = usePlayingStore((state) => ({ recently: state.recently }));
@@ -35,11 +42,17 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await fetch('https://ihhpserver.onrender.com/music');
+        const responseartist = await fetch('https://ihhpserver.onrender.com/artist');
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Network response was not ok in music');
+        }
+        if (!responseartist.ok) {
+          throw new Error('Network response was not ok in artist');
         }
         const jsonData = await response.json();
         setmusicData(jsonData);
+        const jsonDataa = await responseartist.json();
+        setartistData(jsonDataa);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -86,16 +99,18 @@ const Home = () => {
   return (
     <>
     <Recentlyplayed/>
-    <HomeArtist/>
+    <Headtitle
+      title="Popular Artist"
+      />
+    {loadingartist? "Loading" :<div className="artist flex">
+    {artistdata.map(artcreate)}
+    </div>}
     <Headtitle 
     title="Latest Songs"
     />
-   {loadingmusic ? "Loading" : (
-  <div className="recent flex">
-    {musicdata && musicdata.map(create)}
-  </div>
-)}
-
+   {loadingmusic ? "Loading" : <div className="recent flex">
+    {musicdata.map(create)}
+    </div>}
     
     </>
   )
