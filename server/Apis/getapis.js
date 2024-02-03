@@ -1,6 +1,5 @@
 import Music from "../models/Music.js";
 import { MongoClient } from 'mongodb';
-import info from "../kp.js";
 import dotenv from "dotenv";
 
 dotenv.config();
