@@ -1,8 +1,11 @@
 import Music from "../models/Music.js";
 import { MongoClient } from 'mongodb';
 import info from "../kp.js";
+import dotenv from "dotenv";
 
-const uri = info.Mongo_url;
+dotenv.config();
+const uri = process.env.Mongo_url;
+
 const client = new MongoClient(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
