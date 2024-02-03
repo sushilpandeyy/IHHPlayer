@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import Headtitle from '../Component/Headtitle'
 import Card from '../Component/Card'
 import Cardart from '../Component/Cardart'
@@ -32,9 +32,28 @@ function artcreate(item){
 
 
 const Home = () => {
-
+  const [artistdata, setartistData] = useState(null);
+  const [loadingartist, setLoadingartist] = useState(true);
   const { recently } = usePlayingStore((state) => ({ recently: state.recently }));
 
+  useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://ihhpserver.onrender.com/artist');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const jsonData = await response.json();
+        setartistData(jsonData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoadingartist(false);
+      }
+    };
+
+    fetchData();
+  }, [])
 
   function removeDuplicateObjects(array, key) {
     return array.filter((obj, index, self) => 
@@ -75,9 +94,9 @@ const Home = () => {
     <Headtitle
       title="Popular Artist"
       />
-    <div className="artist flex">
-    {artist.map(artcreate)}
-    </div>
+    {loadingartist? "Loading" :<div className="artist flex">
+    {artistdata.map(artcreate)}
+    </div>}
     <Headtitle 
     title="Latest Songs"
     />
