@@ -34,6 +34,8 @@ function artcreate(item){
 const Home = () => {
   const [artistdata, setartistData] = useState(null);
   const [loadingartist, setLoadingartist] = useState(true);
+  const [musicdata, setmusicData] = useState(null);
+  const [loadingmusic, setLoadingmusic] = useState(true);
   const { recently } = usePlayingStore((state) => ({ recently: state.recently }));
 
   useEffect(()=>{
@@ -49,6 +51,25 @@ const Home = () => {
         console.error('Error fetching data:', error);
       } finally {
         setLoadingartist(false);
+      }
+    };
+
+    fetchData();
+  }, [])
+
+  useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://ihhpserver.onrender.com/music');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const jsonData = await response.json();
+        setmusicData(jsonData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoadingmusic(false);
       }
     };
 
@@ -100,9 +121,9 @@ const Home = () => {
     <Headtitle 
     title="Latest Songs"
     />
-    <div className="recent flex">
-    {all.slice().reverse().map(create)}
-    </div>
+   {loadingmusic ? "Loading" : <div className="recent flex">
+    {musicdata.slice().reverse().map(create)}
+    </div>}
     
     </>
   )
