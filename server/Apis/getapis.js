@@ -15,7 +15,7 @@ export const getMusic = async (req, res) => {
         await client.connect();
         const database = client.db("IHHPlayer");
         const coll = database.collection("Music");
-        const Musicresp = await coll.find().toArray(); 
+        const Musicresp = await coll.find().limit(10).toArray(); 
         console.log(Musicresp);
         res.status(200).json(Musicresp);
     } catch (error) {
