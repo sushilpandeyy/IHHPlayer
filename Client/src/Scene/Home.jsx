@@ -5,6 +5,7 @@ import Cardart from '../Component/Cardart'
 import {all, artist} from '../../Data/newalb'
 import '../Scene/Scene.css'
 import usePlayingStore from '../State/playing';
+import HomeArtist from '../Component/HomeArtist'
 
 
 
@@ -20,42 +21,15 @@ title={item.title}
 artist={item.artist}/>
 }
 
-function artcreate(item){
-  return <Cardart 
-  key={item.key}
-  src={item.img}
-  link={item.key}
-  title={item.name}/>
-}
+
 
 
 
 
 const Home = () => {
-  const [artistdata, setartistData] = useState(null);
-  const [loadingartist, setLoadingartist] = useState(true);
   const [musicdata, setmusicData] = useState(null);
   const [loadingmusic, setLoadingmusic] = useState(true);
   const { recently } = usePlayingStore((state) => ({ recently: state.recently }));
-
-  useEffect(()=>{
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://ihhpserver.onrender.com/artist');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const jsonData = await response.json();
-        setartistData(jsonData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoadingartist(false);
-      }
-    };
-
-    fetchData();
-  }, [])
 
   useEffect(()=>{
     const fetchData = async () => {
@@ -112,14 +86,7 @@ const Home = () => {
   return (
     <>
     <Recentlyplayed/>
-    <Headtitle
-      title="Popular Artist"
-      />
-    {loadingartist ? "Loading" : (
-  <div className="artist flex">
-    {artistdata && artistdata.map(artcreate)}
-  </div>
-)}
+    <HomeArtist/>
     <Headtitle 
     title="Latest Songs"
     />
