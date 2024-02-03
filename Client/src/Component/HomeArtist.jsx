@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import "../Scene/Scene.css"
 import Cardart from './Cardart';
+import Headtitle from './Headtitle';
 
 const HomeArtist = () => {
     const [artistdata, setartistData] = useState(null);
