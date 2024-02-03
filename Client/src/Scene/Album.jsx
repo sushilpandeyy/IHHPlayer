@@ -20,7 +20,7 @@ const Album = () => {
   useEffect(()=>{
     const fetchData = async () => {
       try {
-        const response = await fetch('http://3.86.53.53:3000/album');
+        const response = await fetch('3.86.53.53:3000/album');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
