@@ -115,15 +115,20 @@ const Home = () => {
     <Headtitle
       title="Popular Artist"
       />
-    {loadingartist? "Loading" :<div className="artist flex">
-    {artistdata.map(artcreate)}
-    </div>}
+    {loadingartist ? "Loading" : (
+  <div className="artist flex">
+    {artistdata && artistdata.map(artcreate)}
+  </div>
+)}
     <Headtitle 
     title="Latest Songs"
     />
-   {loadingmusic ? "Loading" : <div className="recent flex">
-    {musicdata.map(create)}
-    </div>}
+   {loadingmusic ? "Loading" : (
+  <div className="recent flex">
+    {musicdata && musicdata.map(create)}
+  </div>
+)}
+
     
     </>
   )
