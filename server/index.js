@@ -3,7 +3,7 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 import { artist } from "./data/newalb.js";
 import helmet from "helmet";
 import cors from "cors";
-import { getMusic, getAlbum, getArtist, getsample } from "./Apis/getapis.js";
+import { getMusic, getAlbum, getArtist,getsample } from "./Apis/getapis.js";
 
 
 //const client = new MongoClient(uri,  {
@@ -15,7 +15,8 @@ import { getMusic, getAlbum, getArtist, getsample } from "./Apis/getapis.js";
 //}
 //);
 
-
+async function startServer() {
+    try {
         //const database = client.db('IHHPlayer');
         //const Music = database.collection("Artist");
         //const response = await Music.insertMany(artist);
@@ -29,7 +30,12 @@ import { getMusic, getAlbum, getArtist, getsample } from "./Apis/getapis.js";
         app.get('/Album', getAlbum);
         app.get('/Artist', getArtist);
         app.get('/', getsample);
-        app.listen(80, () => {
+        app.listen(3000, () => {
             console.log('Server is running on port 3000');
         });
-        module.exports=app
+    } catch (error) {
+        console.error("Failed to connect to MongoDB:", error);
+    }
+}
+
+startServer();
