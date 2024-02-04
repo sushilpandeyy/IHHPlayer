@@ -111,7 +111,6 @@ function Preloader(){
 
   return (
     <>
-    <Preloader/>
     <Recentlyplayed/>
     <Headtitle
       title="Popular Artist"
