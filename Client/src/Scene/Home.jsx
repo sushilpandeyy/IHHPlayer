@@ -100,9 +100,11 @@ const Home = () => {
 function Preloader(){
   return (
     <>
+    <div className="prelaoderdiv">
     <center className='animate-pulse'>
       <img src={logo} alt="" />
     </center>
+    </div>
     </>
   )
 }
