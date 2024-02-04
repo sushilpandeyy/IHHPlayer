@@ -3,6 +3,7 @@ import Headtitle from '../Component/Headtitle'
 import Card from '../Component/Card'
 import Cardart from '../Component/Cardart'
 import {all, artist} from '../../Data/newalb'
+import logo from "public/ihhlogo.png"
 import '../Scene/Scene.css'
 import usePlayingStore from '../State/playing';
 
@@ -100,7 +101,7 @@ function Preloader(){
   return (
     <>
     <center className='animate-pulse'>
-      LOADING
+      <img src={logo} alt="" />
     </center>
     </>
   )
