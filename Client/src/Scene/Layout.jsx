@@ -11,13 +11,15 @@ const Layout = () => {
       <>
       <div className="prelaoderdiv">
         <div className="heading">
-         <center> <h3 className="animate-pulse">Loading!!</h3></center> 
+       
         </div>
       <center className='animate-pulse'>
+      <center> <h3 className="animate-pulse">Loading!!</h3></center> 
         <img src={logo} alt="" />
+        <center> <h4 className="animate-pulse">"Click on Play after selecting music"</h4></center> 
       </center>
       <div className="heading">
-         <center> <h4 className="animate-pulse">"Click on Play after selecting music"</h4></center> 
+        
         </div>
       </div>
       </>
