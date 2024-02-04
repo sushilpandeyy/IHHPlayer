@@ -102,4 +102,11 @@
         height: 100%;
         z-index: 110;
         background-color: #08101A;
-   }
+}
+center.animate-pulse {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
