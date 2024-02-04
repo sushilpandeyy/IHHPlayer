@@ -96,7 +96,7 @@ const Home = () => {
   }
 }
 
-function preloader(){
+function Preloader(){
   return (
     <>
     <center className='animate-pulse'>
@@ -108,7 +108,7 @@ function preloader(){
 
   return (
     <>
-    <preloader/>
+    <Preloader/>
     <Recentlyplayed/>
     <Headtitle
       title="Popular Artist"
