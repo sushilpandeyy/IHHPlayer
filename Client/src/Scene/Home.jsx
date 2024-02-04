@@ -73,7 +73,6 @@ const Home = () => {
   }
 
   function Recentlyplayed(){
-
     const temp = removeDuplicateObjects(recently);
     console.log(temp);
     if(recently[0]){
@@ -97,8 +96,19 @@ const Home = () => {
   }
 }
 
+function preloader(){
   return (
     <>
+    <center className='animate-pulse'>
+      LOADING
+    </center>
+    </>
+  )
+}
+
+  return (
+    <>
+    <preloader/>
     <Recentlyplayed/>
     <Headtitle
       title="Popular Artist"
@@ -112,7 +122,6 @@ const Home = () => {
    {loadingmusic ? "Loading" : <div className="recent flex">
     {musicdata.map(create)}
     </div>}
-    
     </>
   )
 }
