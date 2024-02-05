@@ -8,7 +8,7 @@ function App() {
 
   const [songs, setSongs] = useState();
   const { playing } = usePlayingStore((state) => ({ playing: state.playing }));
-	const [currentSong, setCurrentSong] = useState(songs[0]);
+	const [currentSong, setCurrentSong] = useState();
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [libraryStatus, setLibraryStatus] = useState(false);
 	const [songInfo, setSongInfo] = useState({
@@ -23,9 +23,10 @@ function App() {
       <Layout/>
       <button 
       onClick={playSongHandler}>PLAY</button>
-      <Audio
+      <audio
       src={playing.src}
       ref={musicRef}
+      
       />
 
     </>

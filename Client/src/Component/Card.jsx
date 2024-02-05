@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Card.css';
+import '../App.css';
 import usePlayingStore from '../State/playing.js';
 import plusicon from "../assets/plusicon.png"
 import Playicon from "../assets/play.png"

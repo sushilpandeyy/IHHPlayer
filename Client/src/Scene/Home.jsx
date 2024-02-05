@@ -116,13 +116,13 @@ function Preloader(){
       title="Popular Artist"
       />
     {loadingartist? "Loading" :<div className="artist flex">
-    {artistdata.map(artcreate)}
+    {artist.map(artcreate)}
     </div>}
     <Headtitle 
     title="Latest Songs"
     />
    {loadingmusic ? "Loading" : <div className="recent flex">
-    {musicdata.map(create)}
+    {all.map(create)}
     </div>}
     </>
   )

@@ -28,7 +28,7 @@ const Layout = () => {
 
   return (
    <>
-   <Preloader/>
+  
   <div className="maincontent">
     <div className="Headermenu">
       <Headmenu/>
