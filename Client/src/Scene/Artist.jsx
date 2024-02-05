@@ -36,9 +36,9 @@ const Artist = () => {
   }, [])
   return (
     <>
-    {loading? "Loading" : <div className="grid grid-cols-5 gap-5 mobilecards">
+    <div className="grid grid-cols-5 gap-5 mobilecards">
     {data.map(artcreate)}
-    </div>}
+    </div>
     </>
   )
 }
