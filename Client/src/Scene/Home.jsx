@@ -81,7 +81,7 @@ const Home = () => {
     title="Recently Played"
     />
     <div className="recent flex">
-    {recently.map(create)}
+    {recently.slice(0, 10).map(create)}
     </div>
       </>
     )
@@ -114,13 +114,13 @@ function Preloader(){
       title="Popular Artist"
       />
     <div className="artist flex">
-    {artist.map(artcreate)}
+    {artist.slice(0, 10).map(artcreate)}
     </div>
     <Headtitle 
     title="Latest Songs"
     />
-   "Loading" : <div className="recent flex">
-    {all.map(create)}
+    <div className="recent flex">
+    {all.slice(0, 10).map(create)}
     </div>
     </>
   )
