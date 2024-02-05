@@ -53,6 +53,16 @@ const Barplayer = ({
       </center>
       </div>
       <div className="otherdata">
+        <div className="mobileinput">
+        <input
+        className='audio-ragemobile'
+        type="range"
+        min={0}
+        max={songInfo.duration || 0}
+        value={songInfo.currentTime}
+        onChange={handleTimeSeek}
+      />
+        </div>
         <span className="titlemob">
       <h2 className='player-h1 text-2xl'>{playing.title}</h2>
       </span>
