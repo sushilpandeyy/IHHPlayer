@@ -10,6 +10,7 @@ const Card = (props) => {
   const handleclick = () => {
     addrecent(props);
     play(props);
+    
   };
 
   const handleaddmuic = () => {

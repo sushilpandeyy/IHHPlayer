@@ -30,8 +30,6 @@ function artcreate(item){
 }
 
 
-
-
 const Home = () => {
   const [artistdata, setartistData] = useState(null);
   const [loadingartist, setLoadingartist] = useState(true);

@@ -7,18 +7,19 @@ import disz from "../Icon/disc-com.png";
 import usePlayingStore from '../State/playing';
 
 
-const Barplayer = () => {
-  const { playing } = usePlayingStore((state) => ({ playing: state.playing }));
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [duration, setDuration] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
-  const audioRef = useRef(null);
-  
-
+const Barplayer = ({
+  Adre,
+  songInfo,
+  setSongInfo,
+  isPlaying,
+	setIsPlaying,
+}) => {
+  const { playing} = usePlayingStore((state) => ({ 
+    playing: state.playing,
+   }));
   const handleTimeSeek = (e) => {
-    const seekTime = parseFloat(e.target.value);
-    setCurrentTime(seekTime);
-    audioRef.current.currentTime = seekTime;
+    Adre.current.currentTime = e.target.value;
+		setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
 
   const formatTime = (time) => {
@@ -29,35 +30,22 @@ const Barplayer = () => {
 
   const handlePlayPause = () => {
     if (isPlaying) {
-      audioRef.current.pause();
+      Adre.current.pause();
       setIsPlaying(false);
     } else {
-      audioRef.current.play();
+      Adre.current.play();
       setIsPlaying(true);
     }
   };
 
-  useEffect(() => {
-    const handleTimeUpdate = () => {
-      setCurrentTime(audioRef.current.currentTime);
-    };
-  
-    audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
-  
-    return () => {
-      audioRef.current.removeEventListener('timeupdate', handleTimeUpdate);
-    };
-  }, []);
-
+  useEffect(()=>{
+    if (isPlaying) {
+			Adre.current.play();
+		}
+  },[playing.src]);
 
   return (
     <>
-      <audio ref={audioRef} src={playing.src} 
-        onPlay={() => {
-          setCurrentTime(audioRef.current.currentTime);
-          setDuration(audioRef.current.duration);
-        }}
-      />
       <div className="barplayer">
         <div className="imagebanner">
       <center>
@@ -70,7 +58,7 @@ const Barplayer = () => {
       </span>
       <ul className='meta-player'>
         <li className='meta-info text-sm'>{playing.artist}</li>
-        <li className='meta-info text-sm'>{Math.floor(duration / 60) + ":" + Math.floor(duration % 60)}</li>
+        <li className='meta-info text-sm'>{formatTime(songInfo.duration)|| 0}</li>
       </ul>
       {playing.album ?
         <div className="barplay-box box-border w-100 border-4 rounded-lg border-hidden flex m-1">
@@ -102,14 +90,14 @@ const Barplayer = () => {
         />
       </div>
       <p className='text-sm meta-player'>
-        {formatTime(currentTime)}/{formatTime(duration)}
+        {formatTime(songInfo.currentTime)}/{formatTime(songInfo.duration) || 0}
       </p>
       <input
         className='audio-rage'
         type="range"
         min={0}
-        max={duration}
-        value={currentTime}
+        max={songInfo.duration || 0}
+        value={songInfo.currentTime}
         onChange={handleTimeSeek}
       />
       </div>

@@ -30,7 +30,7 @@ const PlayingStore = (set) => ({
     set((state) => ({
       recently: removeDuplicateObjects([props, ...state.recently], 'src')
     }))
-  } 
+  }, 
 });
 
 const usePlayingStore = create(
