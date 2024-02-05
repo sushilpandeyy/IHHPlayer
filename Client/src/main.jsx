@@ -6,7 +6,7 @@ import App from './App.jsx'
 import Home from "./Scene/Home.jsx"
 import Artistmusic from './Scene/Artistmusic.jsx'
 import { Analytics } from '@vercel/analytics/react';
-
+import Recent from './Scene/recent.jsx'
 
 import './index.css'
 import './App.css'
@@ -24,6 +24,7 @@ const router= createBrowserRouter(
     <Route path='/' element={<App/>}>
       <Route path='' element={<Home/>}/>
       <Route path='artist' element={<Artist/>}/>
+      <Route path='recent' element={<Recent/>}/>
       <Route path='latest' element={<Latest/>}/>
       <Route path='album' element={<Album/>}/>
       <Route path='artist/:id' element={<Artistmusic/>}/>

@@ -59,7 +59,7 @@ ul{
     -webkit-appearance: none;
     appearance: none;
     background: #e5b79d;
-    height: 5px; /* Adjust as needed */
+    height: 5px; 
 }
 
 .audio-rage::-webkit-slider-thumb {
@@ -199,7 +199,50 @@ ul{
     }
 
   }
-
+.audio-ragemobile{
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    .audio-ragemobile{
+        display: block;
+    }
+    .audio-ragemobile{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .audio-ragemobile {
+        -webkit-appearance: none;
+        appearance: none;
+        background: #e5b79d;
+        height: 5px; /* Adjust as needed */
+    }
+    
+    .audio-ragemobile::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #e5b79d;  
+        cursor: pointer;
+    }
+    
+    .audio-ragemobile::-moz-range-thumb {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #e5b79d;  
+        cursor: pointer;
+    }
+    
+    .audio-ragemobile::-ms-thumb {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #e5b79d;  
+        cursor: pointer;
+    }
+}
   .card-outer{
     flex: 0 0 auto;
     width: 200px; 
