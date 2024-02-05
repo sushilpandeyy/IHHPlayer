@@ -3,6 +3,7 @@ import Headtitle from '../Component/Headtitle'
 import Card from '../Component/Card'
 import Cardart from '../Component/Cardart'
 import {all, artist} from '../../Data/newalb'
+import logo from "../../public/ihhlogo.png"
 import '../Scene/Scene.css'
 import usePlayingStore from '../State/playing';
 
@@ -27,8 +28,6 @@ function artcreate(item){
   link={item.key}
   title={item.name}/>
 }
-
-
 
 
 const Home = () => {
@@ -73,7 +72,6 @@ const Home = () => {
   }
 
   function Recentlyplayed(){
-
     const temp = removeDuplicateObjects(recently);
     console.log(temp);
     if(recently[0]){
@@ -97,6 +95,18 @@ const Home = () => {
   }
 }
 
+function Preloader(){
+  return (
+    <>
+    <div className="prelaoderdiv">
+    <center className='animate-pulse'>
+      <img src={logo} alt="" />
+    </center>
+    </div>
+    </>
+  )
+}
+
   return (
     <>
     <Recentlyplayed/>
@@ -104,15 +114,14 @@ const Home = () => {
       title="Popular Artist"
       />
     {loadingartist? "Loading" :<div className="artist flex">
-    {artistdata.map(artcreate)}
+    {artist.map(artcreate)}
     </div>}
     <Headtitle 
     title="Latest Songs"
     />
    {loadingmusic ? "Loading" : <div className="recent flex">
-    {musicdata.map(create)}
+    {all.map(create)}
     </div>}
-    
     </>
   )
 }

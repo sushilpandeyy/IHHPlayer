@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Card.css';
 import { Link } from 'react-router-dom';
 
 const Albumcard = (props) => {

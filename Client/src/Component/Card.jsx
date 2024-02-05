@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Card.css';
+import '../App.css';
 import usePlayingStore from '../State/playing.js';
 import plusicon from "../assets/plusicon.png"
 import Playicon from "../assets/play.png"
@@ -10,6 +10,7 @@ const Card = (props) => {
   const handleclick = () => {
     addrecent(props);
     play(props);
+    
   };
 
   const handleaddmuic = () => {
