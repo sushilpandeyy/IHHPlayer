@@ -18,13 +18,11 @@ import {
 } from "react-router-dom";
 import Artist from "../src/Scene/Artist.jsx"
 import Albumv from './Scene/Albumv.jsx'
-import Loader from "./Scene/Loader.jsx"
 
 const router= createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}>
-      <Route path='' element={<Loader/>}/>
-      <Route path='home' element={<Home/>}/>
+      <Route path='' element={<Home/>}/>
       <Route path='artist' element={<Artist/>}/>
       <Route path='latest' element={<Latest/>}/>
       <Route path='album' element={<Album/>}/>
