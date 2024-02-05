@@ -6,7 +6,7 @@ import usePlayingStore from '../src/State/playing.js';
 function App() {
   const musicRef = useRef(null);
 
-  const [songs, setSongs] = useState(data());
+  const [songs, setSongs] = useState();
   const { playing } = usePlayingStore((state) => ({ playing: state.playing }));
 	const [currentSong, setCurrentSong] = useState(songs[0]);
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -16,11 +16,7 @@ function App() {
 		duration: 0,
 	});
   const playSongHandler = () => {
-		if (isPlaying) {
-			musicRef.current.pause();
-		} else {
 			musicRef.current.play();
-		}
 	};
   return (
     <>
