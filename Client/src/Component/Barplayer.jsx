@@ -64,10 +64,10 @@ const Barplayer = ({
       />
         </div>
         <span className="titlemob">
-      <h2 className='player-h1 text-2xl'>{playing.title}</h2>
+      <h2 className='player-h1 text-2xl'>{playing.title || "Afkap - Waapsi"}</h2>
       </span>
       <ul className='meta-player'>
-        <li className='meta-info text-sm'>{playing.artist}</li>
+        <li className='meta-info text-sm'>{playing.artist || "Afkap"}</li>
         <li className='meta-info text-sm'>{formatTime(songInfo.duration)|| 0}</li>
       </ul>
       {playing.album ?
