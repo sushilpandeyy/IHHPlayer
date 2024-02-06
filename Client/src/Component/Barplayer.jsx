@@ -49,7 +49,7 @@ const Barplayer = ({
       <div className="barplayer">
         <div className="imagebanner">
       <center>
-        <img className="flex-player-banner mobileimagebp shadow-2xl" src={playing.img} alt={playing.title} />
+        <img className="flex-player-banner mobileimagebp shadow-2xl" src={playing.img || "https://img.youtube.com/vi/aVhyeJEewGc/maxresdefault.jpg"} alt={playing.title} />
       </center>
       </div>
       <div className="otherdata">
