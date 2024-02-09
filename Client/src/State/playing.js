@@ -12,7 +12,7 @@ function removeDuplicateObjects(array, key) {
 const PlayingStore = (set) => ({
   playing: [
     {
-      id: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Blowing+UP+Kr%24na.mp3",
+      src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Blowing+UP+Kr%24na.mp3",
       img: "https://img.youtube.com/vi/AwhyFo5N0cg/maxresdefault.jpg",
       title: "Blowing Up",
       artist: "KR$NA",
@@ -30,7 +30,25 @@ const PlayingStore = (set) => ({
     set((state) => ({
       recently: removeDuplicateObjects([props, ...state.recently], 'src')
     }))
-  }, 
+  },
+  playlist: [{
+    src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Blowing+UP+Kr%24na.mp3",
+    img: "https://img.youtube.com/vi/AwhyFo5N0cg/maxresdefault.jpg",
+    title: "Blowing Up",
+    artist: "KR$NA",
+    genre: "Delhi Scene",
+    album: "",
+  },],
+  addplaylists: (props) => {
+    set((state) => ({
+      playlist: [props, ...state.playlist]
+    }) )
+  },
+  popplaylist: () => {
+    set((state) => ({
+      playing: state.playlist.shift(),
+    }))
+  }
 });
 
 const usePlayingStore = create(

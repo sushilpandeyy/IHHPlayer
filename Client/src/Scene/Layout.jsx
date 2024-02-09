@@ -10,8 +10,12 @@ import usePlayingStore from '../State/playing';
 
 const Layout = () => {
   const musicRef = useRef(null);
-  const { playing } = usePlayingStore((state) => ({ playing: state.playing }));
-  const {setcurrenttime} = usePlayingStore((state) => ({setcurrenttime: state.setcurrenttime}));
+  const { playing, playlist } = usePlayingStore((state) => ({ 
+    playing: state.playing,
+    playlist: state.playlist
+   }));
+   const play = usePlayingStore((state) => state.play);
+  const {popplaylist} = usePlayingStore((state) => ({popplaylist: state.popplaylist}));
   const {setduration} = usePlayingStore((state) => ({setduration: state.setduration}));
 	const [currentSong, setCurrentSong] = useState();
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -27,10 +31,16 @@ const Layout = () => {
 		setSongInfo({ ...songInfo, currentTime, duration });
 	};
   
-  const songEndHandler = () => {
-    setIsPlaying(false);
+	const songEndHandlerr = async () => {
+    if(playlist[0]){
+		await play(playlist[0]);
+		if (isPlaying) {
+			musicRef.current.play();
+		}
+    popplaylist();
   }
-	
+	};
+
   function Preloader(){
     return (
       <>
@@ -59,7 +69,7 @@ const Layout = () => {
       ref={musicRef}
       onLoadedMetadata={updateTimeHandler}
 			onTimeUpdate={updateTimeHandler}
-      onEnded={songEndHandler}
+      onEnded={songEndHandlerr}
       />
   <div className="maincontent">
     <div className="Headermenu">

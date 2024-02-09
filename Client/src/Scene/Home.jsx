@@ -73,7 +73,6 @@ const Home = () => {
 
   function Recentlyplayed(){
     const temp = removeDuplicateObjects(recently);
-    console.log(temp);
     if(recently[0]){
     return (
       <>

@@ -6,7 +6,6 @@ import previous from "../assets/previous.png";
 import disz from "../Icon/disc-com.png";
 import usePlayingStore from '../State/playing';
 
-
 const Barplayer = ({
   Adre,
   songInfo,
@@ -14,8 +13,11 @@ const Barplayer = ({
   isPlaying,
 	setIsPlaying,
 }) => {
-  const { playing} = usePlayingStore((state) => ({ 
+  const { playing, playlistmusic, setplaym, playlist} = usePlayingStore((state) => ({ 
     playing: state.playing,
+    playlistmusic: state.playlistmusic,
+    setplaym: state.setplaym,
+    playlist: state.playlist
    }));
   const handleTimeSeek = (e) => {
     Adre.current.currentTime = e.target.value;
@@ -37,12 +39,13 @@ const Barplayer = ({
       setIsPlaying(true);
     }
   };
-
-  useEffect(()=>{
+  
+  useEffect(() => {
     if (isPlaying) {
-			Adre.current.play();
-		}
-  },[playing.src]);
+      console.log("Effect triggered");
+      Adre.current.play();
+    }
+  }, [playing]);
 
   return (
     <>
