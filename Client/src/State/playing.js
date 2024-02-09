@@ -43,6 +43,11 @@ const PlayingStore = (set) => ({
     set((state) => ({
       playlist: [props, ...state.playlist]
     }) )
+  },
+  popplaylist: () => {
+    set((state) => ({
+      playing: state.playlist.shift(),
+    }))
   }
 });
 

@@ -15,7 +15,7 @@ const Layout = () => {
     playlist: state.playlist
    }));
    const play = usePlayingStore((state) => state.play);
-  const {setcurrenttime} = usePlayingStore((state) => ({setcurrenttime: state.setcurrenttime}));
+  const {popplaylist} = usePlayingStore((state) => ({popplaylist: state.popplaylist}));
   const {setduration} = usePlayingStore((state) => ({setduration: state.setduration}));
 	const [currentSong, setCurrentSong] = useState();
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -31,21 +31,14 @@ const Layout = () => {
 		setSongInfo({ ...songInfo, currentTime, duration });
 	};
   
-  const songEndHandler = () => {
-    setIsPlaying(false);
-    if(playlist){
-      play(playlist[0]);
-      setIsPlaying(true);
-    }
-  }
 	const songEndHandlerr = async () => {
-    console.log("PLAYLIST 0")
-    console.log(playlist[0])
+    if(playlist[0]){
 		await play(playlist[0]);
-
 		if (isPlaying) {
 			musicRef.current.play();
 		}
+    popplaylist();
+  }
 	};
 
   function Preloader(){
