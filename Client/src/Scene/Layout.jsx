@@ -10,7 +10,11 @@ import usePlayingStore from '../State/playing';
 
 const Layout = () => {
   const musicRef = useRef(null);
-  const { playing } = usePlayingStore((state) => ({ playing: state.playing }));
+  const { playing, playlist } = usePlayingStore((state) => ({ 
+    playing: state.playing,
+    playlist: state.playlist
+   }));
+   const play = usePlayingStore((state) => state.play);
   const {setcurrenttime} = usePlayingStore((state) => ({setcurrenttime: state.setcurrenttime}));
   const {setduration} = usePlayingStore((state) => ({setduration: state.setduration}));
 	const [currentSong, setCurrentSong] = useState();
@@ -29,8 +33,21 @@ const Layout = () => {
   
   const songEndHandler = () => {
     setIsPlaying(false);
+    if(playlist){
+      play(playlist[0]);
+      setIsPlaying(true);
+    }
   }
-	
+	const songEndHandlerr = async () => {
+    console.log("PLAYLIST 0")
+    console.log(playlist[0])
+		await play(playlist[0]);
+
+		if (isPlaying) {
+			musicRef.current.play();
+		}
+	};
+
   function Preloader(){
     return (
       <>
@@ -55,11 +72,11 @@ const Layout = () => {
   return (
    <>
   <audio
-      src={playing.src || "https://ihhplayer.s3.ap-south-1.amazonaws.com/Afkap+Waapsi+Official.mp3"}
+      src={playing.src}
       ref={musicRef}
       onLoadedMetadata={updateTimeHandler}
 			onTimeUpdate={updateTimeHandler}
-      onEnded={songEndHandler}
+      onEnded={songEndHandlerr}
       />
   <div className="maincontent">
     <div className="Headermenu">
