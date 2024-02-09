@@ -20,6 +20,11 @@ const artist = [
         name: "Talha Anjum"
     },
     {
+        key: "ENCOR",
+        img: "https://images.genius.com/5046aa00f5ab63c2839e789fb8bfbcf1.531x531x1.jpg",
+        name: "Encore ABJ"
+    },
+    {
         key: "RAWL",
         img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Rawal-artist.jpeg",
         name: "Rawal"
@@ -64,6 +69,11 @@ const artist = [
     key: "SAPU",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Saar_pUnch_artist.jpeg",
     name: "Saar Punch"
+},
+{
+    key: "FRAPP",
+    img: "https://scontent.fhyd14-1.fna.fbcdn.net/v/t1.6435-9/107766148_1689439654543886_2426830455636606118_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=dd63ad&_nc_ohc=6ORhgtxrlSAAX9-9B0r&_nc_ht=scontent.fhyd14-1.fna&oh=00_AfD8Kr7zjPVMv6d9AVzXOIscYr1TRKCzZL2u30M8ICr4vQ&oe=65E9246E",
+    name: "Frappe Ash"
 },
 ]
 const album = [
@@ -115,6 +125,50 @@ const album = [
 ]
 //https://youtu.be/VKMw2it8dQY?si=A4prnxF8KdUg-OJe INTRO
 const all = [
+    {
+        key: "2er9ukbfa0M",
+        seq: 10,
+        src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/SHOR+Official+Music+Video+Mooroo+TalhaAn.mp3",
+        img: "https://images.genius.com/5270442bebd675d860d520ed34a34f13.1000x1000x1.jpg",
+        title: "SHOR",
+        artist: "Mooroo",
+        artistkey: ['MOROO','TAJUM'],
+        genre: "",
+        album: "",
+    },
+    {
+        key: "KeoajJTxOsA",
+        seq: 10,
+        src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Wait+For+You.mp3",
+        img: "https://img.youtube.com/vi/KeoajJTxOsA/maxresdefault.jpg",
+        title: "Wait For You",
+        artist: "Encore ABJ",
+        artistkey: ['ENCOR', 'TLYU'],
+        genre: "",
+        album: "",
+    },
+    {
+        key: "RGY2gGafiGM",
+        seq: 10,
+        src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Wish+You+Were+Here.mp3",
+        img: "https://img.youtube.com/vi/RGY2gGafiGM/maxresdefault.jpg",
+        title: "Wish You Were Here",
+        artist: "Frappe Ash",
+        artistkey: ['FRAPP','ENCOR'],
+        genre: "",
+        album: "",
+    },
+    {
+        key: "M5XrU4Rv2A0",
+        seq: 10,
+        src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Tsumyoki+x+RAWAL.mp3",
+        img: "https://img.youtube.com/vi/M5XrU4Rv2A0/maxresdefault.jpg",
+        title: "Tsumyoki x RAWAL - Ek Do Ek",
+        artist: "Tsumyoki",
+        artistkey: ['TSYM','RAWL'],
+        genre: "",
+        album: "",
+    },
     {
         key: "6sUBq9mTfeY",
         seq: 10,

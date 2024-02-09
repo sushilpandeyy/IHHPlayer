@@ -52,7 +52,7 @@ const Barplayer = ({
       <div className="barplayer">
         <div className="imagebanner">
       <center>
-        <img className="flex-player-banner mobileimagebp shadow-2xl" src={playing.img || "https://img.youtube.com/vi/aVhyeJEewGc/maxresdefault.jpg"} alt={playing.title} />
+        <img className="flex-player-banner mobileimagebp shadow-2xl" src={playing.img || "https://img.youtube.com/vi/RGY2gGafiGM/maxresdefault.jpg"} alt={playing.title} />
       </center>
       </div>
       <div className="otherdata">
@@ -67,10 +67,10 @@ const Barplayer = ({
       />
         </div>
         <span className="titlemob">
-      <h2 className='player-h1 text-2xl'>{playing.title || "Afkap - Waapsi"}</h2>
+      <h2 className='player-h1 text-2xl'>{playing.title || "Wish You Were Here"}</h2>
       </span>
       <ul className='meta-player'>
-        <li className='meta-info text-sm'>{playing.artist || "Afkap"}</li>
+        <li className='meta-info text-sm'>{playing.artist || "Frappe Ash"}</li>
         <li className='meta-info text-sm'>{formatTime(songInfo.duration)|| 0}</li>
       </ul>
       {playing.album ?
