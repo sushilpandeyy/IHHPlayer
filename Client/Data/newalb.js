@@ -122,6 +122,112 @@ const album = [
             },
         ]
     },
+    {
+        key: "TRYNOTTOCRY",
+        title: "........",
+        Artist: ".........",
+        artistkey: ['Dont'],
+        img: "https://i.scdn.co/image/ab6775700000ee857142baf22223c81c0d8c8279",
+        songs: [
+            {
+                sq: 1,
+                title: "Luminary",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Joel+Sunny+Luminary.mp3",
+                img: "https://img.youtube.com/vi/VkbvUjbHcGE/maxresdefault.jpg"
+            },
+            {
+                sq: 2,
+                title: "Mia & Sebastian’s Theme",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Mia+and+Sebastians+Theme.mp3",
+                img: "https://img.youtube.com/vi/D3ovuBdbUqk/maxresdefault.jpg"
+            },
+            {
+                sq: 3,
+                title: "Where is my mind",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Where+is+My+Mind+Piano+Version.mp3",
+                img: "https://img.youtube.com/vi/Dxc5uynuYjw/maxresdefault.jpg"
+            },
+            {
+                sq: 4,
+                title: "Another X Experience",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/YtMp3+love.mp3",
+                img: "https://img.youtube.com/vi/32QbRALNC4k/maxresdefault.jpg"
+            },
+            {
+                sq: 5,
+                title: "The Night we met",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Lord+Huron+The+Night+We+Met.mp3",
+                img: "https://img.youtube.com/vi/KtlgYxa6BMU/maxresdefault.jpg"
+            },
+            {
+                sq: 6,
+                title: "Apocalypse",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Apocalypse+by+Cigarettes+After+Sex.mp3",
+                img: "https://img.youtube.com/vi/sElE_BfQ67s/maxresdefault.jpg"
+            },
+            {
+                sq: 7,
+                title: "Say Yes To Heaven",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Lana+Del+Rey+Say+Yes+To+Heaven.mp3",
+                img: "https://img.youtube.com/vi/MiAoetOXKcY/maxresdefault.jpg"
+            },
+            {
+                sq: 8,
+                title: "My Love Mine All Mine",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Lord+Huron+The+Night+We+Met.mp3",
+                img: "https://img.youtube.com/vi/CwGbMYLjIpQ/maxresdefault.jpg"
+            },
+            {
+                sq: 9,
+                title: "Cinnamon Girl",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Cinnamon+Girl.mp3",
+                img: "https://img.youtube.com/vi/DCYmJDO2_IE/maxresdefault.jpg"
+            },
+            {
+                sq: 10,
+                title: "Le Onde",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Einaudi+Le+Onde.mp3",
+                img: "https://img.youtube.com/vi/18o1806rUsE/maxresdefault.jpg"
+            },
+            {
+                sq: 11,
+                title: "Remebering Tessa",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Remembering+Tessa.mp3",
+                img: "https://img.youtube.com/vi/eDBOclZHlyE/maxresdefault.jpg"
+            },
+            {
+                sq: 12,
+                title: "Without your consent",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Without+Your+Consent.mp3",
+                img: "https://img.youtube.com/vi/1oBjUrg2Nsc/maxresdefault.jpg"
+            },
+            {
+                sq: 13,
+                title: "Reflection",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Borrtex+Reflections.mp3",
+                img: "https://img.youtube.com/vi/vDj6o7dC2OA/maxresdefault.jpg"
+            },
+            {
+                sq: 14,
+                title: "Hotline",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Billie+Eilish+Hotline+Edit.mp3",
+                img: "https://img.youtube.com/vi/VpEITQDQRec/maxresdefault.jpg"
+            },
+            {
+                sq: 15,
+                title: "What was i made for?",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/YtMp3+What+Was+I+Made+For.mp3",
+                img: "https://img.youtube.com/vi/NN7kBwrJSnE/maxresdefault.jpg"
+            },
+            {
+                sq: 16,
+                title: "The One That Got Away",
+                src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Katy+Perry+The+One.mp3",
+                img: "https://img.youtube.com/vi/PGF8B3y_p64/maxresdefault.jpg"
+            },
+            
+        ]
+    },
 ]
 //https://youtu.be/VKMw2it8dQY?si=A4prnxF8KdUg-OJe INTRO
 const all = [
