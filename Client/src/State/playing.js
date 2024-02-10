@@ -39,14 +39,24 @@ const PlayingStore = (set) => ({
     genre: "Delhi Scene",
     album: "",
   },],
-  addplaylists: (props) => {
+  addplaylists: (props) => { //playing at start
     set((state) => ({
-      playlist: [props, ...state.playlist]
+      playlist: removeDuplicateObjects([props, ...state.playlist], 'src')
+    }) )
+  },
+  addbplay: (props) => {    //Adding for playlists
+    set((state) => ({
+      playlist: removeDuplicateObjects([...state.playlist, props], 'src')
     }) )
   },
   popplaylist: () => {
     set((state) => ({
       playing: state.playlist.shift(),
+    }))
+  },
+  cleanplaylist: () => {
+    set(() => ({
+      playlist: []
     }))
   }
 });

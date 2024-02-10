@@ -37,31 +37,6 @@ const Home = () => {
   const [loadingmusic, setLoadingmusic] = useState(true);
   const { recently } = usePlayingStore((state) => ({ recently: state.recently }));
 
-  useEffect(()=>{
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://ihhpserver.onrender.com/music');
-        const responseartist = await fetch('https://ihhpserver.onrender.com/artist');
-        if (!response.ok) {
-          throw new Error('Network response was not ok in music');
-        }
-        if (!responseartist.ok) {
-          throw new Error('Network response was not ok in artist');
-        }
-        const jsonData = await response.json();
-        setmusicData(jsonData);
-        const jsonDataa = await responseartist.json();
-        setartistData(jsonDataa);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoadingmusic(false);
-        setLoadingartist(false);
-      }
-    };
-
-    fetchData();
-  }, [])
 
   function removeDuplicateObjects(array, key) {
     return array.filter((obj, index, self) => 

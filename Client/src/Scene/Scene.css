@@ -110,3 +110,20 @@ center.animate-pulse {
     justify-content: center;
     align-items: center;
 }
+.flexboxplay{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+}
+.circleplayimagee{
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+}
+.circleplayf{
+    width: 50px;
+    height: 50px;
+    background-color: #e5b79d;
+    border-radius: 50%;
+}
