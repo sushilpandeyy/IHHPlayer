@@ -65,7 +65,7 @@ const Layout = () => {
   return (
    <>
   <audio
-      src={playing.src}
+      src={playing.src || "https://ihhplayer.s3.ap-south-1.amazonaws.com/Wish+You+Were+Here.mp3"}
       ref={musicRef}
       onLoadedMetadata={updateTimeHandler}
 			onTimeUpdate={updateTimeHandler}
