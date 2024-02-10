@@ -68,6 +68,10 @@ const Barplayer = ({
       </div>
       <div className="otherdata">
         <div className="mobileinput">
+          <div className="currenttimemobile">
+        {formatTime(songInfo.currentTime)}
+            </div>   
+            <div className="mobildinputbar">
         <input
         className='audio-ragemobile'
         type="range"
@@ -76,6 +80,10 @@ const Barplayer = ({
         value={songInfo.currentTime}
         onChange={handleTimeSeek}
       />
+      </div>
+      <div className="mobiletotal">
+      {formatTime(songInfo.duration) || 0}
+      </div>
         </div>
         <span className="titlemob">
       <h2 className='player-h1 text-2xl'>{playing.title || "Wish You Were Here"}</h2>
