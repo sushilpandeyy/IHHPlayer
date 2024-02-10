@@ -11,13 +11,13 @@ const Barplayer = ({
   songInfo,
   setSongInfo,
   isPlaying,
-	setIsPlaying,
+	setIsPlaying
 }) => {
-  const { playing, playlistmusic, setplaym, playlist} = usePlayingStore((state) => ({ 
+  const { playing, playlist, play, popplaylist} = usePlayingStore((state) => ({ 
     playing: state.playing,
-    playlistmusic: state.playlistmusic,
-    setplaym: state.setplaym,
-    playlist: state.playlist
+    playlist: state.playlist,
+    play: state.play,
+    popplaylist: state.popplaylist,
    }));
   const handleTimeSeek = (e) => {
     Adre.current.currentTime = e.target.value;
@@ -40,6 +40,17 @@ const Barplayer = ({
     }
   };
   
+  const handlenext = async () => {
+    if(playlist[0]){
+		await play(playlist[0]);
+    popplaylist
+		if (isPlaying) {
+			Adre.current.play();
+		}
+    popplaylist();
+  }
+	};
+
   useEffect(() => {
     if (isPlaying) {
       console.log("Effect triggered");
@@ -99,7 +110,7 @@ const Barplayer = ({
           className="flex-control-player-ot"
           src={next}
           alt=""
-          onClick={handlePlayPause}
+          onClick={handlenext}
         />
       </div>
       <p className='text-sm meta-player'>

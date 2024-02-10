@@ -41,12 +41,12 @@ const PlayingStore = (set) => ({
   },],
   addplaylists: (props) => { //playing at start
     set((state) => ({
-      playlist: [props, ...state.playlist]
+      playlist: removeDuplicateObjects([props, ...state.playlist], 'src')
     }) )
   },
   addbplay: (props) => {    //Adding for playlists
     set((state) => ({
-      playlist: [...state.playlist, props]
+      playlist: removeDuplicateObjects([...state.playlist, props], 'src')
     }) )
   },
   popplaylist: () => {
