@@ -31,14 +31,7 @@ const PlayingStore = (set) => ({
       recently: removeDuplicateObjects([props, ...state.recently], 'src')
     }))
   },
-  playlist: [{
-    src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Blowing+UP+Kr%24na.mp3",
-    img: "https://img.youtube.com/vi/AwhyFo5N0cg/maxresdefault.jpg",
-    title: "Blowing Up",
-    artist: "KR$NA",
-    genre: "Delhi Scene",
-    album: "",
-  },],
+  playlist: [],
   addplaylists: (props) => { //playing at start
     set((state) => ({
       playlist: removeDuplicateObjects([props, ...state.playlist], 'src')
