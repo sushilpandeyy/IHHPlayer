@@ -75,6 +75,11 @@ const artist = [
     img: "https://scontent.fhyd14-1.fna.fbcdn.net/v/t1.6435-9/107766148_1689439654543886_2426830455636606118_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=dd63ad&_nc_ohc=6ORhgtxrlSAAX9-9B0r&_nc_ht=scontent.fhyd14-1.fna&oh=00_AfD8Kr7zjPVMv6d9AVzXOIscYr1TRKCzZL2u30M8ICr4vQ&oe=65E9246E",
     name: "Frappe Ash"
 },
+{
+    key: "DKAT",
+    img: "https://i.scdn.co/image/ab6761610000e5eb6b12f1e21721dc06da17379d",
+    name: "DAKAIT"
+},
 ]
 const album = [
     {
@@ -239,6 +244,17 @@ const all = [
         title: "SHOR",
         artist: "Mooroo",
         artistkey: ['MOROO','TAJUM'],
+        genre: "",
+        album: "",
+    },
+    {
+        key: "mn-kkuS_GGA",
+        seq: 10,
+        src: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Dakait+x+Aniket.mp3",
+        img: "https://img.youtube.com/vi/mn-kkuS_GGA/maxresdefault.jpg",
+        title: "Dev Nagri",
+        artist: "DAKAIT",
+        artistkey: ['DKAT'],
         genre: "",
         album: "",
     },
