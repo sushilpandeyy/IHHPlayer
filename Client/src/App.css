@@ -252,6 +252,12 @@ ul{
     padding: 5px;
     margin: 5px;
   }
+.currenttimemobile{
+    display: none;
+}
+.mobiletotal{
+    display: none;
+}
   @media only screen and (max-width: 768px) {
     .mobileinput {
         display: flex;
@@ -260,9 +266,11 @@ ul{
         margin: 2px;
     }
     .currenttimemobile{
+        display: block;
         margin: 1px;
     }
     .mobiletotal{
+        display: block;
         margin: 1px;
     }
     .card-outer{
