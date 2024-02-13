@@ -2,6 +2,8 @@
 
 IHH Player is an audio streaming application focused on Indian Hip Hop music.
 
+![IHH Player Homepage](https://res.cloudinary.com/djug8zfu7/image/upload/v1707813680/gtncuy7tvlk0dewmn5ol.jpg)
+
 ## Installation
 
 To get started with IHH Player, you'll need to clone the repository and set up both the client and server:
