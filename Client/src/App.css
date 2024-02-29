@@ -329,7 +329,7 @@ ul{
   }
   .card-art{
       flex: 0 0 auto;
-      width: 200px; 
+      width: auto; 
       margin: 5px; 
   }
   *::-webkit-scrollbar{
