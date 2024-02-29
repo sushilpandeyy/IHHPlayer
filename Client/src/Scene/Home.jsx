@@ -82,7 +82,7 @@ function Preloader(){
 }
 
 function delhicards(item){
-  if(item.genre && item.genre.includes('Delhi')){
+  if(item.genre && item.genre.includes('delhi')){
     return (
       <Card
         key={item.src}
