@@ -244,7 +244,7 @@ const all = [
         title: "SHOR",
         artist: "Mooroo",
         artistkey: ['MOROO','TAJUM'],
-        genre: "",
+        genre: [],
         album: "",
     },
     {
@@ -255,7 +255,7 @@ const all = [
         title: "Dev Nagri",
         artist: "DAKAIT",
         artistkey: ['DKAT'],
-        genre: "",
+        genre: [],
         album: "",
     },
     {
@@ -266,7 +266,7 @@ const all = [
         title: "Wait For You",
         artist: "Encore ABJ",
         artistkey: ['ENCOR', 'TLYU'],
-        genre: "",
+        genre: [],
         album: "",
     },
     {
@@ -277,7 +277,7 @@ const all = [
         title: "No Breaks",
         artist: "Yungsta",
         artistkey: ['YUNGSTA','ENCOR'],
-        genre: "",
+        genre: [],
         album: "",
     },
     {
@@ -288,7 +288,7 @@ const all = [
         title: "Wish You Were Here",
         artist: "Frappe Ash",
         artistkey: ['FRAPP','ENCOR'],
-        genre: "",
+        genre: [],
         album: "",
     },
     {
@@ -299,7 +299,7 @@ const all = [
         title: "Tsumyoki x RAWAL - Ek Do Ek",
         artist: "Tsumyoki",
         artistkey: ['TSYM','RAWL'],
-        genre: "",
+        genre: [],
         album: "",
     },
     {
@@ -310,7 +310,7 @@ const all = [
         title: "Hola Amigo",
         artist: "KR$NA",
         artistkey: ['KR$NA','SEDMUT'],
-        genre: "",
+        genre: ['delhi'],
         album: "Far From Away",
     },
     {
@@ -321,7 +321,7 @@ const all = [
         title: "Afkap - Waapsi",
         artist: "Afkap",
         artistkey: ['AFKP'],
-        genre: "",
+        genre: [],
         album: "Parat",
     },
     {
@@ -332,7 +332,7 @@ const all = [
         title: "BHAGWAAN - KARMA x Sez On The Beat",
         artist: "KARMA",
         artistkey: ['KRMA'],
-        genre: "",
+        genre: [],
         album: "",
     },
     {
@@ -343,7 +343,7 @@ const all = [
         title: "Maykhana - Saar Punch, @Bharg",
         artist: "Saar Punch",
         artistkey: ['SAPU', 'BHRG'],
-        genre: "",
+        genre: [],
         album: "Oopar Neeche",
     },
     {
@@ -354,7 +354,7 @@ const all = [
         title: "Downers At Dusk",
         artist: "Talha Anjum",
         artistkey: ['TAJUM'],
-        genre: "",
+        genre: [],
         album: "Open Letter",
     },
     {
@@ -365,7 +365,7 @@ const all = [
         title: "Blowing Up",
         artistkey: ['KR$NA'],
         artist: "KR$NA",
-        genre: "Delhi Scene",
+        genre: ['delhi'],
         album: "",
     },
     {
@@ -376,7 +376,7 @@ const all = [
         title: "Badman Ft WickedSunnyy",
         artistkey: ['SPRMNK'],
         artist: "SuperManikk",
-        genre: "Delhi Scene",
+        genre: [],
         album: "",
     },
     {
@@ -387,7 +387,7 @@ const all = [
         title: "KING OF INDIAN HIP HOP (PROD BY Babz beats)",
         artist: "Emiway Bantai",
         artistkey: ['EMYBTA'],
-        genre: "Mumbai Scene",
+        genre: [],
         album: "King Of The Streets",
     },
     {
@@ -398,7 +398,7 @@ const all = [
         title: "Brand New",
         artistkey: ['SEDMUT'],
         artist: "Seedhe Maut",
-        genre: "Delhi Scene",
+        genre: [],
         album: "LunchBreak",
     },
     {
@@ -409,7 +409,7 @@ const all = [
         title: "11K - Seedhe Maut",
         artist: "Seedhe Maut",
         artistkey: ['SEDMUT'],
-        genre: "Delhi Scene",
+        genre: [],
         album: "LunchBreak",
     },
     {
@@ -419,7 +419,7 @@ const all = [
         img: "https://i.ytimg.com/vi/jEfUeVlauJ4/0.jpg",
         title: "Ki Pushde o haal Fakiran da",
         artist: "Shiv Kumar Batalviya",
-        genre: "Poetry",
+        genre: [],
         album: "",
     },
     {
@@ -430,7 +430,7 @@ const all = [
         title: "Mere Bina @KSHMRmusic The PropheC @TalhaAnjum",
         artistkey: ['TPROC', 'TAJUM'],
         artist: "The PropheC",
-        genre: "Lyrical",
+        genre: [],
         album: "Karam",
     },
     {
@@ -441,7 +441,7 @@ const all = [
         title: "Panther X Raga - Galat Karam",
         artist: "Panther",
         artistkey: ['PATHR'],
-        genre: "Rage",
+        genre: ['delhi'],
         album: "",
     },
     {
@@ -452,7 +452,7 @@ const all = [
         title: "Panther - Aisi Jagah Se",
         artist: "Panther",
         artistkey: ['PATHR'],
-        genre: "",
+        genre: ['delhi'],
         album: "Flying Towards The City",
     },
 ]

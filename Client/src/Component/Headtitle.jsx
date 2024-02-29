@@ -19,7 +19,7 @@ const Headtitle = (props) => {
             <h2 className='text-2xl'>{props.title}</h2>
         </div>
         <div className="all">
-            <p className='showall'><Link to={link}>Show All</Link></p>
+            <p className='showall'><Link to={props.Link || link}>Show All</Link></p>
         </div>
     </div>
     </>

@@ -81,6 +81,23 @@ function Preloader(){
   )
 }
 
+function delhicards(item){
+  if(item.genre && item.genre.includes('Delhi')){
+    return (
+      <Card
+        key={item.src}
+        src={item.src}
+        album={item.album}
+        genre={item.genre}
+        img={item.img}
+        title={item.title}
+        artist={item.artist}
+      />
+    );
+  }
+  return null;
+}
+
   return (
     <>
     <Recentlyplayed/>
@@ -95,6 +112,13 @@ function Preloader(){
     />
     <div className="recent flex">
     {all.slice(0, 10).map(create)}
+    </div>
+    <Headtitle 
+    title="Delhi Scene"
+    Link="/s/delhi"
+    />
+    <div className="recent flex">
+    {all.map(delhicards)}
     </div>
     </>
   )
