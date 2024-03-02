@@ -36,7 +36,7 @@ const Artist = () => {
   }, [])
   return (
     <>
-    <div className="grid grid-cols-5 gap-5 mobilecards">
+    <div className="grid grid-cols-5 mobilecards">
     {artist.map(artcreate)}
     </div>
     </>

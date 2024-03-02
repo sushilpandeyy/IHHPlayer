@@ -18,6 +18,7 @@ import {
 } from "react-router-dom";
 import Artist from "../src/Scene/Artist.jsx"
 import Albumv from './Scene/Albumv.jsx'
+import Sections from './Scene/Sections.jsx'
 
 const router= createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,7 @@ const router= createBrowserRouter(
       <Route path='album' element={<Album/>}/>
       <Route path='artist/:id' element={<Artistmusic/>}/>
       <Route path='album/:id' element={<Albumv/>}/>
+      <Route path='s/:id' element={<Sections/>}/>
     </Route>
   )
 )
