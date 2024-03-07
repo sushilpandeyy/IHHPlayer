@@ -72,7 +72,7 @@ const artist = [
 },
 {
     key: "FRAPP",
-    img: "https://scontent.fhyd14-1.fna.fbcdn.net/v/t1.6435-9/107766148_1689439654543886_2426830455636606118_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=dd63ad&_nc_ohc=6ORhgtxrlSAAX9-9B0r&_nc_ht=scontent.fhyd14-1.fna&oh=00_AfD8Kr7zjPVMv6d9AVzXOIscYr1TRKCzZL2u30M8ICr4vQ&oe=65E9246E",
+    img: "https://i.scdn.co/image/ab67616d0000b273190b6525ba8a1d1a30c9c2b8",
     name: "Frappe Ash"
 },
 {
