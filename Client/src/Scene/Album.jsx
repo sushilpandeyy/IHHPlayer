@@ -23,7 +23,9 @@ const Album = () => {
   //  </div>}
   return (
     <>
+     <div className="grid grid-cols-5 mobilecards">
     {album.map(create)}
+    </div>
     </>
   )
 }
