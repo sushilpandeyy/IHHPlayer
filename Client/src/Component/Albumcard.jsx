@@ -14,7 +14,7 @@ const Albumcard = (props) => {
       <span className="btnplusfl">
       </span>
       <span className="cardtitlearea">
-      <h3 className="cardtitle">{props.title}</h3>
+      <h3 className="cardtitle text-lg">{props.title}</h3>
       </span>
      <span className="cardsubtitlearea">
       <h4 className="cardsubtitle">{props.artist}</h4>

@@ -25,10 +25,10 @@ const Card = (props) => {
       <span className="btnplusfl">
       </span>
       <span className="cardtitlearea">
-      <h3 className="cardtitle">{props.title}</h3>
+      <h3 className="cardtitle text-xl">{props.title}</h3>
       </span>
      <span className="cardsubtitlearea">
-      <h4 className="cardsubtitle">{props.artist}</h4>
+      <h4 className="cardsubtitle text-sm	">{props.artist}</h4>
      </span>
     </div>
   );
