@@ -1,74 +1,35 @@
-import Music from "../models/Music.js";
 import { MongoClient } from 'mongodb';
 import dotenv from "dotenv";
 
 dotenv.config();
-const uri = process.env.Mongo_url;
-
-const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+const mongoUrl = process.env.MONGO_URL;
 
 export const getMusic = async (req, res) => {
+    const client = new MongoClient(mongoUrl, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    });
+
     try {
         await client.connect();
         const database = client.db("IHHPlayer");
         const coll = database.collection("Music");
-        const Musicresp = await coll.find().limit(10).toArray(); 
-        console.log(Musicresp);
-        res.status(200).json(Musicresp);
+        const musicResp = await coll.find().limit(10).toArray(); 
+        console.log(musicResp);
+        res.status(200).json(musicResp);
     } catch (error) {
-        console.log(error.message);
-        res.status(404).json({ message: error.message });
+        console.error(error);
+        res.status(500).json({ message: "Internal server error" });
     } finally {
-        // Close the MongoDB connection after fetching data
-        await client.close();
-    }
-}
-
-export const getArtist = async (req, res) => {
-    try {
-        await client.connect();
-        const database = client.db("IHHPlayer");
-        const coll = database.collection("Artist");
-        const Musicresp = await coll.find().toArray(); 
-        console.log(Musicresp);
-        res.status(200).json(Musicresp);
-    } catch (error) {
-        console.log(error.message);
-        res.status(404).json({ message: error.message });
-    } finally {
-        // Close the MongoDB connection after fetching data
-        await client.close();
-    }
-}
-
-export const getAlbum = async (req, res) => {
-    try {
-        await client.connect();
-        const database = client.db("IHHPlayer");
-        const coll = database.collection("Album");
-        const Musicresp = await coll.find().toArray(); 
-        console.log(Musicresp);
-        res.status(200).json(Musicresp);
-    } catch (error) {
-        console.log(error.message);
-        res.status(404).json({ message: error.message });
-    } finally {
-        // Close the MongoDB connection after fetching data
         await client.close();
     }
 }
 
 export const getsample = async (req, res) => {
     try {
-        res.status(200).message("Working");
+        res.status(200).send("Working");
     } catch (error) {
-        console.log(error.message);
-        res.status(404).json({ message: error.message });
-    } finally {
-        // Close the MongoDB connection after fetching data
-        await client.close();
+        console.error(error.message);
+        res.status(500).json({ message: "Internal server error" });
     }
 }
