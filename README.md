@@ -1,6 +1,13 @@
-# IHH Player
+<div align="center"><h1> ✨ Welcome to Go-with-Flow ✨</h1></div>
+<div align="center">IHH Player is an audio streaming application focused on Indian Hip Hop music.</div><br/>
 
-IHH Player is an audio streaming application focused on Indian Hip Hop music.
+<div align="center">
+
+![Badge](https://img.shields.io/badge/Tech_Stack-MERN-yellow) ![Badge](https://img.shields.io/badge/Version-1.2-green) ![Badge](https://img.shields.io/badge/License-Apache_2.0-blue) ![Badge](https://img.shields.io/badge/Type-OpenSource-orange) ![Badge](https://img.shields.io/badge/For-Students-red) 
+
+</div>
+
+<br />
 
 ![IHH Player Homepage](https://res.cloudinary.com/djug8zfu7/image/upload/f_auto,q_auto/gtncuy7tvlk0dewmn5ol)
 
