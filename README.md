@@ -1,4 +1,4 @@
-<div align="center"><h1> ✨ Welcome to Go-with-Flow ✨</h1></div>
+<div align="center"><h1> ✨ Welcome to IHH Player ✨</h1></div>
 <div align="center">IHH Player is an audio streaming application focused on Indian Hip Hop music.</div><br/>
 
 <div align="center">
