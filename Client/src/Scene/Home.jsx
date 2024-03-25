@@ -8,7 +8,6 @@ import '../Scene/Scene.css'
 import usePlayingStore from '../State/playing';
 
 
-
 function create(item){
  
 return <Card

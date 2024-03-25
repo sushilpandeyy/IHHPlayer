@@ -1,9 +1,16 @@
-import React from 'react'
+import {useState} from 'react'
 import logo from "../../public/ihhlogo.png"
 import '../index.css'
 import '../App.css'
+import Login from './Login'
 import { Link } from 'react-router-dom'
 const Headmenu = () => {
+
+  const [seen, setSeen] = useState(false)
+
+    function togglePop () {
+        setSeen(!seen);
+    };
   return (
     <>
     <div className="headmenu-logo">
@@ -17,7 +24,10 @@ const Headmenu = () => {
       </ul>
     </div>
     <div className="logo-menu">
-      <img src={logo} alt=""  height="50px" width="50px"/>
+    <div>
+            <button onClick={togglePop}>Login</button>
+            {seen ? <Login toggle={togglePop} /> : null}
+        </div>
     </div>
     </>
   )
