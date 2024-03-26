@@ -27,8 +27,6 @@ async function startServer() {
         app.use(helmet());
         app.use(cors());
         app.get('/Music', getMusic);
-      // app.get('/Album', getAlbum);
-     //   app.get('/Artist', getArtist);
         app.get('/', getsample);
         app.listen(3000, () => {
             console.log('Server is running on port 3000');

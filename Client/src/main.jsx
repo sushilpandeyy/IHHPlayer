@@ -19,9 +19,11 @@ import {
 import Artist from "../src/Scene/Artist.jsx"
 import Albumv from './Scene/Albumv.jsx'
 import Sections from './Scene/Sections.jsx'
+import Test from './Scene/Test.jsx'
 
 const router= createBrowserRouter(
   createRoutesFromElements(
+     
     <Route path='/' element={<App/>}>
       <Route path='' element={<Home/>}/>
       <Route path='artist' element={<Artist/>}/>
@@ -31,8 +33,9 @@ const router= createBrowserRouter(
       <Route path='artist/:id' element={<Artistmusic/>}/>
       <Route path='album/:id' element={<Albumv/>}/>
       <Route path='s/:id' element={<Sections/>}/>
+      <Route path='/test' element={<Test/>}/>
     </Route>
-  )
+      )
 )
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

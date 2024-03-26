@@ -64,7 +64,6 @@ const artist = [
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/PANTHER.webp",
     name: "Panther"
 },
-
 {
     key: "SAPU",
     img: "https://ihhplayer.s3.ap-south-1.amazonaws.com/Artist/Saar_pUnch_artist.jpeg",

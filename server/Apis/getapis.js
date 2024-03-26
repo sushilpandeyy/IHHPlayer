@@ -2,7 +2,7 @@ import { MongoClient } from 'mongodb';
 import dotenv from "dotenv";
 
 dotenv.config();
-const mongoUrl = process.env.MONGO_URL;
+const mongoUrl = process.env.Mongo_url;
 
 export const getMusic = async (req, res) => {
     const client = new MongoClient(mongoUrl, {
@@ -15,7 +15,6 @@ export const getMusic = async (req, res) => {
         const database = client.db("IHHPlayer");
         const coll = database.collection("Music");
         const musicResp = await coll.find().limit(10).toArray(); 
-        console.log(musicResp);
         res.status(200).json(musicResp);
     } catch (error) {
         console.error(error);
