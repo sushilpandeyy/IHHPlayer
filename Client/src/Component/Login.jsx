@@ -1,14 +1,36 @@
 //CSS IN INDEX.JS
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import { createClient } from "@supabase/supabase-js"
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function Login(props) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [musicData, setMusicData] = useState([]);
 
     function handleLogin(e) {
         e.preventDefault()
         props.toggle()
     }
+    useEffect(() => {
+        getMusic();
+        
+      }, []);
+
+    async function getMusic() {
+        try {
+            const { data, error } = await supabase.from("Music").select();
+            if (error) throw error;
+            setMusicData(data);
+            console.log(data);
+        } catch (error) {
+            console.error("Error fetching music data:", error);
+        }
+      }
 
     return (
         <div className="popup">
