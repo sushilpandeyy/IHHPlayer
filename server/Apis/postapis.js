@@ -23,11 +23,12 @@ export const adduser = async (req, res) => {
 
     const hashedPassword = await hash(password, 10); 
     const result = await pool.query(
-      'INSERT INTO Users (name, email, phone_number, password) VALUES ($1, $2, $3, $4)',
+      'INSERT INTO Users (name, email, phone_number, password) VALUES ($1, $2, $3, $4) RETURNING userid', // Use RETURNING clause to get the userid
       [name, email, phone_number, hashedPassword]
     );
 
-    res.status(200).send('User inserted successfully');
+    const user = result.rows[0]; 
+    res.status(200).send(user); // Return the userid in the response
   } catch (error) {
     console.error('Error inserting user:', error);
     res.status(500).send('Error inserting user');
