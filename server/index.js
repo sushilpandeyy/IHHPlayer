@@ -3,6 +3,7 @@ import { getMusic, getsample } from "./Apis/getapis.js";
 import { adduser, checkuser } from "./Apis/postapis.js";
 import fs from 'fs'
 import https from 'https';
+import cors from 'cors';
 
 const options = {
     key: fs.readFileSync('/etc/letsencrypt/live/api.contactsushil.me/privkey.pem'),
@@ -12,6 +13,7 @@ const options = {
 async function startServer() {
     try {
         const app = express();
+        app.use(cors());
         app.use(express.json());
         app.get('/Music', getMusic);
         app.post('/login', checkuser);
