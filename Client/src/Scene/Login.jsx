@@ -121,7 +121,7 @@ const Loginform = ({ SetSig, Sig }) => {
   };
 
 const SignupForm = ({ SetSig, Sig }) => {
-    const [Message, setm] = useState("");
+    const [message, setm] = useState("");
     const [formData, setFormData] = useState({
       name: '',
       email: '',
