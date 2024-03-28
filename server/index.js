@@ -8,12 +8,14 @@ import cors from 'cors';
 const options = {
     key: fs.readFileSync('/etc/letsencrypt/live/api.contactsushil.me/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/api.contactsushil.me/fullchain.pem')
-  };
+};
 
 async function startServer() {
     try {
         const app = express();
-        app.use(cors());
+        app.use(cors({
+            origin: 'https://ihh.contactsushil.me'
+            }));
         app.use(express.json());
         app.get('/Music', getMusic);
         app.post('/login', checkuser);
