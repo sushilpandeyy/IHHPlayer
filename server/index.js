@@ -25,8 +25,8 @@ async function startServer() {
         app.post('/login', checkuser);
         app.post('/add', adduser);
         app.get('/', getsample);
-        app.listen(3000, () => {
-            console.log('Server is running on port 3000');
+        app.listen(443, () => {
+            console.log('Server is running on port 443');
         });
     } catch (error) {
         console.error("Failed to connect to MongoDB:", error);
