@@ -14,7 +14,8 @@ async function startServer() {
     try {
         const app = express();
         app.use(cors({
-            origin: 'https://ihh.contactsushil.me'
+            origin: 'https://ihh.contactsushil.me',
+            origin: 'https://ihh.vercel.app'
             }));
         app.use(express.json());
         app.get('/Music', getMusic);
