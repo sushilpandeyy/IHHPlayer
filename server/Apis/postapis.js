@@ -51,7 +51,7 @@ export const checkuser = async (req, res) => {
         if (!passwordm) {
             return res.status(401).send('Incorrect password');
           }
-         res.status(200).send('Login successful');
+         res.status(200).send(user);
         } catch (error) {
           console.error('Error logging in:', error);
           res.status(500).send('Error logging in');
