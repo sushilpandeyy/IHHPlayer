@@ -19,12 +19,12 @@ const pool = new Pool({
 
 export const adduser = async (req, res) => {
   try {
-    let { name, email, phone_number, password } = req.body;
+    let { name, email, password } = req.body;
 
     const hashedPassword = await hash(password, 10); 
     const result = await pool.query(
-      'INSERT INTO Users (name, email, phone_number, password) VALUES ($1, $2, $3, $4) RETURNING userid', // Use RETURNING clause to get the userid
-      [name, email, phone_number, hashedPassword]
+      'INSERT INTO Users (name, email, password) VALUES ($1, $2, $3) RETURNING userid', 
+      [name, email, hashedPassword]
     );
 
     const user = result.rows[0]; 
