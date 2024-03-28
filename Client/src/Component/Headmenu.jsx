@@ -25,8 +25,7 @@ const Headmenu = () => {
     </div>
     <div className="logo-menu">
     <div>
-            <button onClick={togglePop}>Login</button>
-            {seen ? <Login toggle={togglePop} /> : null}
+           <Link to="/login">Login</Link>
         </div>
     </div>
     </>

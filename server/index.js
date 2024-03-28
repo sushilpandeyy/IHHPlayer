@@ -4,7 +4,7 @@ import { artist } from "./data/newalb.js";
 import helmet from "helmet";
 import cors from "cors";
 import { getMusic, getsample } from "./Apis/getapis.js";
-
+import {adduser, checkuser} from "./Apis/postapis.js"
 
 //const client = new MongoClient(uri,  {
 //    serverApi: {
@@ -17,16 +17,13 @@ import { getMusic, getsample } from "./Apis/getapis.js";
 
 async function startServer() {
     try {
-        //const database = client.db('IHHPlayer');
-        //const Music = database.collection("Artist");
-        //const response = await Music.insertMany(artist);
-        //console.log(response);
-        //console.log("Pinged your deployment. You successfully connected to MongoDB!");
         const app = express();
         app.use(express.json());
         app.use(helmet());
         app.use(cors());
         app.get('/Music', getMusic);
+        app.post('/login', checkuser);
+        app.post('/add', adduser);
         app.get('/', getsample);
         app.listen(3000, () => {
             console.log('Server is running on port 3000');
