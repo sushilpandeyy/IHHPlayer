@@ -21,11 +21,18 @@ import Albumv from './Scene/Albumv.jsx'
 import Sections from './Scene/Sections.jsx'
 import Test from './Scene/Test.jsx'
 import Login from './Scene/Login.jsx'
+import Internal from './Scene/Internal.jsx'
+import {
+  Artistform
+} from "./Component/Internalforms.jsx"
 
 const router= createBrowserRouter(
   createRoutesFromElements(
      <>
      <Route path='/login' element={<Login/>}/>
+     <Route path='/internal' element={<Internal/>}>
+      <Route path='/internal/artist' element={<Artistform/>}/>
+    </Route>
     <Route path='/' element={<App/>}>
       <Route path='' element={<Home/>}/>
       <Route path='artist' element={<Artist/>}/>

@@ -53,6 +53,7 @@ const Loginform = ({ SetSig, Sig }) => {
             const userProfileData = await response.json();
             setCookie('userID', userProfileData.user_id, 30);
             setCookie('Name', userProfileData.name, 30);
+            const navigate = useNavigate();
             navigate('/');
             
         } else {

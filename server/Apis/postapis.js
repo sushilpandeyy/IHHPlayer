@@ -30,7 +30,7 @@ export const adduser = async (req, res) => {
       'SELECT * FROM Users WHERE email = $1',
      [email]
      ); 
-    res.status(200).send(result2.rows[0]); // Return the userid in the response
+    res.status(200).send(result2.rows[0]);
   } catch (error) {
     console.error('Error inserting user:', error);
     res.status(500).send('Error inserting user');
@@ -60,3 +60,18 @@ export const checkuser = async (req, res) => {
           res.status(500).send('Error logging in');
         }
       };
+
+export const addartist = async (req, res) => {
+  try{
+    let {Artistkey, img, name} = req.body;
+    const result = await pool.query(
+      'INSERT INTO Artist (Artistkey, img, name) VALUES ($1, $2, $3)', 
+      [Artistkey, img, name]
+    );
+    res.status(200).send("Artist Inserted");
+  }
+  catch (error){
+    console.error('Error logging in:', error);
+    res.status(500).send(error);
+  }
+}
