@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import logo from "../../public/ihhlogo.png";
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const setCookie = (name, value, days) => {
     const expirationDate = new Date();
@@ -235,6 +236,7 @@ const Login = () => {
   return (
     <>
       {Sig ? <Loginform SetSig={SetSig} Sig={Sig} /> : <SignupForm SetSig={SetSig} Sig={Sig} />}
+      <Link to="/internal/artist">Add Artist</Link>
     </>
   );
 };

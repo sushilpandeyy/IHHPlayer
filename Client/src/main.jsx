@@ -19,7 +19,6 @@ import {
 import Artist from "../src/Scene/Artist.jsx"
 import Albumv from './Scene/Albumv.jsx'
 import Sections from './Scene/Sections.jsx'
-import Test from './Scene/Test.jsx'
 import Login from './Scene/Login.jsx'
 import Internal from './Scene/Internal.jsx'
 import {
@@ -42,7 +41,7 @@ const router= createBrowserRouter(
       <Route path='artist/:id' element={<Artistmusic/>}/>
       <Route path='album/:id' element={<Albumv/>}/>
       <Route path='s/:id' element={<Sections/>}/>
-      <Route path='/test' element={<Test/>}/>
+      
     </Route>
     </>
       )
