@@ -3,7 +3,7 @@ import logo from "../../public/ihhlogo.png";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-const navigate = useNavigate();
+
 const setCookie = (name, value, days) => {
     const expirationDate = new Date();
     expirationDate.setDate(expirationDate.getDate() + days);
@@ -23,6 +23,7 @@ const getCookie = (name) => {
   };
 
 const Loginform = ({ SetSig, Sig }) => {
+  const navigate = useNavigate();
     const [Message, setm] = useState("");
     const [formData, setFormData] = useState({
       email: '',
@@ -122,6 +123,7 @@ const Loginform = ({ SetSig, Sig }) => {
   };
 
 const SignupForm = ({ SetSig, Sig }) => {
+  const navigate = useNavigate();
     const [message, setm] = useState("");
     const [formData, setFormData] = useState({
       name: '',
