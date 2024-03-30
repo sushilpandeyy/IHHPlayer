@@ -14,7 +14,7 @@ async function startServer() {
     try {
         const app = express();
         app.use(cors({
-            origin: ['https://ihh.contactsushil.me', 'https://ihh.vercel.app']
+            origin: ['https://ihh.contactsushil.me', 'https://ihh-player.vercel.app/']
         }));
         
         app.use(express.json());
