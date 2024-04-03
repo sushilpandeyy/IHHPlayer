@@ -238,6 +238,7 @@ const Login = () => {
     <>
       {Sig ? <Loginform SetSig={SetSig} Sig={Sig} /> : <SignupForm SetSig={SetSig} Sig={Sig} />}
       <Link to="/internal/artist">Add Artist</Link>
+      <Link to="/internal/music">Add Music</Link>
     </>
   );
 };
