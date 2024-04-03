@@ -17,6 +17,21 @@ const pool = new Pool({
   }
 });
 
+export const addmusic = async (req, res) => {
+  try {
+    let { artist, artistKey, genre, img, key, src, title, album } = req.body;
+    const result = await pool.query(
+        'INSERT INTO music (artist, artistkey, genre, img, key, src, title, album) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
+        [artist, [artistKey], genre, img, key, src, title, album]
+    );
+    res.status(200).send("Music Inserted");
+} catch (error) {
+    console.error('Error logging in:', error);
+    res.status(500).send(error);
+}
+};
+
+
 export const adduser = async (req, res) => {
   try {
     let { name, email, password } = req.body;
@@ -74,4 +89,4 @@ export const addartist = async (req, res) => {
     console.error('Error logging in:', error);
     res.status(500).send(error);
   }
-}
+};

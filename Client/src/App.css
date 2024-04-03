@@ -357,4 +357,10 @@ ul{
       align-items: center;
       justify-content: space-between;
   }
-  
+.testselect{
+    text-decoration: solid black 2;
+}
+
+.ant-select ant-select-outlined css-dev-only-do-not-override-11xg00t ant-select-multiple ant-select-show-arrow ant-select-show-search:where(.css-dev-only-do-not-override-11xg00t).ant-select-multiple {
+    color: #0e1d2e;
+}
