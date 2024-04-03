@@ -1,6 +1,6 @@
 import express from "express";
-import { getMusic, getsample } from "./Apis/getapis.js";
-import { addartist, adduser, checkuser } from "./Apis/postapis.js";
+import { getArtist, getSample } from "./Apis/getapis.js";
+import { addartist, adduser, checkuser, addmusic} from "./Apis/postapis.js";
 import fs from 'fs'
 import https from 'https';
 import cors from 'cors';
@@ -15,21 +15,23 @@ async function startServer() {
         const app = express();
         app.use(cors({
             origin: ['https://ihh.contactsushil.me', 'https://ihh-player.vercel.app/']
-        }));
+       }));
+    //app.use(cors({ origin: 'http://localhost:5173' }));
         
         app.use(express.json());
-        app.get('/Music', getMusic);
+        app.get('/artist', getArtist);
+        app.post('/addmusic', addmusic);
         app.post('/login', checkuser);
         app.post('/addartist', addartist);
         app.post('/add', adduser);
-        app.get('/', getsample);
+        app.get('/',getSample);
         const server = https.createServer(options, app);
         server.listen(443, () => {
             console.log('Server is running on port 443');
         });
-       // app.listen(3000, ()=> {
-       //     console.log("Running at 3000");
-       // })
+   //     app.listen(3000, ()=> {
+   //         console.log("Running at 3000");
+   //     })
     } catch (error) {
         console.error("Failed to start server:", error);
     }

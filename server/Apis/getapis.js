@@ -1,34 +1,36 @@
-import { MongoClient } from 'mongodb';
+import pkg from 'pg';
 import dotenv from "dotenv";
 
 dotenv.config();
-const mongoUrl = process.env.Mongo_url;
 
-export const getMusic = async (req, res) => {
-    const client = new MongoClient(mongoUrl, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
+const { Pool } = pkg;
 
+const pool = new Pool({
+    user: process.env.POST_USER,
+    host: process.env.POST_HOST,
+    database: process.env.POST_DATA,
+    password: process.env.POST_PASSWORD,
+    port: process.env.POST_PORT, 
+    ssl: {
+      rejectUnauthorized: false
+    }
+});
+
+export const getArtist = async (req, res) => {
     try {
-        await client.connect();
-        const database = client.db("IHHPlayer");
-        const coll = database.collection("Music");
-        const musicResp = await coll.find().limit(10).toArray(); 
-        res.status(200).json(musicResp);
+        const result = await pool.query('SELECT * FROM artist');
+        res.status(200).json(result.rows);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Internal server error" });
-    } finally {
-        await client.close();
+        console.error('Error fetching artist data:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 }
 
-export const getsample = async (req, res) => {
+export const getSample = async (req, res) => {
     try {
         res.status(200).send("Working");
     } catch (error) {
-        console.error(error.message);
-        res.status(500).json({ message: "Internal server error" });
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 }
