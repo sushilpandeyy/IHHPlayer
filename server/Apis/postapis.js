@@ -22,7 +22,7 @@ export const addmusic = async (req, res) => {
     let { artist, artistKey, genre, img, key, src, title, album } = req.body;
     const result = await pool.query(
         'INSERT INTO music (artist, artistkey, genre, img, key, src, title, album) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
-        [artist, [artistKey], genre, img, key, src, title, album]
+        [artist, [artistKey], [genre], img, key, src, title, album]
     );
     res.status(200).send("Music Inserted");
 } catch (error) {
