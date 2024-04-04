@@ -160,13 +160,19 @@ export const MusicForm = () => {
   const [selectedart, setSelectedart] = useState([]);
   const [genree, setgenre] = useState([]);
 
+
+
   const handleChangeSelectartist = (value) => {
-    setFormData({
-      ...formData,
-      ['artistkey']: value
-  });
+    setSelectedart(value);
+    updateartist;
   };
 
+  const updateartist=()=> {
+    setFormData({
+      ...formData,
+      ['artistkey']: selectedart
+  });
+  }
   const handleChangeSelectgenre = (value) => {
     setFormData({
       ...formData,
