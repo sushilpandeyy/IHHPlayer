@@ -24,6 +24,10 @@ export const addmusic = async (req, res) => {
         'INSERT INTO music (artist, artistkey, genre, img, key, src, title, album) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
         [artist, [artistKey], [genre], img, key, src, title, album]
     );
+    const artistupdate = await pool.query(
+      'UPDATE music SET artistkey = $1 WHERE key = $2',
+      [[artistKey], key]
+    );    
     res.status(200).send("Music Inserted");
 } catch (error) {
     console.error('Error logging in:', error);
