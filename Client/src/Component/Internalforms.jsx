@@ -108,7 +108,7 @@ export const Artistform = () => {
 
 async function fetchArtist() {
   try {
-    const response = await fetch('https://api.contactsushil.me/artist');
+    const response = await fetch('http://localhost:3000/artist');
     if (!response.ok) {
       throw new Error('Failed to fetch artist data');
     }
@@ -164,15 +164,8 @@ export const MusicForm = () => {
 
   const handleChangeSelectartist = (value) => {
     setSelectedart(value);
-    updateartist;
   };
 
-  const updateartist=()=> {
-    setFormData({
-      ...formData,
-      ['artistkey']: selectedart
-  });
-  }
   const handleChangeSelectgenre = (value) => {
     setFormData({
       ...formData,
@@ -215,27 +208,45 @@ export const MusicForm = () => {
   };
 
   const handleSubmit = async (e) => {
-      e.preventDefault();
-      console.log(formData);
-      try {
-          const response = await fetch('https://api.contactsushil.me/addmusic', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(formData)
-          });
+    e.preventDefault();
+    
+    try {
+        const updatedFormData = {
+            ...formData,
+            ["artistkey"]: selectedart
+        };
 
-          if (response.ok) {
-              setMessage("Music Added");
-          } else {
-              setMessage("FAILED");
-          }
-      } catch (error) {
-          console.error('Error:', error);
-      }
-  };
+        console.log(updatedFormData);
 
+        const response = await fetch('http://localhost:3000/addmusic', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedFormData)
+        });
+
+        if (response.ok) {
+            setMessage("Music Added");
+        } else {
+            setMessage("FAILED");
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
+
+const reset = () => {
+  setFormData({artist: '',
+  artistkey: '',
+  genre: '',
+  img: '',
+  key: '',
+  src: '',
+  title: '',
+  album: ''});
+  setMessage("");
+}
 
   return (
       <section className="bg-gray-50 dark:bg-gray-900">
@@ -343,7 +354,7 @@ export const MusicForm = () => {
                           </div>
                           <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">ADD MUSIC</button>
                           <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                              <span className="font-medium text-primary-600 hover:underline dark:text-primary-500">{message}</span>
+                              <span className="font-medium text-primary-600 hover:underline dark:text-primary-500" onClick={reset}>{message}</span>
                           </p>
                       </form>
                   </div>

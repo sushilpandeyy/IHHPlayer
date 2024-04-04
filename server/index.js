@@ -25,13 +25,13 @@ async function startServer() {
         app.post('/addartist', addartist);
         app.post('/add', adduser);
         app.get('/',getSample);
-        const server = https.createServer(options, app);
-        server.listen(443, () => {
-            console.log('Server is running on port 443');
+      const server = https.createServer(options, app);
+       server.listen(443, () => {
+           console.log('Server is running on port 443');
         });
-   //     app.listen(3000, ()=> {
-   //         console.log("Running at 3000");
-   //     })
+      //  app.listen(3000, ()=> {
+      //      console.log("Running at 3000");
+      //  })
     } catch (error) {
         console.error("Failed to start server:", error);
     }
