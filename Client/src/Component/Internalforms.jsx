@@ -108,7 +108,7 @@ export const Artistform = () => {
 
 async function fetchArtist() {
   try {
-    const response = await fetch('http://localhost:3000/artist');
+    const response = await fetch('https://api.contactsushil.me//artist');
     if (!response.ok) {
       throw new Error('Failed to fetch artist data');
     }
@@ -218,7 +218,7 @@ export const MusicForm = () => {
 
         console.log(updatedFormData);
 
-        const response = await fetch('http://localhost:3000/addmusic', {
+        const response = await fetch('https://api.contactsushil.me//addmusic', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
