@@ -31,7 +31,8 @@ function artcreate(item){
 
 const Home = () => {
   const [latestmusic, setlatestmusic]=useState([]);
-  const [loadingartist, setLoadingartist] = useState(true);
+  const [delhi, setdelhi] = useState([]);
+  const [artist, setartist] = useState([]);
   const [musicdata, setmusicData] = useState(null);
   const [loadingmusic, setLoadingmusic] = useState(true);
   const { recently } = usePlayingStore((state) => ({ recently: state.recently }));
@@ -45,8 +46,26 @@ const Home = () => {
         console.error('Error fetching data:', error);
       }
     };
+    const fetchDatadelhi = async () => {
+      try {
+        const response = await axios.get('https://api.contactsushil.me/getgenre/delhi');
+        setdelhi(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    const fetchArtist = async () => {
+      try {
+        const response = await axios.get('https://api.contactsushil.me/artistlimit');
+        setartist(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
     fetchData();
+    fetchDatadelhi();
+    fetchArtist();
   }, []);
   function removeDuplicateObjects(array, key) {
     return array.filter((obj, index, self) => 
@@ -115,7 +134,7 @@ function delhicards(item){
       title="Popular Artist"
       />
     <div className="artist flex">
-    {artist.slice(0, 10).map(artcreate)}
+    {(artist[0])?artist.map(artcreate):"Loading..."}
     </div>
     <Headtitle 
     title="Latest Songs"
@@ -128,7 +147,7 @@ function delhicards(item){
     Link="/s/delhi"
     />
     <div className="recent flex">
-    {all.map(delhicards)}
+    {(delhi[0])?delhi.map(create):"Loading..."}
     </div>
     </>
   )
