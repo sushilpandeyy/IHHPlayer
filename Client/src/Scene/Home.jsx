@@ -40,7 +40,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get('https://api.contactsushil.me/latest');
-        setlatestmusic(response);
+        setlatestmusic(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -65,7 +65,7 @@ const Home = () => {
     title="Recently Played"
     />
     <div className="recent flex">
-    {(latestmusic[0])?latestmusic.map(create):"Loading..."}
+    {recently.slice(0, 10).map(create)}
     </div>
       </>
     )
@@ -121,7 +121,7 @@ function delhicards(item){
     title="Latest Songs"
     />
     <div className="recent flex">
-    {all.slice(0, 10).map(create)}
+    {(latestmusic[0])?latestmusic.map(create):"Loading..."}
     </div>
     <Headtitle 
     title="Delhi Scene"
