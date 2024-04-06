@@ -1,5 +1,5 @@
 import express from "express";
-import { getArtist, getSample } from "./Apis/getapis.js";
+import { getArtist, getSample, getlatest } from "./Apis/getapis.js";
 import { addartist, adduser, checkuser, addmusic} from "./Apis/postapis.js";
 import fs from 'fs'
 import https from 'https';
@@ -20,6 +20,7 @@ async function startServer() {
         
         app.use(express.json());
         app.get('/artist', getArtist);
+        app.get('/latest', getlatest);
         app.post('/addmusic', addmusic);
         app.post('/login', checkuser);
         app.post('/addartist', addartist);

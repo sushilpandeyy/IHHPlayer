@@ -6,7 +6,7 @@ import {all, artist} from '../../Data/newalb'
 import logo from "../../public/ihhlogo.png"
 import '../Scene/Scene.css'
 import usePlayingStore from '../State/playing';
-
+import axios from 'axios'
 
 function create(item){
  
@@ -30,13 +30,24 @@ function artcreate(item){
 
 
 const Home = () => {
-  const [artistdata, setartistData] = useState(null);
+  const [latestmusic, setlatestmusic]=useState([]);
   const [loadingartist, setLoadingartist] = useState(true);
   const [musicdata, setmusicData] = useState(null);
   const [loadingmusic, setLoadingmusic] = useState(true);
   const { recently } = usePlayingStore((state) => ({ recently: state.recently }));
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://api.contactsushil.me/latest');
+        setlatestmusic(response);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
+    fetchData();
+  }, []);
   function removeDuplicateObjects(array, key) {
     return array.filter((obj, index, self) => 
         index === self.findIndex((t) => (
@@ -54,7 +65,7 @@ const Home = () => {
     title="Recently Played"
     />
     <div className="recent flex">
-    {recently.slice(0, 10).map(create)}
+    {(latestmusic[0])?latestmusic.map(create):"Loading..."}
     </div>
       </>
     )

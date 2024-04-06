@@ -26,6 +26,17 @@ export const getArtist = async (req, res) => {
     }
 }
 
+export const getlatest = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM music LIMIT 10')
+        res.status(200).json(result.rows);
+    }
+    catch(error){
+        console.log('Error in getting latest: ',error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
 export const getSample = async (req, res) => {
     try {
         res.status(200).send("Working");
