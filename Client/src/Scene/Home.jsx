@@ -8,6 +8,9 @@ import '../Scene/Scene.css'
 import usePlayingStore from '../State/playing';
 import axios from 'axios'
 
+//const mainurl = "http://localhost:3000"
+const mainurl = "https://api.contactsushil.me"
+
 function create(item){
  
 return <Card
@@ -40,7 +43,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://api.contactsushil.me/latest');
+        const response = await axios.get(mainurl+'/latest');
         setlatestmusic(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -48,7 +51,7 @@ const Home = () => {
     };
     const fetchDatadelhi = async () => {
       try {
-        const response = await axios.get('https://api.contactsushil.me/getgenre/delhi');
+        const response = await axios.get(mainurl+'/getgenre/delhi');
         setdelhi(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -56,7 +59,7 @@ const Home = () => {
     };
     const fetchArtist = async () => {
       try {
-        const response = await axios.get('https://api.contactsushil.me/artistlimit');
+        const response = await axios.get(mainurl+'/artistlimit');
         setartist(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -96,35 +99,6 @@ const Home = () => {
       </>
     )
   }
-}
-
-function Preloader(){
-  return (
-    <>
-    <div className="prelaoderdiv">
-    <center className='animate-pulse'>
-      <img src={logo} alt="" />
-    </center>
-    </div>
-    </>
-  )
-}
-
-function delhicards(item){
-  if(item.genre && item.genre.includes('delhi')){
-    return (
-      <Card
-        key={item.src}
-        src={item.src}
-        album={item.album}
-        genre={item.genre}
-        img={item.img}
-        title={item.title}
-        artist={item.artist}
-      />
-    );
-  }
-  return null;
 }
 
   return (

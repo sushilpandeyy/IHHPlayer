@@ -1,5 +1,5 @@
 import express from "express";
-import { getArtist, getSample, getlatest, getgenre, getartistlim } from "./Apis/getapis.js";
+import { getArtist, getSample, getlatest, getgenre, getartistlim, getall, getartistmusic, getgenrall } from "./Apis/getapis.js";
 import { addartist, adduser, checkuser, addmusic} from "./Apis/postapis.js";
 import fs from 'fs'
 import https from 'https';
@@ -12,9 +12,12 @@ async function startServer() {
         
         app.use(express.json());
         app.get('/artist', getArtist);
+        app.get('/allmusic', getall);
         app.get('/latest', getlatest);
         app.get('/artistlimit', getartistlim);
         app.get('/getgenre/:genre', getgenre);
+        app.get('/getgenreall/:genre', getgenrall);
+        app.get('/artist/:artistkey', getartistmusic);
         app.post('/addmusic', addmusic);
         app.post('/login', checkuser);
         app.post('/addartist', addartist);

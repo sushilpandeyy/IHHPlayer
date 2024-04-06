@@ -26,6 +26,17 @@ export const getArtist = async (req, res) => {
     }
 }
 
+export const getall = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM music')
+        res.status(200).json(result.rows);
+    }
+    catch(error){
+        console.log('Error in getting latest: ',error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
 export const getlatest = async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM music LIMIT 10')
@@ -52,6 +63,30 @@ export const getgenre = async (req, res) => {
     try {
         const genre = req.params.genre;
         const result = await pool.query('SELECT * FROM music WHERE genre @> ARRAY[$1]::varchar[] LIMIT 10;', [genre])
+        res.status(200).json(result.rows);
+    }
+    catch(error){
+        console.log('Error in getting latest: ',error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+export const getgenrall = async (req, res) => {
+    try {
+        const genre = req.params.genre;
+        const result = await pool.query('SELECT * FROM music WHERE genre @> ARRAY[$1]::varchar[]', [genre])
+        res.status(200).json(result.rows);
+    }
+    catch(error){
+        console.log('Error in getting latest: ',error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+export const getartistmusic = async (req, res) => {
+    try {
+        const artistkey = req.params.artistkey;
+        const result = await pool.query('SELECT * FROM music WHERE artistkey @> ARRAY[$1]::varchar[]', [artistkey])
         res.status(200).json(result.rows);
     }
     catch(error){
