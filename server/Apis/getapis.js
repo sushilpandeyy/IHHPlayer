@@ -37,6 +37,29 @@ export const getlatest = async (req, res) => {
     }
 }
 
+export const getartistlim = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM artist LIMIT 10');
+        res.status(200).json(result.rows);
+    }
+    catch(error){
+        console.log('Error in getting latest: ',error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+export const getgenre = async (req, res) => {
+    try {
+        const genre = req.params.genre;
+        const result = await pool.query('SELECT * FROM music WHERE genre @> ARRAY[$1]::varchar[] LIMIT 10;', [genre])
+        res.status(200).json(result.rows);
+    }
+    catch(error){
+        console.log('Error in getting latest: ',error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
 export const getSample = async (req, res) => {
     try {
         res.status(200).send("Working");
