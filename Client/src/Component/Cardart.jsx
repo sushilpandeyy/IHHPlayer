@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 const Cardart = (props) => {
-    const linkval='/artist/'+props.link;
+    const linkval='/artist/'+props.key;
   return (
     <>
     
