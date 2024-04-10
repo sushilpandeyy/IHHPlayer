@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import playIcon from "../assets/pause.png";
 import pauseIcon from "../assets/play.png";
+import { Link } from 'react-router-dom';
 import next from "../assets/next-button.png";
 import previous from "../assets/previous.png";
 import disz from "../Icon/disc-com.png";

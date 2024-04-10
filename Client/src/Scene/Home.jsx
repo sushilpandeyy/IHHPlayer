@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Headtitle from '../Component/Headtitle'
 import Card from '../Component/Card'
 import Cardart from '../Component/Cardart'
+import { Link } from 'react-router-dom';
 import {all, artist} from '../../Data/newalb'
 import logo from "../../public/ihhlogo.png"
 import '../Scene/Scene.css'
