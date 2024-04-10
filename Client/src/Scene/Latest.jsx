@@ -15,6 +15,7 @@ album={item.album}
 genre={item.genre}
 img={item.img}
 title={item.title}
+Likeddata={item.is_liked}
 artist={item.artist}/>
 }
 

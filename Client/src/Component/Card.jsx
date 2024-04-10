@@ -11,7 +11,7 @@ const mainurl = "http://localhost:3000"
 //const mainurl = "https://api.contactsushil.me"
 
 const Card = (props) => {
-
+  const [liked, setliked] = useState(props.Likeddata);
   const getCookie = (name) => {
     const cookies = document.cookie.split('; ');
     for (let cookie of cookies) {
@@ -31,14 +31,15 @@ const Card = (props) => {
   };
 
   const useridinfo = getCookie('userID');
-  console.log(props)
   const handleLike = async () => {  
     try {
       const response = await axios.post(mainurl+'/likemusic', {
         user_id: useridinfo,
-        song_id: props.key
+        song_id: props.img 
       });
-      console.log(response.data);
+      if(response.ok){
+        setliked(true);
+      }
     } catch (error) {
       console.error('Error adding liked music:', error);
     }
@@ -67,7 +68,7 @@ const Card = (props) => {
      </span>
      </div>
      <div className="p">
-      {(useridinfo)?(props.is_liked)?<IconHeartFilled onClick={handledislike}/>:<IconHeart onClick={handleLike}/>:<Link to={'/login'}><IconHeart/></Link>}
+      {(useridinfo)?(liked)?<IconHeartFilled onClick={handledislike}/>:<IconHeart onClick={handleLike}/>:<Link to={'/login'}><IconHeart/></Link>}
      </div>
      </div>
     </div>
