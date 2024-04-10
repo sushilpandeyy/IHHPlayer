@@ -37,6 +37,29 @@ export const getall = async (req, res) => {
     }
 }
 
+export const getallwlike = async (req, res) => {
+    const user = req.params.user;
+    try {
+        const result = await pool.query(`
+    SELECT
+        m.*,
+        CASE
+            WHEN lm.songid IS NOT NULL THEN TRUE
+            ELSE FALSE
+        END AS is_liked
+    FROM
+        Music m
+    LEFT JOIN
+        LikedMusic lm ON m.key = lm.songid AND lm.userid = $1;
+`, [user]);
+        res.status(200).json(result.rows);
+    }
+    catch(error){
+        console.log('Error in getting latest: ',error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
 export const getlatest = async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM music LIMIT 10')

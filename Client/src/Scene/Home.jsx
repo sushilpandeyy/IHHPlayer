@@ -8,8 +8,8 @@ import '../Scene/Scene.css'
 import usePlayingStore from '../State/playing';
 import axios from 'axios'
 
-//const mainurl = "http://localhost:3000"
-const mainurl = "https://api.contactsushil.me"
+const mainurl = "http://localhost:3000"
+//const mainurl = "https://api.contactsushil.me"
 
 function create(item){
  
@@ -39,6 +39,19 @@ const Home = () => {
   const [musicdata, setmusicData] = useState(null);
   const [loadingmusic, setLoadingmusic] = useState(true);
   const { recently } = usePlayingStore((state) => ({ recently: state.recently }));
+
+  const getCookie = (name) => {
+    const cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.split('=');
+      if (cookieName === name) {
+        return cookieValue;
+      }
+    }
+    return null;
+  };
+
+  const useridinfo = getCookie('userID');
 
   useEffect(() => {
     const fetchData = async () => {

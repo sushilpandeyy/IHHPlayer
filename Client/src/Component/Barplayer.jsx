@@ -5,6 +5,7 @@ import next from "../assets/next-button.png";
 import previous from "../assets/previous.png";
 import disz from "../Icon/disc-com.png";
 import usePlayingStore from '../State/playing';
+import {IconHeart, IconHeartFilled} from '@tabler/icons-react';
 
 const Barplayer = ({
   Adre,
@@ -121,9 +122,14 @@ const Barplayer = ({
           onClick={handlenext}
         />
       </div>
+      <div className="flex justify-between content-center">
       <p className='text-sm meta-player'>
         {formatTime(songInfo.currentTime)}/{formatTime(songInfo.duration) || 0}
       </p>
+      <div className="meta-player">
+      <IconHeart/>
+      </div>
+      </div>
       <input
         className='audio-rage'
         type="range"

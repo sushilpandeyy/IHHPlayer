@@ -4,8 +4,8 @@ import Card from "../Component/Card.jsx"
 import Headtitle2 from '../Component/Headtitle2.jsx'
 import axios from 'axios'
 
-//const mainurl = "http://localhost:3000"
-const mainurl = "https://api.contactsushil.me"
+const mainurl = "http://localhost:3000"
+//const mainurl = "https://api.contactsushil.me"
 
 function artcreate(item){
     return <Card
@@ -21,10 +21,24 @@ artist={item.artist}/>
 const Latest = () => {
   const [data, setData] = useState([]);
 
+
+  const getCookie = (name) => {
+    const cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.split('=');
+      if (cookieName === name) {
+        return cookieValue;
+      }
+    }
+    return null;
+  };
+
+  const useridinfo = getCookie('userID');
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(mainurl+'/allmusic');
+        const response = await axios.get(mainurl + ((useridinfo) ? '/allmusic/' + useridinfo : '/allmusic'));
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);

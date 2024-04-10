@@ -91,3 +91,18 @@ export const addartist = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+export const addlikedmusic = async (req, res) => {
+  try {
+    let {user_id, song_id} = req.body;
+    const result = await pool.query(
+      'INSERT INTO likedmusic(user_id, song_id) VALUES ($1, $2, $3)', 
+      user_id, song_id
+    );
+    res.status(200).send("Liked Music");
+  }
+  catch (error){
+    console.error('Error logging in:', error);
+    res.status(500).send(error);
+  }
+};
