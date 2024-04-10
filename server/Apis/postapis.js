@@ -121,3 +121,21 @@ export const addlikedmusic = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+export const removelikedmusic = async (req, res) => {
+  try{
+  let {user_id, song_id} = req.body;
+  const songid = await getYouTubeVideoIdFromThumbnail(song_id);
+  const result = await pool.query(`
+  DELETE FROM LikedMusic
+  WHERE userid = $1
+  AND songid = $2;
+  
+`, [user_id, songid]);
+res.status(200).send("Removed Liked Music");
+  }
+  catch (error){
+    console.error('Error logging in:', error);
+    res.status(500).send(error);
+  }
+};

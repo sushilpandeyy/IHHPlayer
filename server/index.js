@@ -1,6 +1,6 @@
 import express from "express";
 import { getArtist, getSample, getlatest, getgenre, getartistlim, getall, getartistmusic, getgenrall, getallwlike } from "./Apis/getapis.js";
-import { addartist, adduser, checkuser, addmusic, addlikedmusic} from "./Apis/postapis.js";
+import { addartist, adduser, checkuser, addmusic, addlikedmusic, removelikedmusic} from "./Apis/postapis.js";
 import fs from 'fs'
 import https from 'https';
 import cors from 'cors';
@@ -29,6 +29,7 @@ async function startServer() {
         app.get('/allmusic/:user', getallwlike);
         app.post('/addmusic', addmusic);
         app.post('/likemusic', addlikedmusic);
+        app.post('/removelike', removelikedmusic);
         app.post('/login', checkuser);
         app.post('/addartist', addartist);
         app.post('/add', adduser);

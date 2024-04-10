@@ -14,11 +14,12 @@ const Barplayer = ({
   isPlaying,
 	setIsPlaying
 }) => {
-  const { playing, playlist, play, popplaylist} = usePlayingStore((state) => ({ 
+  const { playing, playlist, play, popplaylist, Likeddata} = usePlayingStore((state) => ({ 
     playing: state.playing,
     playlist: state.playlist,
     play: state.play,
     popplaylist: state.popplaylist,
+    Likeddata: state.playing.Likeddata
    }));
   const handleTimeSeek = (e) => {
     Adre.current.currentTime = e.target.value;
@@ -58,6 +59,52 @@ const Barplayer = ({
       Adre.current.play();
     }
   }, [playing]);
+
+
+  const getCookie = (name) => {
+    const cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.split('=');
+      if (cookieName === name) {
+        return cookieValue;
+      }
+    }
+    return null;
+  };
+
+
+
+  const useridinfo = getCookie('userID');
+  const handleLike = async () => {  
+    try {
+      const response = await axios.post(mainurl+'/likemusic', {
+        user_id: useridinfo,
+        song_id: props.img 
+      });
+      if(response.ok){
+        setLiked(true); // Update liked state to true
+      }
+    } catch (error) {
+      console.error('Error adding liked music:', error);
+    }
+  };
+  
+  const handledislike = async () => {  
+    try {
+      const response = await axios.post(mainurl+'/removelike', {
+        user_id: useridinfo,
+        song_id: props.img 
+      });
+      if(response.ok){
+        setLiked(false);
+      }
+    } catch (error) {
+      console.error('Error removing liked music:', error);
+    }
+  };
+
+
+
 
   return (
     <>
@@ -127,7 +174,7 @@ const Barplayer = ({
         {formatTime(songInfo.currentTime)}/{formatTime(songInfo.duration) || 0}
       </p>
       <div className="meta-player">
-      <IconHeart/>
+      {(useridinfo)?(Likeddata)?<IconHeartFilled onClick={handledislike}/>:<IconHeart onClick={handleLike}/>:<Link to={'/login'}><IconHeart/></Link>}
       </div>
       </div>
       <input

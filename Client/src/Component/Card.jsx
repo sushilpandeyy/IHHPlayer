@@ -11,7 +11,7 @@ const mainurl = "http://localhost:3000"
 //const mainurl = "https://api.contactsushil.me"
 
 const Card = (props) => {
-  const [liked, setliked] = useState(props.Likeddata);
+  const [liked, setLiked] = useState(props.Likeddata); // Initialize liked state with Likeddata from props
   const getCookie = (name) => {
     const cookies = document.cookie.split('; ');
     for (let cookie of cookies) {
@@ -38,16 +38,26 @@ const Card = (props) => {
         song_id: props.img 
       });
       if(response.ok){
-        setliked(true);
+        setLiked(true); // Update liked state to true
       }
     } catch (error) {
       console.error('Error adding liked music:', error);
     }
   };
-
-  const handledislike = () =>{
-
-  }
+  
+  const handledislike = async () => {  
+    try {
+      const response = await axios.post(mainurl+'/removelike', {
+        user_id: useridinfo,
+        song_id: props.img 
+      });
+      if(response.ok){
+        setLiked(false);
+      }
+    } catch (error) {
+      console.error('Error removing liked music:', error);
+    }
+  };
 
   return (
     <div
