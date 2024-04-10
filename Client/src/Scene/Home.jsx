@@ -18,10 +18,24 @@ key={item.src}
 src={item.src}
 album={item.album}
 genre={item.genre}
+Likeddata={item.is_liked}
 img={item.img}
 title={item.title}
 artist={item.artist}/>
 }
+
+function recreate(item){
+ 
+  return <Card
+  key={item.src}
+  src={item.src}
+  album={item.album}
+  genre={item.genre}
+  Likeddata={item.Likeddata}
+  img={item.img}
+  title={item.title}
+  artist={item.artist}/>
+  }
 
 function artcreate(item){
   return <Cardart 
@@ -56,7 +70,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(mainurl+'/latest');
+        const response = await axios.get(mainurl + ((useridinfo) ? '/allmusic/' + useridinfo : '/allmusic'));
         setlatestmusic(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -108,7 +122,7 @@ const Home = () => {
     title="Recently Played"
     />
     <div className="recent flex">
-    {recently.slice(0, 10).map(create)}
+    {recently.slice(0, 10).map(recreate)}
     </div>
       </>
     )
