@@ -3,6 +3,8 @@ import logo from "../../public/ihhlogo.png";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+//const mainurl = "http://localhost:3000"
+const mainurl = "https://api.contactsushil.me"
 
 const setCookie = (name, value, days) => {
     const expirationDate = new Date();
@@ -42,7 +44,7 @@ const Loginform = ({ SetSig, Sig }) => {
       e.preventDefault();
   
       try {
-        const response = await fetch('https://api.contactsushil.me/login', {
+        const response = await fetch(mainurl+'/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -142,7 +144,7 @@ const SignupForm = ({ SetSig, Sig }) => {
         e.preventDefault();
     
         try {
-          const response = await fetch('https://api.contactsushil.me/add', {
+          const response = await fetch(mainurl+'/add', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

@@ -18,10 +18,24 @@ key={item.src}
 src={item.src}
 album={item.album}
 genre={item.genre}
+Likeddata={item.is_liked}
 img={item.img}
 title={item.title}
 artist={item.artist}/>
 }
+
+function recreate(item){
+ 
+  return <Card
+  key={item.src}
+  src={item.src}
+  album={item.album}
+  genre={item.genre}
+  Likeddata={item.Likeddata}
+  img={item.img}
+  title={item.title}
+  artist={item.artist}/>
+  }
 
 function artcreate(item){
   return <Cardart 
@@ -40,10 +54,23 @@ const Home = () => {
   const [loadingmusic, setLoadingmusic] = useState(true);
   const { recently } = usePlayingStore((state) => ({ recently: state.recently }));
 
+  const getCookie = (name) => {
+    const cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.split('=');
+      if (cookieName === name) {
+        return cookieValue;
+      }
+    }
+    return null;
+  };
+
+  const useridinfo = getCookie('userID');
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(mainurl+'/latest');
+        const response = await axios.get(mainurl + ((useridinfo) ? '/allmusic/' + useridinfo : '/allmusic'));
         setlatestmusic(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -65,10 +92,18 @@ const Home = () => {
         console.error('Error fetching data:', error);
       }
     };
+    const startfascia = async () => {
+      try {
+        const response = await axios.get('https://fascia-backend.onrender.com/');
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
     fetchData();
     fetchDatadelhi();
     fetchArtist();
+    startfascia();
   }, []);
   function removeDuplicateObjects(array, key) {
     return array.filter((obj, index, self) => 
@@ -87,7 +122,7 @@ const Home = () => {
     title="Recently Played"
     />
     <div className="recent flex">
-    {recently.slice(0, 10).map(create)}
+    {recently.slice(0, 10).map(recreate)}
     </div>
       </>
     )

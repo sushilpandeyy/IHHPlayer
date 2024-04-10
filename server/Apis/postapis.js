@@ -91,3 +91,51 @@ export const addartist = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+function getYouTubeVideoIdFromThumbnail(url) {
+  // Regular expression to match YouTube video ID from various thumbnail URL formats
+  if(url=="https://images.genius.com/5270442bebd675d860d520ed34a34f13.1000x1000x1.jpg")
+  return "2er9ukbfa0M"
+  
+  const regex = /(?:https?:\/\/)?(?:www\.)?(?:img\.youtube\.com\/vi\/|i\.ytimg\.com\/vi\/|img\.youtube\.com\/vi\/|youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=))([a-zA-Z0-9_-]{11})\/.*\.jpg/;
+
+  // Extract video ID using match
+  const match = url.match(regex);
+
+  // Return video ID or null if no match
+  return match ? match[1] : null;
+}
+
+export const addlikedmusic = async (req, res) => {
+  try {
+    let {user_id, song_id} = req.body;
+    const songid = await getYouTubeVideoIdFromThumbnail(song_id);
+    const result = await pool.query(
+      'INSERT INTO likedmusic(userid, songid) VALUES ($1, $2)', 
+      [user_id, songid]
+    );
+    res.status(200).send("Liked Music");
+  }
+  catch (error){
+    console.error('Error logging in:', error);
+    res.status(500).send(error);
+  }
+};
+
+export const removelikedmusic = async (req, res) => {
+  try{
+  let {user_id, song_id} = req.body;
+  const songid = await getYouTubeVideoIdFromThumbnail(song_id);
+  const result = await pool.query(`
+  DELETE FROM LikedMusic
+  WHERE userid = $1
+  AND songid = $2;
+  
+`, [user_id, songid]);
+res.status(200).send("Removed Liked Music");
+  }
+  catch (error){
+    console.error('Error logging in:', error);
+    res.status(500).send(error);
+  }
+};

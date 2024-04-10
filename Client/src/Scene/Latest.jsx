@@ -15,16 +15,31 @@ album={item.album}
 genre={item.genre}
 img={item.img}
 title={item.title}
+Likeddata={item.is_liked}
 artist={item.artist}/>
 }
 
 const Latest = () => {
   const [data, setData] = useState([]);
 
+
+  const getCookie = (name) => {
+    const cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.split('=');
+      if (cookieName === name) {
+        return cookieValue;
+      }
+    }
+    return null;
+  };
+
+  const useridinfo = getCookie('userID');
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(mainurl+'/allmusic');
+        const response = await axios.get(mainurl + ((useridinfo) ? '/allmusic/' + useridinfo : '/allmusic'));
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
