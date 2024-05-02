@@ -107,6 +107,30 @@ export const getartistlim = async (req, res) => {
     }
 }
 
+export const searchMusicAndArtists = async (req, res) => {
+    const { searchQuery } = req.body;  
+    try {
+        const musicResult = await pool.query(`
+            SELECT *
+            FROM music
+            WHERE title ILIKE $1
+            LIMIT 10
+        `, [`%${searchQuery}%`]);  
+        
+        const artistResult = await pool.query(`
+            SELECT *
+            FROM artist
+            WHERE name ILIKE $1
+            LIMIT 10
+        `, [`%${searchQuery}%`]);  
+        
+        res.status(200).json({ music: musicResult.rows, artists: artistResult.rows });
+    } catch (error) {
+        console.error('Error in searching music and artists: ', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
 export const getgenre = async (req, res) => {
     try {
         const genre = req.params.genre;

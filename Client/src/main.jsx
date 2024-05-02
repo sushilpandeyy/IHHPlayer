@@ -24,6 +24,7 @@ import Internal from './Scene/Internal.jsx'
 import {
   Artistform, MusicForm
 } from "./Component/Internalforms.jsx"
+import Explore from './Scene/Explore.jsx'
 
 const router= createBrowserRouter(
   createRoutesFromElements(
@@ -42,7 +43,7 @@ const router= createBrowserRouter(
       <Route path='artist/:id' element={<Artistmusic/>}/>
       <Route path='album/:id' element={<Albumv/>}/>
       <Route path='s/:id' element={<Sections/>}/>
-      
+      <Route path="explore" element={<Explore/>}/>
     </Route>
     </>
       )
