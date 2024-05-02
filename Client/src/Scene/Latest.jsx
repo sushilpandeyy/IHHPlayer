@@ -3,9 +3,9 @@ import {all} from '../../Data/newalb.js'
 import Card from "../Component/Card.jsx"
 import Headtitle2 from '../Component/Headtitle2.jsx'
 import axios from 'axios'
-import api from "../assets/data.js"
 
-const mainurl = api.mainurl;
+//const mainurl = "http://localhost:3000"
+const mainurl = "https://api.contactsushil.me"
 
 function artcreate(item){
     return <Card

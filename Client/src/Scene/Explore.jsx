@@ -3,9 +3,9 @@ import axios from 'axios';
 import SearchBox from '../Component/SearchBox';
 import Cardart from '../Component/Cardart';
 import Headtitle from '../Component/Headtitle';
-import api from "../assets/data.js"
 
-const mainurl = api.mainurl;
+//const mainurl = "http://localhost:3000";
+ const mainurl = "https://api.contactsushil.me";
 
 function Explore() {
   const [artists, setArtists] = useState([]);

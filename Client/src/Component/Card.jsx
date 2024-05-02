@@ -6,9 +6,9 @@ import plusicon from "../assets/plusicon.png"
 import Playicon from "../assets/play.png"
 import {IconHeart, IconHeartFilled} from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
-import api from "../assets/data.js"
 
-const mainurl = api.mainurl;
+//const mainurl = "http://localhost:3000"
+const mainurl = "https://api.contactsushil.me"
 
 const Card = (props) => {
   const [liked, setLiked] = useState(props.Likeddata); // Initialize liked state with Likeddata from props
