@@ -9,7 +9,8 @@ import {
     getartistmusic, 
     getgenrall, 
     getallwlike,
-    getallwlikelimit } from "./Apis/getapis.js";
+    getallwlikelimit, 
+    searchMusicAndArtists} from "./Apis/getapis.js";
 import { addartist, adduser, checkuser, addmusic, addlikedmusic, removelikedmusic} from "./Apis/postapis.js";
 import fs from 'fs'
 import https from 'https';
@@ -37,6 +38,7 @@ async function startServer() {
         app.post('/addartist', addartist);
         app.post('/add', adduser);
         app.get('/',getSample);
+        app.post('/search',searchMusicAndArtists);
       
       app.listen(3000, ()=> {
           console.log("Running at 3000");

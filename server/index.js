@@ -9,6 +9,7 @@ import {
     getartistmusic, 
     getgenrall, 
     getallwlike,
+    searchMusicAndArtists,
     getallwlikelimit } from "./Apis/getapis.js";
 import { addartist, adduser, checkuser, addmusic, addlikedmusic, removelikedmusic} from "./Apis/postapis.js";
 import fs from 'fs'
@@ -45,6 +46,9 @@ async function startServer() {
         app.post('/addartist', addartist);
         app.post('/add', adduser);
         app.get('/',getSample);
+        app.post('/search',searchMusicAndArtists);
+
+
       const server = https.createServer(options, app);
        server.listen(443, () => {
            console.log('Server is running on port 443');
