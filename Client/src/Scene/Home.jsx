@@ -8,9 +8,9 @@ import logo from "../../public/ihhlogo.png"
 import '../Scene/Scene.css'
 import usePlayingStore from '../State/playing';
 import axios from 'axios'
+import api from "../assets/data.js"
 
-//const mainurl = "http://localhost:3000"
-const mainurl = "https://api.contactsushil.me"
+const mainurl = api.mainurl;
 
 function create(item){
  
@@ -48,12 +48,12 @@ function artcreate(item){
 
 
 const Home = () => {
+  const { recently } = usePlayingStore((state) => ({ recently: state.recently }));
   const [latestmusic, setlatestmusic]=useState([]);
   const [delhi, setdelhi] = useState([]);
   const [artist, setartist] = useState([]);
   const [musicdata, setmusicData] = useState(null);
   const [loadingmusic, setLoadingmusic] = useState(true);
-  const { recently } = usePlayingStore((state) => ({ recently: state.recently }));
 
   const getCookie = (name) => {
     const cookies = document.cookie.split('; ');
@@ -114,7 +114,7 @@ const Home = () => {
     );
   }
 
-  function Recentlyplayed(){
+ function Recentlyplayed(){
     const temp = removeDuplicateObjects(recently);
     if(recently[0]){
     return (
@@ -163,4 +163,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;

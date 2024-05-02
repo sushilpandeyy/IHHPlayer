@@ -4,9 +4,9 @@ import Headtitle2 from '../Component/Headtitle2';
 import { all } from '../../Data/newalb.js';
 import Card from '../Component/Card.jsx';
 import axios from 'axios'
+import api from "../assets/data.js"
 
-//const mainurl = "http://localhost:3000"
-const mainurl = "https://api.contactsushil.me"
+const mainurl = api.mainurl;
 
 const Artistmusic = () => {
   const { id } = useParams();

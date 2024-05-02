@@ -12,6 +12,13 @@ const Headtitle = (props) => {
   else if(props.title=="Recently Played"){
     link='/recent'
   }
+  else if(props.title=="Hit Artists"){
+    link='/artist'
+  }
+  else if(props.title=="Recently Played Hits"){
+    link='/recent'
+  }
+
   return (
     <>
     <div className="bar">

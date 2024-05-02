@@ -2,9 +2,9 @@ import { useState } from 'react';
 import logo from "../../public/ihhlogo.png";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import api from "../assets/data.js"
 
-//const mainurl = "http://localhost:3000"
-const mainurl = "https://api.contactsushil.me"
+const mainurl = api.mainurl;
 
 const setCookie = (name, value, days) => {
     const expirationDate = new Date();
