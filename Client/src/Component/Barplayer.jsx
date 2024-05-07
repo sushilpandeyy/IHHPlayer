@@ -112,15 +112,6 @@ const Barplayer = ({
   return (
     <>
       <div className="barplayer">
-      <div className="text-white flex flex-col">
-      <div className="flex-1 overflow-y-auto">
-        <div className="py-4">
-          <Link to="/" className="block py-2 text-gray-300 hover:text-white hover:bg-gray-800">Home</Link>
-          <Link to="/explore" className="block py-2 text-gray-300 hover:text-white hover:bg-gray-800">Explore</Link>
-          <Link to="/album" className="block  py-2 text-gray-300 hover:text-white hover:bg-gray-800">Playlist</Link>
-        </div>
-      </div>
-    </div>
         <div className="imagebanner">
       <center>
         <img className="flex-player-banner mobileimagebp shadow-2xl" src={playing.img || "https://img.youtube.com/vi/RGY2gGafiGM/maxresdefault.jpg"} alt={playing.title} />

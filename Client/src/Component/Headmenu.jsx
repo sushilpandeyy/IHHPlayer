@@ -55,7 +55,7 @@ const Headmenu = () => {
   return (
     <>
     <div className="headmenu-logo">
-      <h1 className='pl-2.5'>SOBERRY</h1>
+      <img src={logo} alt="" height="50px" width="50px"/>
     </div>
     <div className="center-menu">
       <ul className='flex flex-nowrap'>
