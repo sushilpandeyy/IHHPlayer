@@ -8,8 +8,10 @@ import {IconHeart, IconHeartFilled} from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+import { useNavigate } from 'react-router-dom';
 
-//const mainurl = "http://localhost:3000"
+
+////const mainurl = "http://localhost:3000"
 const mainurl = "https://api.contactsushil.me"
 
 const Card = (props) => {

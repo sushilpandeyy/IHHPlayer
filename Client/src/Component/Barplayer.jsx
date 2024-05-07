@@ -112,6 +112,15 @@ const Barplayer = ({
   return (
     <>
       <div className="barplayer">
+      <div className="text-white flex flex-col">
+      <div className="flex-1 overflow-y-auto">
+        <div className="py-4">
+          <Link to="/" className="block py-2 text-gray-300 hover:text-white hover:bg-gray-800">Home</Link>
+          <Link to="/explore" className="block py-2 text-gray-300 hover:text-white hover:bg-gray-800">Explore</Link>
+          <Link to="/album" className="block  py-2 text-gray-300 hover:text-white hover:bg-gray-800">Playlist</Link>
+        </div>
+      </div>
+    </div>
         <div className="imagebanner">
       <center>
         <img className="flex-player-banner mobileimagebp shadow-2xl" src={playing.img || "https://img.youtube.com/vi/RGY2gGafiGM/maxresdefault.jpg"} alt={playing.title} />
@@ -190,15 +199,6 @@ const Barplayer = ({
       />
       </div>
       </div>
-      {(playlist[0]) ? (
-  <div className="relative" onClick={handlenext}>
-    <div className=" border border-gray-300 my-3 p-4 rounded-lg shadow-md z-10 transition duration-300 ease-in-out transform hover:scale-105" onClick={handlenext}>
-      <h2 className="text-lg font-semibold">{playlist[0].title}</h2>
-    </div>
-    <div className="absolute inset-0 opacity-20 rounded-lg transition duration-300 ease-in-out hover:opacity-0"></div>
-    <div className="absolute inset-0 border border-gray-300 rounded-lg shadow-lg z-0"></div>
-  </div>
-) : ""}
     </>
   );
 };

@@ -53,7 +53,6 @@ const Layout = () => {
   }
 	};
   const useridinfo = getCookie('userID');
-
   function Preloader(){
     return (
       <>
