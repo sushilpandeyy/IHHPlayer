@@ -60,8 +60,8 @@ const Headmenu = () => {
     <div className="center-menu">
       <ul className='flex flex-nowrap'>
         <li className='menu-mar'><Link to="/">Home</Link></li>
-        <li className='menu-mar'><Link to="/artist">Artist</Link></li>
-        <li className='menu-mar'><Link to="/album">Album</Link></li>
+        <li className='menu-mar'><Link to="/explore">Explore</Link></li>
+        <li className='menu-mar'><Link to="/album">Playlist</Link></li>
       </ul>
     </div>
     <div className="logo-menu w-auto">

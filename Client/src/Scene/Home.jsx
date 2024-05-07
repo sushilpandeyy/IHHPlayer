@@ -140,12 +140,6 @@ const Home = () => {
   return (
     <>
     <Recentlyplayed/>
-    <Headtitle
-      title="Popular Artist"
-      />
-    <div className="artist flex">
-    {(artist[0])?artist.map(artcreate):"Loading..."}
-    </div>
     <Headtitle 
     title="Latest Songs"
     />
@@ -158,6 +152,12 @@ const Home = () => {
     />
     <div className="recent flex">
     {(delhi[0])?delhi.map(create):"Loading..."}
+    </div>
+    <Headtitle
+      title="Popular Artist"
+      />
+    <div className="artist flex">
+    {(artist[0])?artist.map(artcreate):"Loading..."}
     </div>
     </>
   )
