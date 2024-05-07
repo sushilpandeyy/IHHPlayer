@@ -53,6 +53,10 @@ const Barplayer = ({
     popplaylist();
   }
 	};
+  const handlenexd = () => {
+    handlenext()
+    handlenext()
+	};
 
   useEffect(() => {
     if (isPlaying) {
@@ -103,8 +107,6 @@ const Barplayer = ({
       console.error('Error removing liked music:', error);
     }
   };
-
-
 
 
   return (
@@ -188,6 +190,15 @@ const Barplayer = ({
       />
       </div>
       </div>
+      {(playlist[0]) ? (
+  <div className="relative">
+    <div className=" border border-gray-300 my-3 p-4 rounded-lg shadow-md z-10 transition duration-300 ease-in-out transform hover:scale-105" onClick={handlenext}>
+      <h2 className="text-lg font-semibold">{playlist[0].title}</h2>
+    </div>
+    <div className="absolute inset-0 opacity-20 rounded-lg transition duration-300 ease-in-out hover:opacity-0"></div>
+    <div className="absolute inset-0 border border-gray-300 rounded-lg shadow-lg z-0"></div>
+  </div>
+) : ""}
     </>
   );
 };
