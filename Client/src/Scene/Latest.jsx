@@ -4,7 +4,7 @@ import Card from "../Component/Card.jsx"
 import Headtitle2 from '../Component/Headtitle2.jsx'
 import axios from 'axios'
 
-//const mainurl = "http://localhost:3000"
+////const mainurl = "http://localhost:3000"
 const mainurl = "https://api.contactsushil.me"
 
 function artcreate(item){

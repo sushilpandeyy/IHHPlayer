@@ -23,10 +23,10 @@ const Headtitle = (props) => {
     <>
     <div className="bar">
         <div className="headline">
-            <h2 className='text-2xl'>{props.title}</h2>
+            <h2 className='text-2xl pl-2.5'>{props.title}</h2>
         </div>
         <div className="all">
-            <p className='showall'><Link to={props.Link || link}>Show All</Link></p>
+            <p className='showall pr-2.5'><Link to={props.Link || link}>Show All</Link></p>
         </div>
     </div>
     </>

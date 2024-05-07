@@ -6,6 +6,7 @@ import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import logo from "../../public/ihhlogo.png"
 import '../Scene/Scene.css'
 import usePlayingStore from '../State/playing';
+import { useNavigate } from 'react-router-dom';
 
 
 const Layout = () => {
@@ -30,6 +31,17 @@ const Layout = () => {
 		const duration = e.target.duration;
 		setSongInfo({ ...songInfo, currentTime, duration });
 	};
+
+  const getCookie = (name) => {
+    const cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.split('=');
+      if (cookieName === name) {
+        return cookieValue;
+      }
+    }
+    return null;
+  };
   
 	const songEndHandlerr = async () => {
     if(playlist[0]){
@@ -40,7 +52,11 @@ const Layout = () => {
     popplaylist();
   }
 	};
-
+  const useridinfo = getCookie('userID');
+  if(!useridinfo){
+    const navigate = useNavigate();
+    navigate('/login');
+  }
   function Preloader(){
     return (
       <>
