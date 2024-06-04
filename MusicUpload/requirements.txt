@@ -1,0 +1,5 @@
+pytube
+moviepy
+boto3
+python-dotenv
+fastapi
