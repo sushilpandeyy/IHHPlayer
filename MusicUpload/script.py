@@ -53,3 +53,7 @@ def root(data: Uploadda):
         return {"s3url": s3url}
     except HTTPException as e:
         return e  
+
+@app.get('/')
+def root():
+    return {"Working"}
