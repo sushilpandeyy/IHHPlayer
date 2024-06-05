@@ -457,7 +457,7 @@ export const Youtubeform = () => {
 
         if (response.ok) {
             setMessage("Music will be Added within 2 mins");
-            navigate('/');
+            
         } else {
             setMessage("FAILED");
         }
