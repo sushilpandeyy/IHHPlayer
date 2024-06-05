@@ -363,3 +363,203 @@ const reset = () => {
       </section>
   );
 };
+
+export const Youtubeform = () => {
+  const getCookie = (name) => {
+    const cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.split('=');
+      if (cookieName === name) {
+        return cookieValue;
+      }
+    }
+    return null;
+  };
+  
+  const useridinfo = getCookie('userID');
+  const [formData, setFormData] = useState({
+    artist: '',
+    artistkey: '',
+    genre: '',
+    ytlink: '',
+    userid: useridinfo
+});
+
+  const [message, setMessage] = useState("");
+  const [artists, setArtists] = useState([]);
+  const [selectedart, setSelectedart] = useState([]);
+  const [genree, setgenre] = useState([]);
+
+
+
+  const handleChangeSelectartist = (value) => {
+    setSelectedart(value);
+  };
+
+  const handleChangeSelectgenre = (value) => {
+    setFormData({
+      ...formData,
+      ['genre']: value
+  });
+  };
+
+  const handleChangekey = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+  
+
+  useEffect(() => {
+    const fetchArtists = async () => {
+      try {
+        const fetchedArtists = await fetchArtist();
+        setArtists(fetchedArtists);
+      } catch (error) {
+        console.error('Error fetching artist data:', error);
+      }
+    };
+
+    fetchArtists();
+  }, []);
+
+  const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({
+          ...formData,
+          [name]: value
+      });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+        const updatedFormData = {
+            ...formData,
+            ["artistkey"]: selectedart
+        };
+
+        console.log(updatedFormData);
+
+        const response = await fetch('https://api.contactsushil.me/requestviayoutube', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedFormData)
+        });
+
+        if (response.ok) {
+            setMessage("Music Added");
+        } else {
+            setMessage("FAILED");
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
+
+const reset = () => {
+  setFormData({artist: '',
+  artistkey: '',
+  genre: '',
+  img: '',
+  key: '',
+  src: '',
+  title: '',
+  album: ''});
+  setMessage("");
+}
+
+  return (
+      <section className="bg-gray-50 dark:bg-gray-900">
+          <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+              <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                  <img className="w-8 h-8 mr-2" src={logo} alt="logo" />
+                  IHH Player
+              </a>
+              <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                  <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                      <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                          Import Music From Youtube
+                      </h1>
+                      <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+                          <div>
+                              <label htmlFor="artist" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Artist Name</label>
+                              <input
+                                  type="artist"
+                                  name="artist"
+                                  id="artist"
+                                  value={formData.artist}
+                                  onChange={handleChange}
+                                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                  placeholder="Enter artist name"
+                                  required
+                              />
+                          </div>
+                          <div>
+                              <label htmlFor="artist" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Artist Key</label>
+                              {(artists[0])?
+                              <Select
+                              mode="multiple"
+                              style={{
+                                width: '100%',
+                              }}
+                              placeholder="Select Artist"
+                              onChange={handleChangeSelectartist}
+                              optionLabelProp="label"
+                              options={artists}
+                              optionRender={(option) => (
+                                <Space>
+                                  <span style={{ color: 'black' }}>{option.label}</span>
+                                </Space>
+                              )}
+                            />                            
+                              :"Loading"}
+                          </div>
+                          <div>
+                              <label htmlFor="Genre" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Genre</label>
+                              {
+                              <Select
+                              mode="multiple"
+                              style={{
+                                width: '100%',
+                              }}
+                              placeholder="Select Genre"
+                              onChange={handleChangeSelectgenre}
+                              optionLabelProp="label"
+                              options={genreoptions}
+                              optionRender={(option) => (
+                                <Space>
+                                  <span style={{ color: 'black' }}>{option.label}</span>
+                                </Space>
+                              )}
+                            />}
+                          </div>
+                          <div>
+                              <label htmlFor="ytlink" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Youtube Key</label>
+                              <input
+                                  type="text"
+                                  name="ytlink"
+                                  id="ytlink"
+                                  value={formData.ytlink}
+                                  onChange={handleChangekey}
+                                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                  placeholder="Enter Youtube Link"
+                                  required
+                              />
+                          </div>
+                          <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">ADD MUSIC</button>
+                          <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                              <span className="font-medium text-primary-600 hover:underline dark:text-primary-500" onClick={reset}>{message}</span>
+                          </p>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </section>
+  );
+};

@@ -33,6 +33,7 @@ const router= createBrowserRouter(
      <Route path='/internal' element={<Internal/>}>
       <Route path='/internal/artist' element={<Artistform/>}/>
       <Route path='/internal/music' element={<MusicForm/>}/>
+      <Route path='/internal/ytadd' element={<MusicForm/>}/>
     </Route>
     <Route path='/' element={<App/>}>
       <Route path='' element={<Home/>}/>
