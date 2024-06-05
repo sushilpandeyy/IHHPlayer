@@ -449,7 +449,6 @@ export const Youtubeform = () => {
     try {
         const updatedFormData = {
             ...formData,
-            ["artist"]: findLabelByValue(artists, selectedart),
             ["artistkey"]: selectedart
         };
 
