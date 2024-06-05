@@ -144,7 +144,7 @@ const Home = () => {
     title="Latest Songs"
     />
     <div className="recent flex">
-    {(latestmusic[0])?latestmusic.map(create).reverse():"Loading..."}
+    {(latestmusic[0])?latestmusic.map(create):"Loading..."}
     </div>
     <Headtitle 
     title="Delhi Scene"
