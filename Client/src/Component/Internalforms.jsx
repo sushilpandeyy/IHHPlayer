@@ -2,8 +2,6 @@ import React from 'react'
 import logo from "../../public/ihhlogo.png"
 import { useState, useEffect } from 'react';
 import {  Select, Space  } from 'antd';
-import { useNavigate } from 'react-router-dom';
-const navigate = useNavigate();
 
 export const Artistform = () => {
     const [Message, setm] = useState("");
@@ -135,14 +133,6 @@ function formatdata(info) {
     formated.push(a);
   });
   return formated;
-}
-function findLabelByValue(formattedData, value) {
-  for (let item of formattedData) {
-    if (item.value === value) {
-      return item.label;
-    }
-  }
-  return `not found`;
 }
 
 const genreoptions = [
@@ -449,7 +439,6 @@ export const Youtubeform = () => {
     try {
         const updatedFormData = {
             ...formData,
-            ["artist"]: findLabelByValue(artists, selectedart),
             ["artistkey"]: selectedart
         };
 
@@ -464,8 +453,7 @@ export const Youtubeform = () => {
         });
 
         if (response.ok) {
-            setMessage("It will be added within 2 mins");
-            navigate('/');
+            setMessage("Music will be Added within 2 mins");
         } else {
             setMessage("FAILED");
         }
@@ -499,6 +487,19 @@ const reset = () => {
                           Import Music From Youtube
                       </h1>
                       <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+                          <div>
+                              <label htmlFor="artist" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Artist Name</label>
+                              <input
+                                  type="artist"
+                                  name="artist"
+                                  id="artist"
+                                  value={formData.artist}
+                                  onChange={handleChange}
+                                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                  placeholder="Enter artist name"
+                                  required
+                              />
+                          </div>
                           <div>
                               <label htmlFor="artist" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Artist Key</label>
                               {(artists[0])?
