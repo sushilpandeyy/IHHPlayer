@@ -2,6 +2,8 @@ import React from 'react'
 import logo from "../../public/ihhlogo.png"
 import { useState, useEffect } from 'react';
 import {  Select, Space  } from 'antd';
+import { useNavigate } from 'react-router-dom';
+
 
 export const Artistform = () => {
     const [Message, setm] = useState("");
@@ -365,6 +367,7 @@ const reset = () => {
 };
 
 export const Youtubeform = () => {
+  const navigate = useNavigate();
   const getCookie = (name) => {
     const cookies = document.cookie.split('; ');
     for (let cookie of cookies) {
@@ -454,6 +457,7 @@ export const Youtubeform = () => {
 
         if (response.ok) {
             setMessage("Music will be Added within 2 mins");
+            navigate('/');
         } else {
             setMessage("FAILED");
         }
