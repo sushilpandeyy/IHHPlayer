@@ -93,7 +93,6 @@ export const addartist = async (req, res) => {
 };
 
 function getYouTubeVideoIdFromThumbnail(url) {
-  // Regular expression to match YouTube video ID from various thumbnail URL formats
   if(url=="https://images.genius.com/5270442bebd675d860d520ed34a34f13.1000x1000x1.jpg")
   return "2er9ukbfa0M"
   
@@ -105,6 +104,7 @@ function getYouTubeVideoIdFromThumbnail(url) {
   // Return video ID or null if no match
   return match ? match[1] : null;
 }
+
 
 export const addlikedmusic = async (req, res) => {
   try {
@@ -139,3 +139,48 @@ res.status(200).send("Removed Liked Music");
     res.status(500).send(error);
   }
 };
+
+async function uploadmusicons3(data) {
+  try {
+      const response = await axios.post('https://y1x5wzddt0.execute-api.ap-south-1.amazonaws.com/addmusic', {
+        name: data
+      });
+      return response.data
+  } catch (error) {
+      console.error('Error processing request:', error);
+  }
+}
+
+    const extractYouTubeVideoId = (url) => {
+      const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|.*[?&]v=)|youtu\.be\/)([^&\n?#]+)/;
+      const match = url.match(regex);
+      return match ? match[1] : null;
+    };
+
+    const getYouTubeThumbnailUrl = (videoId) => {
+      return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+    };
+
+    export const requestformusic = async (req, res) => {
+      try {
+        let { ytlink, userid, genre, artist, artistkey } = req.body;
+        // Parsing the genre and artistkey to correct format if needed
+       
+        res.status(200).send({ message: 'Request received' });
+    
+        let s3udrl = await uploadmusicons3(ytlink);
+        let key = extractYouTubeVideoId(ytlink);
+        let img = getYouTubeThumbnailUrl(key);
+        console.log(s3udrl)
+        const result = await pool.query(
+          'INSERT INTO music (artist, artistkey, genre, img, key, src, title, addedby, album) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)',
+          [artist, artistkey, genre, img, key, s3udrl.s3url, s3udrl.title, parseInt(userid), ""]
+        );  
+      } catch (error) {
+        console.error('Error logging in:', error);
+        if (!res.headersSent) {
+          res.status(500).send(error);
+        }
+      }
+    }
+    
