@@ -13,6 +13,11 @@ load_dotenv()
 class Uploadda(BaseModel):
     name: str
 
+class VideoDetails:
+    def __init__(self, url, title):
+        self.url = url
+        self.title = title
+
 def getupload(url):
     access_key_id = os.getenv("KEY_ID")
     secret_access_key = os.getenv("ACCESS")
@@ -39,7 +44,7 @@ def getupload(url):
 
         os.remove(yt.title + '.mp4')
         os.remove(yt.title + '.mp3')
-        return uploaded_url
+        return VideoDetails(uploaded_url, yt.title)
 
     except Exception as e:
         print(f"An error occurred: {e}")
@@ -50,7 +55,8 @@ def getupload(url):
 def root(data: Uploadda):
     try:
         s3url = getupload(data.name)
-        return {"s3url": s3url}
+        return {"s3url": s3url.url,
+                "title": s3url.title}
     except HTTPException as e:
         return e  
 
