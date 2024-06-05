@@ -174,7 +174,7 @@ async function uploadmusicons3(data) {
         console.log(s3udrl)
         const result = await pool.query(
           'INSERT INTO music (artist, artistkey, genre, img, key, src, title, addedby, album) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)',
-          [artist, artistkey, genre, img, key, s3udrl.s3url, s3udrl.title, parseInt(userid), ""]
+          [artist, artistkey, genre, img, key, s3udrl.s3url, s3udrl.title, parseInt(userid), "null"]
         );  
       } catch (error) {
         console.error('Error logging in:', error);
