@@ -62,6 +62,7 @@ const Headmenu = () => {
         <li className='menu-mar'><Link to="/">Home</Link></li>
         <li className='menu-mar'><Link to="/explore">Explore</Link></li>
         <li className='menu-mar'><Link to="/album">Playlist</Link></li>
+        <li className='menu-mar'><Link to="/internal/ytadd">Add</Link></li>
       </ul>
     </div>
     <div className="logo-menu w-auto">

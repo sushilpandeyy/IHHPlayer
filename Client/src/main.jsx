@@ -22,7 +22,8 @@ import Sections from './Scene/Sections.jsx'
 import Login from './Scene/Login.jsx'
 import Internal from './Scene/Internal.jsx'
 import {
-  Artistform, MusicForm
+  Artistform, MusicForm,
+  Youtubeform
 } from "./Component/Internalforms.jsx"
 import Explore from './Scene/Explore.jsx'
 
@@ -33,6 +34,7 @@ const router= createBrowserRouter(
      <Route path='/internal' element={<Internal/>}>
       <Route path='/internal/artist' element={<Artistform/>}/>
       <Route path='/internal/music' element={<MusicForm/>}/>
+      <Route path='/internal/ytadd' element={<Youtubeform/>}/>
     </Route>
     <Route path='/' element={<App/>}>
       <Route path='' element={<Home/>}/>
