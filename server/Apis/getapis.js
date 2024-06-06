@@ -37,6 +37,29 @@ export const getall = async (req, res) => {
     }
 }
 
+export const getlatestten = async (req, res) => {
+    try {
+        const result = await pool.query("SELECT * FROM music ORDER BY date_added desc LIMIT 10;")
+        res.status(200).json(result.rows);
+    }
+    catch(error){
+        console.log('Error in getting latest: ',error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+export const gethits = async (req, res) => {
+    try {
+        const result = await pool.query("SELECT * FROM music ORDER BY streams desc LIMIT 10;")
+        res.status(200).json(result.rows);
+    }
+    catch(error){
+        console.log('Error in getting latest: ',error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+
 export const getallwlike = async (req, res) => {
     const user = req.params.user;
     try {

@@ -4,7 +4,7 @@ import Card from "../Component/Card.jsx"
 import Headtitle2 from '../Component/Headtitle2.jsx'
 import axios from 'axios'
 
-////const mainurl = "http://localhost:3000"
+//const mainurl = "http://localhost:3000"
 const mainurl = "https://api.contactsushil.me"
 
 function artcreate(item){
@@ -53,7 +53,7 @@ const Latest = () => {
       title="Latest Tracks"
       />
     <div className="grid grid-cols-5 gap-2 mobilecards">
-    {(data[0])?data.map(artcreate):"Loading..."}
+    {(data[0])?data.slice().reverse().map(artcreate):"Loading..."}
     </div>
     </>
   )
