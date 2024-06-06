@@ -13,6 +13,16 @@ import { useNavigate } from 'react-router-dom';
 ////const mainurl = "http://localhost:3000"
 const mainurl = "https://api.contactsushil.me"
 
+const Streamcounter = async (songId) => {
+  try {
+    await axios.post(mainurl+'/streamcounter', {
+      URL: songId 
+    });
+  } catch (error) {
+    console.error('Error incrementing stream count', error);
+  }
+};
+
 const Card = (props) => {
   const [liked, setLiked] = useState(props.Likeddata); // Initialize liked state with Likeddata from props
   const getCookie = (name) => {
@@ -29,7 +39,7 @@ const Card = (props) => {
   const play = usePlayingStore((state) => state.play);
   const addrecent = usePlayingStore((state) => state.addrecent);
   const handleclick = () => {
-    console.log(props);
+    Streamcounter(props.img);
     addrecent(props);
     play(props);
   };

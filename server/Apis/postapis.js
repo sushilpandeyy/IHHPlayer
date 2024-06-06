@@ -195,3 +195,58 @@ async function uploadmusicons3(data) {
       }
     }
     
+    
+    export const Streamscounter = async (req, res) => {
+      function extractVideoId(url) {
+        const regex = /https:\/\/img\.youtube\.com\/vi\/([a-zA-Z0-9_-]{11})\/.*/;
+        const match = url.match(regex);
+        if (match && match[1]) {
+          return match[1];
+        } else {
+          return null;
+        }
+      }
+    
+      try {
+        let { URL } = req.body;
+        let key = extractVideoId(URL);
+    
+        if (!key) {
+          return res.status(400).send("Invalid URL");
+        }
+    
+        const musicdata = await pool.query(
+          'SELECT * FROM music WHERE key = $1',
+          [key]
+        );
+    
+        if (musicdata.rows.length === 0) {
+          return res.status(404).send("Music not found");
+        }
+    
+        console.log(musicdata.rows[0]);
+        let counter = parseInt(musicdata.rows[0].streams) + 1;
+    
+        const updatemusic = await pool.query(
+          'UPDATE music SET streams = $1 WHERE key = $2',
+          [counter, key]
+        );
+        
+        for (const artistKey of musicdata.rows[0].artistkey) {
+          const artistdata = await pool.query(
+            'SELECT * FROM artist WHERE artistkey = $1',
+            [artistKey]
+          );
+          let counter = parseInt(artistdata.rows[0].streams) + 1;
+          const updateartist = await pool.query(
+            'UPDATE artist SET streams = $1 WHERE artistkey = $2',
+            [counter, artistKey]
+          );
+        }    
+
+        res.status(200).send("Stream count updated successfully");
+      } catch (error) {
+        console.error('Error updating stream count:', error);
+        res.status(500).send(error);
+      }
+    };
