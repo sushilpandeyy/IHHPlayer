@@ -379,7 +379,11 @@ export const Youtubeform = () => {
     return null;
   };
   
+  
   const useridinfo = getCookie('userID');
+  if(!useridinfo){
+    navigate('/login');
+  }
   const [formData, setFormData] = useState({
     artist: '',
     artistkey: '',

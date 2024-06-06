@@ -3,8 +3,10 @@ import {
     getArtist, 
     getSample, 
     getlatest, 
+    gethits,
     getgenre, 
     getartistlim, 
+    getlatestten,
     getall, 
     getartistmusic, 
     getgenrall, 
@@ -23,6 +25,8 @@ async function startServer() {
         
         app.use(express.json());
         app.get('/artist', getArtist);
+        app.get('/hits', gethits);
+        app.get('/recentlyadded', getlatestten);
         app.get('/allmusic', getall);
         app.get('/allmusic/:user', getallwlike);
         app.get('/latest', getlatest);

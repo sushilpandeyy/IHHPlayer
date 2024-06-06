@@ -15,6 +15,9 @@ const Headtitle = (props) => {
   else if(props.title=="Hit Artists"){
     link='/artist'
   }
+  else if(props.title=="Most Streamed"){
+    link='/latest'
+  }
   else if(props.title=="Recently Played Hits"){
     link='/recent'
   }

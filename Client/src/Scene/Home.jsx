@@ -52,7 +52,7 @@ const Home = () => {
   const [latestmusic, setlatestmusic]=useState([]);
   const [delhi, setdelhi] = useState([]);
   const [artist, setartist] = useState([]);
-  const [musicdata, setmusicData] = useState(null);
+  const [Hits, sethits] = useState([]);
   const [loadingmusic, setLoadingmusic] = useState(true);
 
   const getCookie = (name) => {
@@ -71,7 +71,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(mainurl + ((useridinfo) ? '/allmusic/' + useridinfo : '/allmusic'));
+        const response = await axios.get(mainurl+'/recentlyadded');
         setlatestmusic(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -93,6 +93,14 @@ const Home = () => {
         console.error('Error fetching data:', error);
       }
     };
+    const fetchhits = async () => {
+      try {
+        const response = await axios.get(mainurl+'/hits');
+        sethits(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
     const startfascia = async () => {
       try {
         const response = await axios.get('https://fascia-backend.onrender.com/');
@@ -104,7 +112,9 @@ const Home = () => {
     fetchData();
     fetchDatadelhi();
     fetchArtist();
+    fetchhits()
     startfascia();
+
   }, []);
   function removeDuplicateObjects(array, key) {
     return array.filter((obj, index, self) => 
@@ -144,7 +154,7 @@ const Home = () => {
     title="Latest Songs"
     />
     <div className="recent flex">
-    {(latestmusic[0])?latestmusic.slice().reverse().map(create):"Loading..."}
+    {(latestmusic[0])?latestmusic.map(create):"Loading..."}
     </div>
     <Headtitle 
     title="Delhi Scene"
@@ -158,6 +168,12 @@ const Home = () => {
       />
     <div className="artist flex">
     {(artist[0])?artist.map(artcreate):"Loading..."}
+    </div>
+    <Headtitle 
+    title="Most Streamed"
+    />
+    <div className="recent flex">
+    {(Hits[0])?Hits.map(create):"Loading..."}
     </div>
     </>
   )
