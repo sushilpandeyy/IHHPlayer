@@ -29,6 +29,7 @@ const Card = (props) => {
   const play = usePlayingStore((state) => state.play);
   const addrecent = usePlayingStore((state) => state.addrecent);
   const handleclick = () => {
+    console.log(props);
     addrecent(props);
     play(props);
   };
