@@ -11,7 +11,7 @@ import {
     getallwlike,
     getallwlikelimit, 
     searchMusicAndArtists} from "./Apis/getapis.js";
-import { addartist, adduser, checkuser, addmusic, addlikedmusic, removelikedmusic, requestformusic} from "./Apis/postapis.js";
+import { addartist, adduser, checkuser, addmusic, addlikedmusic, removelikedmusic, requestformusic, Streamscounter} from "./Apis/postapis.js";
 import fs from 'fs'
 import https from 'https';
 import cors from 'cors';
@@ -40,6 +40,7 @@ async function startServer() {
         app.get('/',getSample);
         app.post('/search',searchMusicAndArtists);
         app.post('/requestviayoutube', requestformusic);
+        app.post('/streamcounter', Streamscounter);
       
       app.listen(3000, ()=> {
           console.log("Running at 3000");
