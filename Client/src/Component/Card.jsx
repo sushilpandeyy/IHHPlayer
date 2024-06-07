@@ -38,10 +38,15 @@ const Card = (props) => {
 
   const play = usePlayingStore((state) => state.play);
   const addrecent = usePlayingStore((state) => state.addrecent);
-  const handleclick = () => {
-    Streamcounter(props.img);
-    addrecent(props);
-    play(props);
+  const handleclick = async () => {
+    try {
+      addrecent(props);
+      play(props);
+      await Streamcounter(props.img);
+    }
+    catch (error) {
+      console.error('Error adding liked music:', error);
+    }
   };
 
   const useridinfo = getCookie('userID');

@@ -27,7 +27,9 @@ async function startServer() {
     try {
         const app = express();
         app.use(cors({
-            origin: ['https://ihh.contactsushil.me', 'https://ihh-player.vercel.app/', 'https://ihh-player-git-testing-sushilpandeyys-projects.vercel.app/']
+            origin: ['https://ihh.contactsushil.me', 
+            'https://ihh-player.vercel.app/', 
+            'https://ihh-player-git-testing-sushilpandeyys-projects.vercel.app/']
        }));
     //app.use(cors({ origin: 'http://localhost:5173' }));
         
