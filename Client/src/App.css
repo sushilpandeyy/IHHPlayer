@@ -140,7 +140,7 @@ ul{
         width: 80%;
     }
     .player-h1{
-        font-size: 12px!important;
+       /* font-size: 12px!important; Removing */
         line-height: 16px!important; /* Adjusted line-height to prevent overlap */
         margin-bottom: 5px;
     }
