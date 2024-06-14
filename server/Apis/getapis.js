@@ -198,3 +198,15 @@ export const getSample = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
+
+export const getprivateplaylist = async (req, res) => {
+    try{
+        const {userid} = req.body;
+        const result = await pool.query("SELECT * FROM playlists WHERE userid = $1 AND visbility='private'", [userid]);
+        res.status(200).json(result.rows);
+    }
+    catch (error){
+        console.log('Error:',error);
+        res.status(500).json({error: 'Internal Server Error'})
+    }
+} 

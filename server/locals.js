@@ -7,6 +7,7 @@ import {
     getgenre, 
     getartistlim, 
     getlatestten,
+    getprivateplaylist,
     getall, 
     getartistmusic, 
     getgenrall, 
@@ -33,6 +34,7 @@ async function startServer() {
         app.get('/artistlimit', getartistlim);
         app.get('/getgenre/:genre', getgenre);
         app.get('/getgenreall/:genre', getgenrall);
+        app.get('/privplay', getprivateplaylist);
         app.get('/artist/:artistkey', getartistmusic);
         app.post('/likemusic', addlikedmusic);
         app.post('/removelike', removelikedmusic);
