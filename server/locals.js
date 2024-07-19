@@ -22,7 +22,11 @@ import cors from 'cors';
 async function startServer() {
     try {
         const app = express();
-        app.use(cors({ origin: 'http://localhost:5173' }));
+        app.use(cors({
+            origin: ['https://ihh.contactsushil.me', 
+            'https://ihh-player.vercel.app/', 
+            'https://ihh-player-git-testing-sushilpandeyys-projects.vercel.app/']
+       }));
         
         app.use(express.json());
         app.get('/artist', getArtist);
