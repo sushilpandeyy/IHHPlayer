@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 ////const mainurl = "http://localhost:3000"
-const mainurl = "https://cyan0lcf14.execute-api.ap-south-1.amazonaws.com/"
+const mainurl = "https://cyan0lcf14.execute-api.ap-south-1.amazonaws.com"
 
 const Streamcounter = async (songId) => {
   try {
