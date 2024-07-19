@@ -5,6 +5,7 @@ import {
     getlatest, 
     gethits,
     getlatestten,
+    getprivateplaylist,
     getgenre, 
     getartistlim, 
     getall, 
@@ -18,10 +19,10 @@ import fs from 'fs'
 import https from 'https';
 import cors from 'cors';
 
-const options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/api.contactsushil.me/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/api.contactsushil.me/fullchain.pem')
-};
+//const options = {
+//    key: fs.readFileSync('/etc/letsencrypt/live/api.contactsushil.me/privkey.pem'),
+//    cert: fs.readFileSync('/etc/letsencrypt/live/api.contactsushil.me/fullchain.pem')
+//};
 
 async function startServer() {
     try {
@@ -45,6 +46,7 @@ async function startServer() {
         app.get('/getgenreall/:genre', getgenrall);
         app.get('/allmusic/:user', getallwlike);
         app.get('/allmusiclim/:user', getallwlikelimit);
+        app.get('/privplay', getprivateplaylist);
         app.post('/addmusic', addmusic);
         app.post('/likemusic', addlikedmusic);
         app.post('/removelike', removelikedmusic);
@@ -58,13 +60,13 @@ async function startServer() {
         
 
 
-      const server = https.createServer(options, app);
-       server.listen(443, () => {
-           console.log('Server is running on port 443');
-        });
-      //  app.listen(3000, ()=> {
-      //      console.log("Running at 3000");
-      //  })
+      //const server = https.createServer(options, app);
+      // server.listen(443, () => {
+      //     console.log('Server is running on port 443');
+        //});
+        app.listen(80, ()=> {
+            console.log("Running at 80");
+        })
     } catch (error) {
         console.error("Failed to start server:", error);
     }
