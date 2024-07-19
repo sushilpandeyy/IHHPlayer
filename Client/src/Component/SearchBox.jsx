@@ -5,7 +5,7 @@ import Card from './Card';
 import Cardart from './Cardart';
 
 //const mainurl = "http://localhost:3000"
-const mainurl = "https://cyan0lcf14.execute-api.ap-south-1.amazonaws.com/"
+const mainurl = "https://cyan0lcf14.execute-api.ap-south-1.amazonaws.com"
 
 const SearchBox = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');

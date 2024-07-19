@@ -6,7 +6,7 @@ import Card from '../Component/Card.jsx';
 import axios from 'axios'
 
 //const mainurl = "http://localhost:3000"
-const mainurl = "https://cyan0lcf14.execute-api.ap-south-1.amazonaws.com/"
+const mainurl = "https://cyan0lcf14.execute-api.ap-south-1.amazonaws.com"
 
 const Artistmusic = () => {
   const { id } = useParams();
