@@ -25,7 +25,7 @@ export const Artistform = () => {
       e.preventDefault();
   
       try {
-        const response = await fetch('https://api.contactsushil.me/addartist', {
+        const response = await fetch('https://cyan0lcf14.execute-api.ap-south-1.amazonaws.com//addartist', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -110,7 +110,7 @@ export const Artistform = () => {
 
 async function fetchArtist() {
   try {
-    const response = await fetch('https://api.contactsushil.me/artist');
+    const response = await fetch('https://cyan0lcf14.execute-api.ap-south-1.amazonaws.com//artist');
     if (!response.ok) {
       throw new Error('Failed to fetch artist data');
     }
@@ -220,7 +220,7 @@ export const MusicForm = () => {
 
         console.log(updatedFormData);
 
-        const response = await fetch('https://api.contactsushil.me/addmusic', {
+        const response = await fetch('https://cyan0lcf14.execute-api.ap-south-1.amazonaws.com//addmusic', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -451,7 +451,7 @@ export const Youtubeform = () => {
 
         console.log(updatedFormData);
 
-        const response = await fetch('https://api.contactsushil.me/requestviayoutube', {
+        const response = await fetch('https://cyan0lcf14.execute-api.ap-south-1.amazonaws.com//requestviayoutube', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

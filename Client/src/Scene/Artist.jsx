@@ -5,7 +5,7 @@ import './Scene.css'
 import axios from 'axios'
 
 //const mainurl = "http://localhost:3000"
-const mainurl = "https://api.contactsushil.me"
+const mainurl = "https://cyan0lcf14.execute-api.ap-south-1.amazonaws.com/"
 
 function artcreate(item){
   return <Cardart 
