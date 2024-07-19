@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 //const mainurl = "http://localhost:3000"
-const mainurl = "https://api.contactsushil.me"
+const mainurl = "https://cyan0lcf14.execute-api.ap-south-1.amazonaws.com/"
 
 const setCookie = (name, value, days) => {
     const expirationDate = new Date();
