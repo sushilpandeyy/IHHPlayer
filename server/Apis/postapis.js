@@ -161,6 +161,7 @@ async function uploadmusicons3(data) {
       return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
     };
 
+
     export const requestformusic = async (req, res) => {
       try {
         let { ytlink, userid, genre, artist, artistkey } = req.body;
@@ -181,7 +182,6 @@ async function uploadmusicons3(data) {
     
         let s3udrl = await uploadmusicons3(ytlink);
         let img = getYouTubeThumbnailUrl(key);
-        console.log(s3udrl)
         const result = await pool.query(
           'INSERT INTO music (artist, artistkey, genre, img, key, src, title, addedby, album) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)',
           [artist, artistkey, genre, img, key, s3udrl.s3url, s3udrl.title, parseInt(userid), null]
@@ -250,3 +250,5 @@ async function uploadmusicons3(data) {
         res.status(500).send(error);
       }
     };
+
+   
