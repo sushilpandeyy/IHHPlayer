@@ -220,7 +220,7 @@ export const MusicForm = () => {
 
         console.log(updatedFormData);
 
-        const response = await fetch('https://ihhplayer-express-s1gr.onrender.com', {
+        const response = await fetch('https://ihhplayer-express-s1gr.onrender.com/addmusic', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
