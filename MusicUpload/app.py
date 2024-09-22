@@ -1,10 +1,10 @@
 import os
-from pytube import YouTube
-from moviepy.editor import VideoFileClip
+import yt_dlp
 import boto3
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+import re
 
 app = FastAPI()
 
@@ -18,48 +18,71 @@ class VideoDetails:
         self.url = url
         self.title = title
 
+def extract_youtube_video_id(url):
+    # Regular expression to match YouTube video ID
+    regex = r'(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|.*[?&]v=)|youtu\.be\/)([^&\n?#]+)'
+    match = re.search(regex, url)
+    return match.group(1) if match else None
+
 def getupload(url):
     access_key_id = os.getenv("KEY_ID")
     secret_access_key = os.getenv("ACCESS")
+    bucket_name = 'ihhplayer'
 
+    audio_filename = None
+    keyid=extract_youtube_video_id(url)
     try:
-        yt = YouTube(url)
-        stream = yt.streams.get_lowest_resolution()   
-        stream.download(filename=yt.title + '.mp4')
+        # Set options for yt-dlp to download audio in mp3 format
+        ydl_opts = {
+            'format': 'bestaudio/best',  # Select the best available audio quality
+            'outtmpl': keyid+'.%(ext)s',      # Output filename format (1.mp3)
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            }],
+        }
 
-        video = VideoFileClip(yt.title + '.mp4')
-        audio = video.audio
-        audio.write_audiofile(yt.title + '.mp3')
+        # Download the audio
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(url, download=True)
+            video_title = info_dict.get('title', None)
+            audio_filename = keyid+'.mp3'  # Consistent filename for MP3
+            print(f"Expected audio filename: {audio_filename}")
 
-        s3 = boto3.resource(
+        # Upload the .mp3 file to S3
+        s3 = boto3.client(
             service_name='s3',
             region_name='ap-south-1',
             aws_access_key_id=access_key_id,
             aws_secret_access_key=secret_access_key
         )
 
-        s3.Bucket('ihhplayer').upload_file(Filename=yt.title + '.mp3', Key=yt.title + '.mp3')
-        uploaded_url = f"https://ihhplayer.s3.ap-south-1.amazonaws.com/{yt.title}.mp3"
-        print(f"File uploaded to {uploaded_url}")
+        s3.upload_file(Filename=audio_filename, Bucket=bucket_name, Key=audio_filename)
+        uploaded_url = f"https://{bucket_name}.s3.ap-south-1.amazonaws.com/{audio_filename}"
 
-        os.remove(yt.title + '.mp4')
-        os.remove(yt.title + '.mp3')
-        return VideoDetails(uploaded_url, yt.title)
+        # Clean up the files
+        os.remove(audio_filename)
+
+        return VideoDetails(uploaded_url, video_title)
 
     except Exception as e:
-        print(f"An error occurred: {e}")
-        raise HTTPException(status_code=500, detail=f"Error processing YouTube URL: {e}")  
+        if audio_filename and os.path.exists(audio_filename):
+            os.remove(audio_filename)
 
+        print(f"An error occurred: {e}")
+        raise HTTPException(status_code=500, detail=f"Error processing YouTube URL: {e}")
 
 @app.post('/addmusic')
 def root(data: Uploadda):
     try:
+        print("yes")
         s3url = getupload(data.name)
-        return {"s3url": s3url.url,
-                "title": s3url.title}
+        return {"s3url": s3url.url, "title": s3url.title}
     except HTTPException as e:
-        return e  
+        return {"error": e.detail}
 
 @app.get('/')
 def root():
-    return {"Working"}
+    return {"message": "Working"}
+
