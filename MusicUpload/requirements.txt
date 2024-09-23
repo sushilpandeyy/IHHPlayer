@@ -4,3 +4,4 @@ boto3
 python-dotenv
 fastapi
 uvicorn
+yt_dlp
