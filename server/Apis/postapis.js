@@ -142,7 +142,7 @@ res.status(200).send("Removed Liked Music");
 
 async function uploadmusicons3(data) {
   try {
-      const response = await axios.post('https://ocw8tf6r7b.execute-api.ap-south-1.amazonaws.com/addmusic', {
+      const response = await axios.post('https://musicuploadihh.onrender.com/addmusic', {
         name: data
       });
       return response.data
