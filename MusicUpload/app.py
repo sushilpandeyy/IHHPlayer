@@ -28,26 +28,31 @@ def getupload(url):
     access_key_id = os.getenv("KEY_ID")
     secret_access_key = os.getenv("ACCESS")
     bucket_name = 'ihhplayer'
+    youtube_email = os.getenv("YOUTUBE_EMAIL")
+    youtube_password = os.getenv("YOUTUBE_PASSWORD")
 
     audio_filename = None
-    keyid=extract_youtube_video_id(url)
+    keyid = extract_youtube_video_id(url)
     try:
-        # Set options for yt-dlp to download audio in mp3 format
+        # Set options for yt-dlp to download audio in mp3 format with authentication
         ydl_opts = {
             'format': 'bestaudio/best',  # Select the best available audio quality
-            'outtmpl': keyid+'.%(ext)s',      # Output filename format (1.mp3)
+            'outtmpl': keyid + '.%(ext)s',  # Output filename format (1.mp3)
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
                 'preferredcodec': 'mp3',
                 'preferredquality': '192',
             }],
+            # Adding authentication details
+            'username': youtube_email,
+            'password': youtube_password,
         }
 
         # Download the audio
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(url, download=True)
             video_title = info_dict.get('title', None)
-            audio_filename = keyid+'.mp3'  # Consistent filename for MP3
+            audio_filename = keyid + '.mp3'  # Consistent filename for MP3
             print(f"Expected audio filename: {audio_filename}")
 
         # Upload the .mp3 file to S3
@@ -85,4 +90,3 @@ def root(data: Uploadda):
 @app.get('/')
 def root():
     return {"message": "Working"}
-
