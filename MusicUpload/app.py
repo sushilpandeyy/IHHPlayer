@@ -28,13 +28,11 @@ def getupload(url):
     access_key_id = os.getenv("KEY_ID")
     secret_access_key = os.getenv("ACCESS")
     bucket_name = 'ihhplayer'
-    youtube_email = os.getenv("YOUTUBE_EMAIL")
-    youtube_password = os.getenv("YOUTUBE_PASSWORD")
-
+    
     audio_filename = None
     keyid = extract_youtube_video_id(url)
     try:
-        # Set options for yt-dlp to download audio in mp3 format with authentication
+        # Set options for yt-dlp to download audio in mp3 format with cookies for authentication
         ydl_opts = {
             'format': 'bestaudio/best',  # Select the best available audio quality
             'outtmpl': keyid + '.%(ext)s',  # Output filename format (1.mp3)
@@ -43,9 +41,7 @@ def getupload(url):
                 'preferredcodec': 'mp3',
                 'preferredquality': '192',
             }],
-            # Adding authentication details
-            'username': youtube_email,
-            'password': youtube_password,
+            'cookies': 'cookie.txt'  # Path to your exported cookies file
         }
 
         # Download the audio
